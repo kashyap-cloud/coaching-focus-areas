@@ -138,6 +138,7 @@ const CoachingAreaDetail = ({ area, onBack, onExerciseClick, onLearnClick, onRes
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.35 + i * 0.08 }}
                 whileHover={{ x: 4 }}
+                onClick={() => onResourceClick?.(area.id, res.type)}
                 className={`flex items-center gap-4 rounded-2xl p-4 coaching-card-shadow transition-all hover:coaching-card-shadow-hover ${resourceBg[res.type]}`}
               >
                 <div
