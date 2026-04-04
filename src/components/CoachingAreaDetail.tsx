@@ -10,6 +10,7 @@ interface Props {
   onBack: () => void;
   onExerciseClick?: (exercise: Exercise) => void;
   onLearnClick?: (areaId: string, learnIndex: number) => void;
+  onResourceClick?: (areaId: string, resourceType: "tips" | "quotes" | "ebooks") => void;
 }
 
 const resourceIcons = {
