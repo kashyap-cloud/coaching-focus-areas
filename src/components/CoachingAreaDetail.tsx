@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, ChevronRight, Lightbulb, Quote, BookOpen } from "lucide-react";
 import { icons } from "lucide-react";
-import type { CoachingArea } from "@/data/coachingAreas";
+import type { CoachingArea, Exercise } from "@/data/coachingAreas";
 import { exerciseColorMap } from "@/data/coachingAreas";
 import { learnImages } from "@/data/learnImages";
 
 interface Props {
   area: CoachingArea;
   onBack: () => void;
+  onExerciseClick?: (exercise: Exercise) => void;
 }
 
 const resourceIcons = {
@@ -28,7 +29,7 @@ const resourceIconBg = {
   ebooks: "bg-[hsl(330,65%,55%)]",
 };
 
-const CoachingAreaDetail = ({ area, onBack }: Props) => {
+const CoachingAreaDetail = ({ area, onBack, onExerciseClick }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: 40 }}
@@ -65,6 +66,7 @@ const CoachingAreaDetail = ({ area, onBack }: Props) => {
                 transition={{ delay: i * 0.06 }}
                 whileHover={{ y: -3, scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
+                onClick={() => onExerciseClick?.(ex)}
                 className="flex flex-col items-center gap-2"
               >
                 <div
