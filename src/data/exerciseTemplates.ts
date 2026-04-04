@@ -4,6 +4,7 @@ export interface ExerciseField {
   subtitle?: string;
   prompts?: string[];
   color: string;
+  type?: "text" | "list";
 }
 
 export interface ExerciseTemplate {
