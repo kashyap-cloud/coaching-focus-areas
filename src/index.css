@@ -110,6 +110,15 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .coaching-card-shadow {
+    box-shadow: 0 2px 16px -4px hsl(220 60% 20% / 0.08), 0 1px 4px -2px hsl(220 60% 20% / 0.04);
+  }
+  .coaching-card-shadow-hover {
+    box-shadow: 0 8px 30px -8px hsl(220 60% 20% / 0.14), 0 2px 8px -2px hsl(220 60% 20% / 0.06);
   }
 }
