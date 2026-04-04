@@ -43,6 +43,7 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
         id: "strengths",
         label: "STRENGTHS",
         color: "hsl(175,60%,40%)",
+        type: "list",
         prompts: [
           "What do you do well? What do you do better than others?",
           "What unique skills and talents do you have?",
@@ -54,6 +55,7 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
         id: "weaknesses",
         label: "WEAKNESSES",
         color: "hsl(350,70%,55%)",
+        type: "list",
         prompts: [
           "What could you do better? What do you avoid?",
           "Where do you have less skill or talent than others?",
@@ -65,6 +67,7 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
         id: "opportunities",
         label: "OPPORTUNITIES",
         color: "hsl(210,75%,50%)",
+        type: "list",
         prompts: [
           "What opportunities are out there for you?",
           "What trends could you take advantage of?",
@@ -76,6 +79,7 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
         id: "threats",
         label: "THREATS",
         color: "hsl(30,90%,55%)",
+        type: "list",
         prompts: [
           "What trends and threats could harm you?",
           "What is your competition doing?",
