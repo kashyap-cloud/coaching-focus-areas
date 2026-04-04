@@ -66,6 +66,7 @@ const CoachingAreaDetail = ({ area, onBack, onExerciseClick }: Props) => {
                 transition={{ delay: i * 0.06 }}
                 whileHover={{ y: -3, scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
+                onClick={() => onExerciseClick?.(ex)}
                 className="flex flex-col items-center gap-2"
               >
                 <div
