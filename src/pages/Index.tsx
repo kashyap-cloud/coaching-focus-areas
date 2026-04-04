@@ -4,15 +4,18 @@ import { ArrowLeft } from "lucide-react";
 import { coachingAreas, type CoachingArea, type Exercise } from "@/data/coachingAreas";
 import { exerciseTemplates, exerciseTitleToTemplateId } from "@/data/exerciseTemplates";
 import { learnContent } from "@/data/learnContent";
+import { resourcesContent } from "@/data/resourcesContent";
 import CoachingAreaCard from "@/components/CoachingAreaCard";
 import CoachingAreaDetail from "@/components/CoachingAreaDetail";
 import ExerciseDetail from "@/components/ExerciseDetail";
 import LearnDetail from "@/components/LearnDetail";
+import ResourceDetail from "@/components/ResourceDetail";
 
 const Index = () => {
   const [selectedArea, setSelectedArea] = useState<CoachingArea | null>(null);
   const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(null);
   const [selectedLearn, setSelectedLearn] = useState<{ areaId: string; index: number } | null>(null);
+  const [selectedResource, setSelectedResource] = useState<{ areaId: string; type: "tips" | "quotes" | "ebooks" } | null>(null);
 
   const handleExerciseClick = (exercise: Exercise) => {
     const templateId = exerciseTitleToTemplateId[exercise.title];
@@ -27,12 +30,20 @@ const Index = () => {
     }
   };
 
+  const handleResourceClick = (areaId: string, resourceType: "tips" | "quotes" | "ebooks") => {
+    if (resourcesContent[areaId]) {
+      setSelectedResource({ areaId, type: resourceType });
+    }
+  };
+
   const handleExerciseBack = () => setSelectedExercise(null);
   const handleLearnBack = () => setSelectedLearn(null);
+  const handleResourceBack = () => setSelectedResource(null);
   const handleAreaBack = () => {
     setSelectedArea(null);
     setSelectedExercise(null);
     setSelectedLearn(null);
+    setSelectedResource(null);
   };
 
   const activeTemplate = selectedExercise
@@ -41,6 +52,10 @@ const Index = () => {
 
   const activeLearnArticle = selectedLearn
     ? learnContent[selectedLearn.areaId]?.[selectedLearn.index]
+    : null;
+
+  const activeResources = selectedResource
+    ? resourcesContent[selectedResource.areaId]
     : null;
 
   return (
@@ -59,6 +74,14 @@ const Index = () => {
               article={activeLearnArticle}
               onBack={handleLearnBack}
             />
+          ) : activeResources && selectedResource ? (
+            <ResourceDetail
+              key={`${selectedResource.areaId}-${selectedResource.type}`}
+              areaId={selectedResource.areaId}
+              resourceType={selectedResource.type}
+              resources={activeResources}
+              onBack={handleResourceBack}
+            />
           ) : selectedArea ? (
             <CoachingAreaDetail
               key={selectedArea.id}
@@ -66,6 +89,7 @@ const Index = () => {
               onBack={handleAreaBack}
               onExerciseClick={handleExerciseClick}
               onLearnClick={handleLearnClick}
+              onResourceClick={handleResourceClick}
             />
           ) : (
             <motion.div
