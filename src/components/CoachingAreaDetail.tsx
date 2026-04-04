@@ -9,6 +9,7 @@ interface Props {
   area: CoachingArea;
   onBack: () => void;
   onExerciseClick?: (exercise: Exercise) => void;
+  onLearnClick?: (areaId: string, learnIndex: number) => void;
 }
 
 const resourceIcons = {
@@ -29,7 +30,7 @@ const resourceIconBg = {
   ebooks: "bg-[hsl(330,65%,55%)]",
 };
 
-const CoachingAreaDetail = ({ area, onBack, onExerciseClick }: Props) => {
+const CoachingAreaDetail = ({ area, onBack, onExerciseClick, onLearnClick }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: 40 }}
@@ -100,6 +101,7 @@ const CoachingAreaDetail = ({ area, onBack, onExerciseClick }: Props) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 + i * 0.06 }}
               whileHover={{ y: -3 }}
+              onClick={() => onLearnClick?.(area.id, i)}
               className="group flex flex-col items-center gap-2"
             >
               <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-muted coaching-card-shadow transition-all hover:coaching-card-shadow-hover">
