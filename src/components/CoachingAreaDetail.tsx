@@ -101,6 +101,7 @@ const CoachingAreaDetail = ({ area, onBack, onExerciseClick, onLearnClick }: Pro
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 + i * 0.06 }}
               whileHover={{ y: -3 }}
+              onClick={() => onLearnClick?.(area.id, i)}
               className="group flex flex-col items-center gap-2"
             >
               <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-muted coaching-card-shadow transition-all hover:coaching-card-shadow-hover">
