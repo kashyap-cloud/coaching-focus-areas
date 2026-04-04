@@ -3,6 +3,7 @@ import { ArrowLeft, ChevronRight, Lightbulb, Quote, BookOpen } from "lucide-reac
 import { icons } from "lucide-react";
 import type { CoachingArea } from "@/data/coachingAreas";
 import { exerciseColorMap } from "@/data/coachingAreas";
+import { learnImages } from "@/data/learnImages";
 
 interface Props {
   area: CoachingArea;
