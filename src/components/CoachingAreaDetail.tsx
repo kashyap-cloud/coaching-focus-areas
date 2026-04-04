@@ -9,6 +9,7 @@ interface Props {
   area: CoachingArea;
   onBack: () => void;
   onExerciseClick?: (exercise: Exercise) => void;
+  onLearnClick?: (areaId: string, learnIndex: number) => void;
 }
 
 const resourceIcons = {
