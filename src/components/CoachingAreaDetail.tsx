@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, ChevronRight, Lightbulb, Quote, BookOpen } from "lucide-react";
 import { icons } from "lucide-react";
-import type { CoachingArea } from "@/data/coachingAreas";
+import type { CoachingArea, Exercise } from "@/data/coachingAreas";
 import { exerciseColorMap } from "@/data/coachingAreas";
 import { learnImages } from "@/data/learnImages";
 
 interface Props {
   area: CoachingArea;
   onBack: () => void;
+  onExerciseClick?: (exercise: Exercise) => void;
 }
 
 const resourceIcons = {
