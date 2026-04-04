@@ -29,7 +29,7 @@ const resourceIconBg = {
   ebooks: "bg-[hsl(330,65%,55%)]",
 };
 
-const CoachingAreaDetail = ({ area, onBack }: Props) => {
+const CoachingAreaDetail = ({ area, onBack, onExerciseClick }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: 40 }}
