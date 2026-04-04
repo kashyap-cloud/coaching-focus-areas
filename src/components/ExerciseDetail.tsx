@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, History, Clock, ChevronDown, ChevronUp, Send } from "lucide-react";
+import { ArrowLeft, History, Clock, ChevronDown, ChevronUp, Send, Plus, X } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 import type { ExerciseTemplate } from "@/data/exerciseTemplates";
 import { toast } from "@/hooks/use-toast";
 
@@ -19,6 +20,7 @@ interface Props {
 const ExerciseDetail = ({ template, onBack }: Props) => {
   const storageKey = `exercise-history-${template.id}`;
   const [values, setValues] = useState<Record<string, string>>({});
+  const [listValues, setListValues] = useState<Record<string, string[]>>({});
   const [showHistory, setShowHistory] = useState(false);
   const [expandedEntry, setExpandedEntry] = useState<string | null>(null);
 
@@ -36,8 +38,47 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
     setValues((prev) => ({ ...prev, [fieldId]: value }));
   };
 
+  // List helpers
+  const getListItems = (fieldId: string): string[] => listValues[fieldId] || [""];
+
+  const handleListItemChange = (fieldId: string, index: number, value: string) => {
+    setListValues((prev) => {
+      const items = [...(prev[fieldId] || [""])];
+      items[index] = value;
+      return { ...prev, [fieldId]: items };
+    });
+  };
+
+  const addListItem = (fieldId: string) => {
+    setListValues((prev) => {
+      const items = [...(prev[fieldId] || [""])];
+      items.push("");
+      return { ...prev, [fieldId]: items };
+    });
+  };
+
+  const removeListItem = (fieldId: string, index: number) => {
+    setListValues((prev) => {
+      const items = [...(prev[fieldId] || [""])];
+      if (items.length <= 1) return prev;
+      items.splice(index, 1);
+      return { ...prev, [fieldId]: items };
+    });
+  };
+
   const handleSubmit = () => {
-    const hasContent = Object.values(values).some((v) => v.trim());
+    // Merge list fields into values for storage
+    const merged: Record<string, string> = { ...values };
+    template.fields.forEach((field) => {
+      if (field.type === "list") {
+        const items = (listValues[field.id] || []).filter((v) => v.trim());
+        if (items.length > 0) {
+          merged[field.id] = JSON.stringify(items);
+        }
+      }
+    });
+
+    const hasContent = Object.values(merged).some((v) => v.trim());
     if (!hasContent) {
       toast({ title: "Please fill in at least one field", variant: "destructive" });
       return;
@@ -45,12 +86,33 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
     const entry: HistoryEntry = {
       id: Date.now().toString(),
       date: new Date().toLocaleString(),
-      fields: { ...values },
+      fields: merged,
     };
     const prev = getHistory();
     localStorage.setItem(storageKey, JSON.stringify([entry, ...prev].slice(0, 50)));
     setValues({});
+    setListValues({});
     toast({ title: "Saved successfully!" });
+  };
+
+  /** Render a saved field value — handles both plain text and JSON arrays */
+  const renderHistoryValue = (raw: string | undefined) => {
+    if (!raw) return "—";
+    try {
+      const arr = JSON.parse(raw);
+      if (Array.isArray(arr)) {
+        return (
+          <ul className="ml-4 list-disc flex flex-col gap-0.5">
+            {arr.map((item: string, idx: number) => (
+              <li key={idx} className="text-sm text-foreground">{item}</li>
+            ))}
+          </ul>
+        );
+      }
+    } catch {
+      /* plain text */
+    }
+    return <span className="text-sm text-foreground whitespace-pre-wrap">{raw}</span>;
   };
 
   return (
@@ -135,7 +197,7 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
                       {template.fields.map((field) => (
                         <div key={field.id}>
                           <p className="text-xs font-semibold" style={{ color: field.color }}>{field.label}</p>
-                          <p className="text-sm text-foreground whitespace-pre-wrap">{entry.fields[field.id] || "—"}</p>
+                          {renderHistoryValue(entry.fields[field.id])}
                         </div>
                       ))}
                     </motion.div>
@@ -169,12 +231,57 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
                 ))}
               </ul>
             )}
-            <Textarea
-              value={values[field.id] || ""}
-              onChange={(e) => handleChange(field.id, e.target.value)}
-              placeholder={`Enter your response...`}
-              className="min-h-[120px] rounded-xl border-border bg-background resize-y text-sm transition-all focus:ring-2 focus:ring-primary/30"
-            />
+
+            {field.type === "list" ? (
+              /* List-type input */
+              <div className="flex flex-col gap-2">
+                {getListItems(field.id).map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="flex items-center gap-2"
+                  >
+                    <span
+                      className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white"
+                      style={{ backgroundColor: field.color }}
+                    >
+                      {idx + 1}
+                    </span>
+                    <Input
+                      value={item}
+                      onChange={(e) => handleListItemChange(field.id, idx, e.target.value)}
+                      placeholder={`Item ${idx + 1}...`}
+                      className="flex-1 rounded-xl border-border bg-background text-sm transition-all focus:ring-2 focus:ring-primary/30"
+                    />
+                    {getListItems(field.id).length > 1 && (
+                      <button
+                        onClick={() => removeListItem(field.id, idx)}
+                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive"
+                      >
+                        <X className="h-4 w-4" />
+                      </button>
+                    )}
+                  </motion.div>
+                ))}
+                <button
+                  onClick={() => addListItem(field.id)}
+                  className="mt-1 flex items-center gap-2 self-start rounded-xl px-3 py-2 text-sm font-semibold transition-colors hover:bg-muted"
+                  style={{ color: field.color }}
+                >
+                  <Plus className="h-4 w-4" />
+                  Add item
+                </button>
+              </div>
+            ) : (
+              /* Text-type input */
+              <Textarea
+                value={values[field.id] || ""}
+                onChange={(e) => handleChange(field.id, e.target.value)}
+                placeholder="Enter your response..."
+                className="min-h-[120px] rounded-xl border-border bg-background resize-y text-sm transition-all focus:ring-2 focus:ring-primary/30"
+              />
+            )}
           </motion.div>
         ))}
       </div>
