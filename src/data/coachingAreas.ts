@@ -15,15 +15,38 @@ import employeeImg from "@/assets/coaching/employee.png";
 import corporateImg from "@/assets/coaching/corporate.png";
 import confidenceImg from "@/assets/coaching/confidence.png";
 
+export type ExerciseColor = "navy" | "red" | "blue" | "purple" | "orange" | "teal" | "yellow" | "salmon";
+
+export interface Exercise {
+  title: string;
+  lucideIcon: string;
+  color: ExerciseColor;
+}
+
+export interface LearnItem {
+  title: string;
+}
+
 export interface CoachingArea {
   id: string;
   name: string;
   image: string;
   bgColor: string;
-  exercises: { title: string; icon: string }[];
-  learn: { title: string; image: string }[];
+  exercises: Exercise[];
+  learn: LearnItem[];
   resources: { type: "tips" | "quotes" | "ebooks"; title: string; subtitle: string }[];
 }
+
+export const exerciseColorMap: Record<ExerciseColor, string> = {
+  navy: "bg-[hsl(220,55%,32%)]",
+  red: "bg-[hsl(350,70%,55%)]",
+  blue: "bg-[hsl(210,75%,50%)]",
+  purple: "bg-[hsl(265,55%,45%)]",
+  orange: "bg-[hsl(30,90%,55%)]",
+  teal: "bg-[hsl(175,60%,40%)]",
+  yellow: "bg-[hsl(45,90%,55%)]",
+  salmon: "bg-[hsl(5,65%,65%)]",
+};
 
 export const coachingAreas: CoachingArea[] = [
   {
@@ -32,16 +55,16 @@ export const coachingAreas: CoachingArea[] = [
     image: careerImg,
     bgColor: "bg-coaching-career",
     exercises: [
-      { title: "Improvement Canvas", icon: "🎨" },
-      { title: "SWOT Analysis", icon: "📊" },
-      { title: "Not To-Do List", icon: "📝" },
-      { title: "GROW", icon: "📈" },
+      { title: "Improvement Canvas", lucideIcon: "Presentation", color: "red" },
+      { title: "SWOT Analysis", lucideIcon: "LayoutGrid", color: "blue" },
+      { title: "Not To-Do List", lucideIcon: "ListChecks", color: "purple" },
+      { title: "GROW", lucideIcon: "TrendingUp", color: "navy" },
     ],
     learn: [
-      { title: "Key Principles", image: "" },
-      { title: "Coaching Benefits", image: "" },
-      { title: "Unexpected Advantages", image: "" },
-      { title: "Hidden Capabilities", image: "" },
+      { title: "Key Principles" },
+      { title: "Coaching Benefits" },
+      { title: "Unexpected Advantages" },
+      { title: "Hidden Capabilities" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
@@ -55,21 +78,21 @@ export const coachingAreas: CoachingArea[] = [
     image: executiveImg,
     bgColor: "bg-coaching-executive",
     exercises: [
-      { title: "Decision Matrix", icon: "🎯" },
-      { title: "Vision Board", icon: "🔮" },
-      { title: "Priority Map", icon: "🗺️" },
-      { title: "Stakeholder Grid", icon: "👥" },
+      { title: "GROW", lucideIcon: "TrendingUp", color: "navy" },
+      { title: "Improvement Canvas", lucideIcon: "Presentation", color: "red" },
+      { title: "SWOT Analysis", lucideIcon: "LayoutGrid", color: "teal" },
+      { title: "Not To-Do List", lucideIcon: "ListChecks", color: "purple" },
     ],
     learn: [
-      { title: "Executive Presence", image: "" },
-      { title: "Strategic Thinking", image: "" },
-      { title: "Board Dynamics", image: "" },
-      { title: "C-Suite Skills", image: "" },
+      { title: "Key Principles" },
+      { title: "Benefits" },
+      { title: "Unexpected Advantages" },
+      { title: "Hidden Capabilities" },
     ],
     resources: [
-      { type: "tips", title: "Tips", subtitle: "Lead with confidence" },
-      { type: "quotes", title: "Quotes", subtitle: "Think big, act bold" },
-      { type: "ebooks", title: "Ebooks", subtitle: "Executive reading list" },
+      { type: "tips", title: "Tips", subtitle: "Get control of your life" },
+      { type: "quotes", title: "Quotes", subtitle: "One day at a time" },
+      { type: "ebooks", title: "Ebooks", subtitle: "Books are a man's best friend" },
     ],
   },
   {
@@ -78,21 +101,21 @@ export const coachingAreas: CoachingArea[] = [
     image: wellnessImg,
     bgColor: "bg-coaching-wellness",
     exercises: [
-      { title: "Wellness Wheel", icon: "🧘" },
-      { title: "Habit Tracker", icon: "✅" },
-      { title: "Stress Audit", icon: "🌿" },
-      { title: "Energy Map", icon: "⚡" },
+      { title: "Self-Care Quiz", lucideIcon: "ClipboardCheck", color: "blue" },
+      { title: "Self-care List", lucideIcon: "CheckSquare", color: "blue" },
+      { title: "Make Heart Sing", lucideIcon: "Heart", color: "red" },
+      { title: "Too Comfortable?", lucideIcon: "Armchair", color: "blue" },
     ],
     learn: [
-      { title: "Holistic Health", image: "" },
-      { title: "Work-Life Balance", image: "" },
-      { title: "Nutrition Basics", image: "" },
-      { title: "Sleep Science", image: "" },
+      { title: "Achieving Healthy Lifestyle" },
+      { title: "Discovering Equilibrium" },
+      { title: "Health Vs. Wellness" },
+      { title: "Natural Health and Nutrition" },
     ],
     resources: [
-      { type: "tips", title: "Tips", subtitle: "Balance your life" },
-      { type: "quotes", title: "Quotes", subtitle: "Health is wealth" },
-      { type: "ebooks", title: "Ebooks", subtitle: "Wellness essentials" },
+      { type: "tips", title: "Tips", subtitle: "Get control of your life" },
+      { type: "quotes", title: "Quotes", subtitle: "One day at a time" },
+      { type: "ebooks", title: "Ebooks", subtitle: "Books are a man's best friend" },
     ],
   },
   {
@@ -101,21 +124,21 @@ export const coachingAreas: CoachingArea[] = [
     image: leadershipImg,
     bgColor: "bg-coaching-leadership",
     exercises: [
-      { title: "Leadership Style", icon: "⭐" },
-      { title: "Team Assessment", icon: "👥" },
-      { title: "Influence Map", icon: "🌐" },
-      { title: "Vision Craft", icon: "🔭" },
+      { title: "Detox Toxic Relationships", lucideIcon: "Plus", color: "navy" },
+      { title: "Make Heart Sing", lucideIcon: "Heart", color: "red" },
+      { title: "Identify Your Zappers", lucideIcon: "Zap", color: "yellow" },
+      { title: "Putting Up With?", lucideIcon: "Flag", color: "orange" },
     ],
     learn: [
-      { title: "Servant Leadership", image: "" },
-      { title: "Emotional Intelligence", image: "" },
-      { title: "Delegation Mastery", image: "" },
-      { title: "Conflict Resolution", image: "" },
+      { title: "Alter Your Views" },
+      { title: "Crafting a Culture" },
+      { title: "Unsure About Coaching?" },
+      { title: "Significance of Roles" },
     ],
     resources: [
-      { type: "tips", title: "Tips", subtitle: "Inspire your team" },
-      { type: "quotes", title: "Quotes", subtitle: "Lead by example" },
-      { type: "ebooks", title: "Ebooks", subtitle: "Leadership library" },
+      { type: "tips", title: "Tips", subtitle: "Get control of your life" },
+      { type: "quotes", title: "Quotes", subtitle: "One day at a time" },
+      { type: "ebooks", title: "Ebooks", subtitle: "Books are a man's best friend" },
     ],
   },
   {
@@ -124,21 +147,21 @@ export const coachingAreas: CoachingArea[] = [
     image: financeImg,
     bgColor: "bg-coaching-finance",
     exercises: [
-      { title: "Budget Planner", icon: "💰" },
-      { title: "Goal Setting", icon: "🎯" },
-      { title: "Risk Assessment", icon: "⚖️" },
-      { title: "Investment Map", icon: "📊" },
+      { title: "Urgent vs. Important", lucideIcon: "Hourglass", color: "navy" },
+      { title: "Plan, Do and Review", lucideIcon: "ClipboardEdit", color: "red" },
+      { title: "My Money Priorities", lucideIcon: "PiggyBank", color: "blue" },
+      { title: "Financial Goals Chart", lucideIcon: "Target", color: "orange" },
     ],
     learn: [
-      { title: "Financial Literacy", image: "" },
-      { title: "Wealth Building", image: "" },
-      { title: "Tax Strategy", image: "" },
-      { title: "Retirement Plan", image: "" },
+      { title: "Secure Your Future" },
+      { title: "Why Personal Finance?" },
+      { title: "Financial Coaching?" },
+      { title: "Controlling Your Finances" },
     ],
     resources: [
-      { type: "tips", title: "Tips", subtitle: "Master your money" },
-      { type: "quotes", title: "Quotes", subtitle: "Wealth wisdom" },
-      { type: "ebooks", title: "Ebooks", subtitle: "Finance fundamentals" },
+      { type: "tips", title: "Tips", subtitle: "Get control of your life" },
+      { type: "quotes", title: "Quotes", subtitle: "One day at a time" },
+      { type: "ebooks", title: "Ebooks", subtitle: "Books are a man's best friend" },
     ],
   },
   {
@@ -147,21 +170,21 @@ export const coachingAreas: CoachingArea[] = [
     image: performanceImg,
     bgColor: "bg-coaching-performance",
     exercises: [
-      { title: "KPI Dashboard", icon: "📈" },
-      { title: "Feedback Loop", icon: "🔄" },
-      { title: "Peak State", icon: "🏔️" },
-      { title: "Skill Matrix", icon: "🧩" },
+      { title: "Success Planner", lucideIcon: "CalendarCheck", color: "blue" },
+      { title: "Eliminate Delaying", lucideIcon: "Clock", color: "blue" },
+      { title: "Unstick Yourself!", lucideIcon: "Smile", color: "red" },
+      { title: "Love Your Weaknesses", lucideIcon: "Sparkles", color: "purple" },
     ],
     learn: [
-      { title: "Peak Performance", image: "" },
-      { title: "Flow State", image: "" },
-      { title: "Productivity Hacks", image: "" },
-      { title: "Accountability", image: "" },
+      { title: "Performance Coaching" },
+      { title: "What & How?" },
+      { title: "Performance Advantages" },
+      { title: "Seeking a Coach?" },
     ],
     resources: [
-      { type: "tips", title: "Tips", subtitle: "Achieve more daily" },
-      { type: "quotes", title: "Quotes", subtitle: "Push your limits" },
-      { type: "ebooks", title: "Ebooks", subtitle: "Performance guides" },
+      { type: "tips", title: "Tips", subtitle: "Get control of your life" },
+      { type: "quotes", title: "Quotes", subtitle: "One day at a time" },
+      { type: "ebooks", title: "Ebooks", subtitle: "Books are a man's best friend" },
     ],
   },
   {
@@ -170,21 +193,21 @@ export const coachingAreas: CoachingArea[] = [
     image: mindsetImg,
     bgColor: "bg-coaching-mindset",
     exercises: [
-      { title: "Belief Audit", icon: "🧠" },
-      { title: "Gratitude Log", icon: "🙏" },
-      { title: "Reframe Tool", icon: "🔄" },
-      { title: "Growth Plan", icon: "🌱" },
+      { title: "3 Month Vision", lucideIcon: "Binoculars", color: "navy" },
+      { title: "Get Motivated!", lucideIcon: "Puzzle", color: "orange" },
+      { title: "Build a Bridge", lucideIcon: "Construction", color: "yellow" },
+      { title: "SMART! Goals", lucideIcon: "Target", color: "navy" },
     ],
     learn: [
-      { title: "Growth Mindset", image: "" },
-      { title: "Neuroplasticity", image: "" },
-      { title: "Positive Psychology", image: "" },
-      { title: "Mental Models", image: "" },
+      { title: "Mastering Mindset" },
+      { title: "Fostering a Mindset" },
+      { title: "A Coaching Mindset" },
+      { title: "What Does a Coach Do?" },
     ],
     resources: [
-      { type: "tips", title: "Tips", subtitle: "Shift your thinking" },
-      { type: "quotes", title: "Quotes", subtitle: "Mind over matter" },
-      { type: "ebooks", title: "Ebooks", subtitle: "Mindset mastery" },
+      { type: "tips", title: "Tips", subtitle: "Get control of your life" },
+      { type: "quotes", title: "Quotes", subtitle: "One day at a time" },
+      { type: "ebooks", title: "Ebooks", subtitle: "Books are a man's best friend" },
     ],
   },
   {
@@ -193,21 +216,21 @@ export const coachingAreas: CoachingArea[] = [
     image: spiritualImg,
     bgColor: "bg-coaching-spiritual",
     exercises: [
-      { title: "Meditation Guide", icon: "🧘" },
-      { title: "Values Clarity", icon: "💎" },
-      { title: "Purpose Finder", icon: "🧭" },
-      { title: "Inner Peace", icon: "☮️" },
+      { title: "Mentor Magic!", lucideIcon: "Users", color: "blue" },
+      { title: "Intuition Exercise", lucideIcon: "Brain", color: "teal" },
+      { title: "Love And Loathe List", lucideIcon: "HeartOff", color: "red" },
+      { title: "Powerful Questions", lucideIcon: "MessageCircleQuestion", color: "blue" },
     ],
     learn: [
-      { title: "Mindfulness", image: "" },
-      { title: "Self-Discovery", image: "" },
-      { title: "Inner Wisdom", image: "" },
-      { title: "Sacred Practices", image: "" },
+      { title: "Enhance Your Life" },
+      { title: "Essence of Spirituality" },
+      { title: "Exploring the Mechanics" },
+      { title: "Spiritual Vs Life Coaching" },
     ],
     resources: [
-      { type: "tips", title: "Tips", subtitle: "Find your center" },
-      { type: "quotes", title: "Quotes", subtitle: "Journey within" },
-      { type: "ebooks", title: "Ebooks", subtitle: "Spiritual readings" },
+      { type: "tips", title: "Tips", subtitle: "Get control of your life" },
+      { type: "quotes", title: "Quotes", subtitle: "One day at a time" },
+      { type: "ebooks", title: "Ebooks", subtitle: "Books are a man's best friend" },
     ],
   },
   {
@@ -216,21 +239,21 @@ export const coachingAreas: CoachingArea[] = [
     image: mentalHealthImg,
     bgColor: "bg-coaching-mental",
     exercises: [
-      { title: "Mood Tracker", icon: "💙" },
-      { title: "Coping Skills", icon: "🛡️" },
-      { title: "Boundary Set", icon: "🚧" },
-      { title: "Self-Care Plan", icon: "🌸" },
+      { title: "Let Go", lucideIcon: "Bird", color: "salmon" },
+      { title: "Too Comfortable?", lucideIcon: "Armchair", color: "blue" },
+      { title: "Discover Yourself", lucideIcon: "SearchHeart", color: "orange" },
+      { title: "Gratitude Diary", lucideIcon: "CloudSun", color: "red" },
     ],
     learn: [
-      { title: "Anxiety Management", image: "" },
-      { title: "Emotional Regulation", image: "" },
-      { title: "Resilience Building", image: "" },
-      { title: "Burnout Prevention", image: "" },
+      { title: "Know Mental Health" },
+      { title: "Foundations of Wellness" },
+      { title: "Coaching vs Counseling" },
+      { title: "Path to Well-Being" },
     ],
     resources: [
-      { type: "tips", title: "Tips", subtitle: "Nurture your mind" },
-      { type: "quotes", title: "Quotes", subtitle: "You are not alone" },
-      { type: "ebooks", title: "Ebooks", subtitle: "Mental health guides" },
+      { type: "tips", title: "Tips", subtitle: "Get control of your life" },
+      { type: "quotes", title: "Quotes", subtitle: "One day at a time" },
+      { type: "ebooks", title: "Ebooks", subtitle: "Books are a man's best friend" },
     ],
   },
   {
@@ -239,21 +262,21 @@ export const coachingAreas: CoachingArea[] = [
     image: transformImg,
     bgColor: "bg-coaching-transform",
     exercises: [
-      { title: "Change Canvas", icon: "🦋" },
-      { title: "Before & After", icon: "🔄" },
-      { title: "Habit Stack", icon: "📚" },
-      { title: "Identity Shift", icon: "🪞" },
+      { title: "Wacky Wild Goal", lucideIcon: "Target", color: "navy" },
+      { title: "Big & Little Rocks", lucideIcon: "Gem", color: "orange" },
+      { title: "Rocking Chair", lucideIcon: "ArmchairIcon", color: "purple" },
+      { title: "Goals Motivator", lucideIcon: "Star", color: "red" },
     ],
     learn: [
-      { title: "Change Science", image: "" },
-      { title: "Transformation Stories", image: "" },
-      { title: "Breakthrough Methods", image: "" },
-      { title: "Sustaining Change", image: "" },
+      { title: "Coaching to Transform" },
+      { title: "Why Coach?" },
+      { title: "Exploring Coaching" },
+      { title: "What Does It Entail?" },
     ],
     resources: [
-      { type: "tips", title: "Tips", subtitle: "Embrace the change" },
-      { type: "quotes", title: "Quotes", subtitle: "Transform daily" },
-      { type: "ebooks", title: "Ebooks", subtitle: "Transformation toolkit" },
+      { type: "tips", title: "Tips", subtitle: "Get control of your life" },
+      { type: "quotes", title: "Quotes", subtitle: "One day at a time" },
+      { type: "ebooks", title: "Ebooks", subtitle: "Books are a man's best friend" },
     ],
   },
   {
@@ -262,21 +285,21 @@ export const coachingAreas: CoachingArea[] = [
     image: communicateImg,
     bgColor: "bg-coaching-communicate",
     exercises: [
-      { title: "Active Listening", icon: "👂" },
-      { title: "Feedback Model", icon: "💬" },
-      { title: "Pitch Perfect", icon: "🎤" },
-      { title: "Empathy Map", icon: "❤️" },
+      { title: "Active Listening", lucideIcon: "Ear", color: "blue" },
+      { title: "Feedback Model", lucideIcon: "MessageSquare", color: "teal" },
+      { title: "Pitch Perfect", lucideIcon: "Mic", color: "red" },
+      { title: "Empathy Map", lucideIcon: "Heart", color: "orange" },
     ],
     learn: [
-      { title: "Nonverbal Cues", image: "" },
-      { title: "Persuasion Skills", image: "" },
-      { title: "Difficult Talks", image: "" },
-      { title: "Public Speaking", image: "" },
+      { title: "Nonverbal Cues" },
+      { title: "Persuasion Skills" },
+      { title: "Difficult Talks" },
+      { title: "Public Speaking" },
     ],
     resources: [
-      { type: "tips", title: "Tips", subtitle: "Connect better" },
-      { type: "quotes", title: "Quotes", subtitle: "Words matter" },
-      { type: "ebooks", title: "Ebooks", subtitle: "Communication guides" },
+      { type: "tips", title: "Tips", subtitle: "Get control of your life" },
+      { type: "quotes", title: "Quotes", subtitle: "One day at a time" },
+      { type: "ebooks", title: "Ebooks", subtitle: "Books are a man's best friend" },
     ],
   },
   {
@@ -285,21 +308,21 @@ export const coachingAreas: CoachingArea[] = [
     image: organizationImg,
     bgColor: "bg-coaching-organization",
     exercises: [
-      { title: "Org Chart", icon: "🏢" },
-      { title: "Process Map", icon: "🗺️" },
-      { title: "Culture Audit", icon: "🎭" },
-      { title: "Team Build", icon: "🤝" },
+      { title: "Org Chart", lucideIcon: "Network", color: "navy" },
+      { title: "Process Map", lucideIcon: "Map", color: "blue" },
+      { title: "Culture Audit", lucideIcon: "Theater", color: "red" },
+      { title: "Team Build", lucideIcon: "Users", color: "orange" },
     ],
     learn: [
-      { title: "Org Design", image: "" },
-      { title: "Culture Building", image: "" },
-      { title: "Change Management", image: "" },
-      { title: "Team Dynamics", image: "" },
+      { title: "Org Design" },
+      { title: "Culture Building" },
+      { title: "Change Management" },
+      { title: "Team Dynamics" },
     ],
     resources: [
-      { type: "tips", title: "Tips", subtitle: "Build strong teams" },
-      { type: "quotes", title: "Quotes", subtitle: "Together we grow" },
-      { type: "ebooks", title: "Ebooks", subtitle: "Organization insights" },
+      { type: "tips", title: "Tips", subtitle: "Get control of your life" },
+      { type: "quotes", title: "Quotes", subtitle: "One day at a time" },
+      { type: "ebooks", title: "Ebooks", subtitle: "Books are a man's best friend" },
     ],
   },
   {
@@ -308,21 +331,21 @@ export const coachingAreas: CoachingArea[] = [
     image: creativityImg,
     bgColor: "bg-coaching-creativity",
     exercises: [
-      { title: "Ideation Sprint", icon: "💡" },
-      { title: "Mind Map", icon: "🧠" },
-      { title: "SCAMPER", icon: "🔧" },
-      { title: "Design Think", icon: "🎨" },
+      { title: "Ideation Sprint", lucideIcon: "Lightbulb", color: "yellow" },
+      { title: "Mind Map", lucideIcon: "Brain", color: "blue" },
+      { title: "SCAMPER", lucideIcon: "Wrench", color: "purple" },
+      { title: "Design Think", lucideIcon: "Palette", color: "red" },
     ],
     learn: [
-      { title: "Creative Process", image: "" },
-      { title: "Innovation Methods", image: "" },
-      { title: "Lateral Thinking", image: "" },
-      { title: "Creative Blocks", image: "" },
+      { title: "Creative Process" },
+      { title: "Innovation Methods" },
+      { title: "Lateral Thinking" },
+      { title: "Creative Blocks" },
     ],
     resources: [
-      { type: "tips", title: "Tips", subtitle: "Unleash creativity" },
-      { type: "quotes", title: "Quotes", subtitle: "Imagine more" },
-      { type: "ebooks", title: "Ebooks", subtitle: "Creativity guides" },
+      { type: "tips", title: "Tips", subtitle: "Get control of your life" },
+      { type: "quotes", title: "Quotes", subtitle: "One day at a time" },
+      { type: "ebooks", title: "Ebooks", subtitle: "Books are a man's best friend" },
     ],
   },
   {
@@ -331,21 +354,21 @@ export const coachingAreas: CoachingArea[] = [
     image: employeeImg,
     bgColor: "bg-coaching-employee",
     exercises: [
-      { title: "Engagement Survey", icon: "📋" },
-      { title: "Career Path", icon: "🛤️" },
-      { title: "Skills Gap", icon: "📊" },
-      { title: "Onboarding Plan", icon: "🚀" },
+      { title: "Engagement Survey", lucideIcon: "ClipboardList", color: "blue" },
+      { title: "Career Path", lucideIcon: "Route", color: "navy" },
+      { title: "Skills Gap", lucideIcon: "BarChart", color: "orange" },
+      { title: "Onboarding Plan", lucideIcon: "Rocket", color: "red" },
     ],
     learn: [
-      { title: "Employee Engagement", image: "" },
-      { title: "Talent Development", image: "" },
-      { title: "Workplace Culture", image: "" },
-      { title: "Retention Strategy", image: "" },
+      { title: "Employee Engagement" },
+      { title: "Talent Development" },
+      { title: "Workplace Culture" },
+      { title: "Retention Strategy" },
     ],
     resources: [
-      { type: "tips", title: "Tips", subtitle: "Empower your people" },
-      { type: "quotes", title: "Quotes", subtitle: "People first" },
-      { type: "ebooks", title: "Ebooks", subtitle: "Employee guides" },
+      { type: "tips", title: "Tips", subtitle: "Get control of your life" },
+      { type: "quotes", title: "Quotes", subtitle: "One day at a time" },
+      { type: "ebooks", title: "Ebooks", subtitle: "Books are a man's best friend" },
     ],
   },
   {
@@ -354,21 +377,21 @@ export const coachingAreas: CoachingArea[] = [
     image: corporateImg,
     bgColor: "bg-coaching-corporate",
     exercises: [
-      { title: "Strategy Canvas", icon: "📐" },
-      { title: "Market Analysis", icon: "🔍" },
-      { title: "Value Chain", icon: "🔗" },
-      { title: "Risk Register", icon: "⚠️" },
+      { title: "Strategy Canvas", lucideIcon: "LayoutDashboard", color: "navy" },
+      { title: "Market Analysis", lucideIcon: "Search", color: "blue" },
+      { title: "Value Chain", lucideIcon: "Link", color: "teal" },
+      { title: "Risk Register", lucideIcon: "ShieldAlert", color: "orange" },
     ],
     learn: [
-      { title: "Corporate Strategy", image: "" },
-      { title: "Governance", image: "" },
-      { title: "Compliance", image: "" },
-      { title: "Mergers & Acquisitions", image: "" },
+      { title: "Corporate Strategy" },
+      { title: "Governance" },
+      { title: "Compliance" },
+      { title: "Mergers & Acquisitions" },
     ],
     resources: [
-      { type: "tips", title: "Tips", subtitle: "Drive corporate success" },
-      { type: "quotes", title: "Quotes", subtitle: "Business wisdom" },
-      { type: "ebooks", title: "Ebooks", subtitle: "Corporate playbook" },
+      { type: "tips", title: "Tips", subtitle: "Get control of your life" },
+      { type: "quotes", title: "Quotes", subtitle: "One day at a time" },
+      { type: "ebooks", title: "Ebooks", subtitle: "Books are a man's best friend" },
     ],
   },
   {
@@ -377,21 +400,21 @@ export const coachingAreas: CoachingArea[] = [
     image: confidenceImg,
     bgColor: "bg-coaching-confidence",
     exercises: [
-      { title: "Self-Assessment", icon: "🪞" },
-      { title: "Power Pose", icon: "💪" },
-      { title: "Win Journal", icon: "🏆" },
-      { title: "Fear Ladder", icon: "🪜" },
+      { title: "Self-Assessment", lucideIcon: "UserCheck", color: "blue" },
+      { title: "Power Pose", lucideIcon: "Dumbbell", color: "red" },
+      { title: "Win Journal", lucideIcon: "Trophy", color: "orange" },
+      { title: "Fear Ladder", lucideIcon: "Ladder", color: "purple" },
     ],
     learn: [
-      { title: "Building Confidence", image: "" },
-      { title: "Imposter Syndrome", image: "" },
-      { title: "Self-Belief", image: "" },
-      { title: "Assertiveness", image: "" },
+      { title: "Building Confidence" },
+      { title: "Imposter Syndrome" },
+      { title: "Self-Belief" },
+      { title: "Assertiveness" },
     ],
     resources: [
-      { type: "tips", title: "Tips", subtitle: "Believe in yourself" },
-      { type: "quotes", title: "Quotes", subtitle: "You've got this" },
-      { type: "ebooks", title: "Ebooks", subtitle: "Confidence builders" },
+      { type: "tips", title: "Tips", subtitle: "Get control of your life" },
+      { type: "quotes", title: "Quotes", subtitle: "One day at a time" },
+      { type: "ebooks", title: "Ebooks", subtitle: "Books are a man's best friend" },
     ],
   },
 ];
