@@ -3,6 +3,7 @@ import { ArrowLeft, ChevronRight, Lightbulb, Quote, BookOpen } from "lucide-reac
 import { icons } from "lucide-react";
 import type { CoachingArea } from "@/data/coachingAreas";
 import { exerciseColorMap } from "@/data/coachingAreas";
+import { learnImages } from "@/data/learnImages";
 
 interface Props {
   area: CoachingArea;
@@ -100,7 +101,14 @@ const CoachingAreaDetail = ({ area, onBack }: Props) => {
               className="group flex flex-col items-center gap-2"
             >
               <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-muted coaching-card-shadow transition-all hover:coaching-card-shadow-hover">
-                <span className="text-3xl opacity-30">📖</span>
+                <img
+                  src={learnImages[area.id]?.[i] || ""}
+                  alt={item.title}
+                  loading="lazy"
+                  width={80}
+                  height={80}
+                  className="h-full w-full object-cover"
+                />
               </div>
               <span className="text-xs font-semibold text-foreground text-center leading-tight max-w-[90px]">
                 {item.title}
