@@ -1,22 +1,52 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
-import { coachingAreas, type CoachingArea } from "@/data/coachingAreas";
+import { coachingAreas, type CoachingArea, type Exercise } from "@/data/coachingAreas";
+import { exerciseTemplates, exerciseTitleToTemplateId } from "@/data/exerciseTemplates";
 import CoachingAreaCard from "@/components/CoachingAreaCard";
 import CoachingAreaDetail from "@/components/CoachingAreaDetail";
+import ExerciseDetail from "@/components/ExerciseDetail";
 
 const Index = () => {
   const [selectedArea, setSelectedArea] = useState<CoachingArea | null>(null);
+  const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(null);
+
+  const handleExerciseClick = (exercise: Exercise) => {
+    const templateId = exerciseTitleToTemplateId[exercise.title];
+    if (templateId && exerciseTemplates[templateId]) {
+      setSelectedExercise(exercise);
+    }
+  };
+
+  const handleExerciseBack = () => {
+    setSelectedExercise(null);
+  };
+
+  const handleAreaBack = () => {
+    setSelectedArea(null);
+    setSelectedExercise(null);
+  };
+
+  const activeTemplate = selectedExercise
+    ? exerciseTemplates[exerciseTitleToTemplateId[selectedExercise.title]]
+    : null;
 
   return (
     <div className="min-h-screen bg-background">
       <div className="mx-auto max-w-lg px-4 py-6 sm:max-w-2xl">
         <AnimatePresence mode="wait">
-          {selectedArea ? (
+          {activeTemplate && selectedExercise ? (
+            <ExerciseDetail
+              key={activeTemplate.id}
+              template={activeTemplate}
+              onBack={handleExerciseBack}
+            />
+          ) : selectedArea ? (
             <CoachingAreaDetail
               key={selectedArea.id}
               area={selectedArea}
-              onBack={() => setSelectedArea(null)}
+              onBack={handleAreaBack}
+              onExerciseClick={handleExerciseClick}
             />
           ) : (
             <motion.div
@@ -26,7 +56,6 @@ const Index = () => {
               exit={{ opacity: 0, x: -40 }}
               transition={{ duration: 0.25 }}
             >
-              {/* Header */}
               <div className="mb-2 flex items-center gap-3">
                 <button className="flex h-10 w-10 items-center justify-center rounded-xl bg-card coaching-card-shadow">
                   <ArrowLeft className="h-5 w-5 text-foreground" />
@@ -36,8 +65,6 @@ const Index = () => {
               <p className="mb-6 text-center text-sm text-muted-foreground">
                 What coaching focus interests you?
               </p>
-
-              {/* Grid */}
               <div className="grid grid-cols-3 gap-4">
                 {coachingAreas.map((area, i) => (
                   <CoachingAreaCard
