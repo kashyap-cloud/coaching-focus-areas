@@ -3,13 +3,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { coachingAreas, type CoachingArea, type Exercise } from "@/data/coachingAreas";
 import { exerciseTemplates, exerciseTitleToTemplateId } from "@/data/exerciseTemplates";
+import { learnContent } from "@/data/learnContent";
 import CoachingAreaCard from "@/components/CoachingAreaCard";
 import CoachingAreaDetail from "@/components/CoachingAreaDetail";
 import ExerciseDetail from "@/components/ExerciseDetail";
+import LearnDetail from "@/components/LearnDetail";
 
 const Index = () => {
   const [selectedArea, setSelectedArea] = useState<CoachingArea | null>(null);
   const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(null);
+  const [selectedLearn, setSelectedLearn] = useState<{ areaId: string; index: number } | null>(null);
 
   const handleExerciseClick = (exercise: Exercise) => {
     const templateId = exerciseTitleToTemplateId[exercise.title];
@@ -18,17 +21,26 @@ const Index = () => {
     }
   };
 
-  const handleExerciseBack = () => {
-    setSelectedExercise(null);
+  const handleLearnClick = (areaId: string, learnIndex: number) => {
+    if (learnContent[areaId]?.[learnIndex]) {
+      setSelectedLearn({ areaId, index: learnIndex });
+    }
   };
 
+  const handleExerciseBack = () => setSelectedExercise(null);
+  const handleLearnBack = () => setSelectedLearn(null);
   const handleAreaBack = () => {
     setSelectedArea(null);
     setSelectedExercise(null);
+    setSelectedLearn(null);
   };
 
   const activeTemplate = selectedExercise
     ? exerciseTemplates[exerciseTitleToTemplateId[selectedExercise.title]]
+    : null;
+
+  const activeLearnArticle = selectedLearn
+    ? learnContent[selectedLearn.areaId]?.[selectedLearn.index]
     : null;
 
   return (
@@ -41,12 +53,19 @@ const Index = () => {
               template={activeTemplate}
               onBack={handleExerciseBack}
             />
+          ) : activeLearnArticle ? (
+            <LearnDetail
+              key={activeLearnArticle.id}
+              article={activeLearnArticle}
+              onBack={handleLearnBack}
+            />
           ) : selectedArea ? (
             <CoachingAreaDetail
               key={selectedArea.id}
               area={selectedArea}
               onBack={handleAreaBack}
               onExerciseClick={handleExerciseClick}
+              onLearnClick={handleLearnClick}
             />
           ) : (
             <motion.div
