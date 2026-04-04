@@ -95,7 +95,7 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
     description:
       "The things on your not-to-do list are usually all the things that you know and feel deep down you shouldn't be spending time on, but somehow are unable to stop doing. A not-to-do list can help you systematically take care of those kinds of tasks once and for all.",
     fields: [
-      { id: "list", label: "Your Not-to-do Items", subtitle: "List the things you need to stop doing", color: "hsl(265,55%,45%)" },
+      { id: "list", label: "Your Not-to-do Items", subtitle: "List the things you need to stop doing", color: "hsl(265,55%,45%)", type: "list" },
     ],
   },
   grow: {
