@@ -16,6 +16,8 @@ import SelfCareCheckinExercise from "@/components/SelfCareCheckinExercise";
 import WeeklySuccessPlannerExercise from "@/components/WeeklySuccessPlannerExercise";
 import StopProcrastinatingExercise from "@/components/StopProcrastinatingExercise";
 import GetMotivatedExercise from "@/components/GetMotivatedExercise";
+import IntuitionExercise from "@/components/IntuitionExercise";
+import LoveAndLoatheExercise from "@/components/LoveAndLoatheExercise";
 
 const Index = () => {
   const [selectedArea, setSelectedArea] = useState<CoachingArea | null>(null);
