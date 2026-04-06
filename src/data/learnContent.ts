@@ -442,7 +442,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
   },
 
-  spatial: {
+  spiritual: {
     0: {
       id: "spiritual-enhance-life",
       title: "10 Ways Spiritual Life Coaches Can Enhance Your Life",
@@ -496,7 +496,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
   },
 
-  mentor: {
+  "mental-health": {
     0: {
       id: "mentalhealth-distinguishing",
       title: "Understanding Mental Health: Distinguishing the Normal from the Concerning",
