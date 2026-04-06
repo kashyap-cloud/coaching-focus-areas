@@ -380,6 +380,7 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
         <Send className="h-4 w-4" />
         Submit
       </motion.button>
+      <SuccessDialog open={showSuccess} onClose={() => setShowSuccess(false)} />
     </motion.div>
   );
 };
@@ -492,9 +493,7 @@ function TableField({
             </button>
           )}
           {rows.length <= 1 && <div className="w-8 shrink-0" />}
-        
-      <SuccessDialog open={showSuccess} onClose={() => setShowSuccess(false)} />
-    </motion.div>
+        </motion.div>
       ))}
       <button
         onClick={onAdd}
