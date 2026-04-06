@@ -191,7 +191,7 @@ const Index = () => {
               <p className="mb-6 text-center text-sm text-muted-foreground">
                 What coaching focus interests you?
               </p>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-4 gap-4">
                 {coachingAreas.map((area, i) => (
                   <CoachingAreaCard
                     key={area.id}
