@@ -98,9 +98,9 @@ const CoachingAreaDetail = ({ area, onBack, onExerciseClick, onLearnClick, onRes
           {area.learn.map((item, i) => (
             <motion.button
               key={item.title}
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 + i * 0.06 }}
+              transition={{ delay: 0.1 + i * 0.03, duration: 0.2 }}
               whileHover={{ y: -3 }}
               onClick={() => onLearnClick?.(area.id, i)}
               className="group flex flex-col items-center gap-2"
@@ -109,7 +109,8 @@ const CoachingAreaDetail = ({ area, onBack, onExerciseClick, onLearnClick, onRes
                 <img
                   src={learnImages[area.id]?.[i] || ""}
                   alt={item.title}
-                  loading="lazy"
+                  loading="eager"
+                  decoding="async"
                   width={80}
                   height={80}
                   className="h-full w-full object-cover"
@@ -134,9 +135,9 @@ const CoachingAreaDetail = ({ area, onBack, onExerciseClick, onLearnClick, onRes
             return (
               <motion.button
                 key={res.type}
-                initial={{ opacity: 0, x: 20 }}
+                initial={{ opacity: 0, x: 12 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.35 + i * 0.08 }}
+                transition={{ delay: 0.15 + i * 0.04, duration: 0.2 }}
                 whileHover={{ x: 4 }}
                 onClick={() => onResourceClick?.(area.id, res.type)}
                 className={`flex items-center gap-4 rounded-2xl p-4 coaching-card-shadow transition-all hover:coaching-card-shadow-hover ${resourceBg[res.type]}`}
