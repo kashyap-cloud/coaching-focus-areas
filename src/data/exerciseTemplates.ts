@@ -779,14 +779,97 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
       { id: "tax-accountability", label: "Accountability: Who will help me reach the goal?", color: "hsl(265,55%,45%)" },
     ],
   },
+
+// ── Mindset ──
+  "three-month-vision": {
+    id: "three-month-vision",
+    title: "3 Month Vision Worksheet",
+    description: "Allow yourself 20 minutes of quiet time to consider these questions to create and shape your vision for the next 3 months. Write your answers in the PRESENT tense. And be as SPECIFIC as you can as this clarity makes your vision easier to achieve.",
+    fields: [
+      {
+        id: "vision-intro",
+        label: "How do I want my life to be?",
+        subtitle: "Write below how you'd like each area to be in 3 months' time:",
+        type: "text",
+        color: "#dc2626",
+      },
+      {
+        id: "personal-life",
+        label: "Personal life, Home and Family",
+        type: "text",
+        color: "#1e3a5f",
+      },
+      {
+        id: "career-work",
+        label: "Career, Work and Business Life",
+        type: "text",
+        color: "#1e3a5f",
+      },
+      {
+        id: "health-wellbeing",
+        label: "Health and Well-being",
+        type: "text",
+        color: "#1e3a5f",
+      },
+      {
+        id: "finances",
+        label: "Finances",
+        type: "text",
+        color: "#1e3a5f",
+      },
+      {
+        id: "community-friendships",
+        label: "Community and Friendships",
+        type: "text",
+        color: "#1e3a5f",
+      },
+      {
+        id: "spiritual-learning",
+        label: "Spiritual and Learning",
+        type: "text",
+        color: "#1e3a5f",
+      },
+      {
+        id: "anything-else",
+        label: "Write anything else, that you perhaps haven't mentioned yet, here:",
+        type: "text",
+        color: "#dc2626",
+      },
+      {
+        id: "how-would-it-feel",
+        label: "Take a moment to review your vision above and imagine it. How would this feel?",
+        type: "text",
+        color: "#1e3a5f",
+      },
+      {
+        id: "obstacles",
+        label: "What obstacles do you anticipate? What do you need to BE to achieve this? I need to be someone who is:",
+        type: "text",
+        color: "#1e3a5f",
+      },
+      {
+        id: "one-important-change",
+        label: "If there was just ONE important CHANGE you could make over the next 3 months, what would it be?",
+        type: "text",
+        color: "#1e3a5f",
+      },
+      {
+        id: "theme",
+        label: "My THEME for the next 3 months is:",
+        type: "text",
+        color: "#dc2626",
+      },
+    ],
+  },
 };
 
 // Special exercise IDs that use dedicated components
-export const specialExercises: Record<string, "quiz" | "checkin" | "planner" | "procrastinating"> = {
+export const specialExercises: Record<string, "quiz" | "checkin" | "planner" | "procrastinating" | "get-motivated"> = {
   "Self-Care Quiz": "quiz",
   "Self-care List": "checkin",
   "Success Planner": "planner",
   "Eliminate Delaying": "procrastinating",
+  "Get Motivated!": "get-motivated",
 };
 
 // Map exercise titles to template IDs
@@ -813,4 +896,5 @@ export const exerciseTitleToTemplateId: Record<string, string> = {
   "Positive Visualisation": "positive-visualisation",
   "Get Perspective": "get-perspective",
   "Talk to Yourself!": "talk-to-yourself",
+  "3 Month Vision": "three-month-vision",
 };
