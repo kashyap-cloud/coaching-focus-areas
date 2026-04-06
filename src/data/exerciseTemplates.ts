@@ -454,6 +454,286 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
       },
     ],
   },
+
+  // ── Spiritual ──
+  "mentor-magic": {
+    id: "mentor-magic",
+    title: "Mentor Magic!",
+    description:
+      "Take a few quiet moments and think about who you consider to be wise, perhaps someone spiritual, but definitely someone who has life experience and wisdom to share. Now simply answer the questions below to get unstuck or get insights on a goal, problem or your career.",
+    importantNote:
+      "TIP: Use a short version of this technique at any time to quickly gain ideas and insights towards resolving any issue or achieving a goal. Simply imagine yourself in the shoes of someone wise, experienced and perhaps knowledgeable and see what advice they have for you.",
+    fields: [
+      {
+        id: "who-pick",
+        label: "If you could step into absolutely anyone's shoes for half an hour–who you could learn from and gain valuable insights – who would you pick?",
+        subtitle: "(go as far back in history or into your imagination as you like).",
+        color: "hsl(210,75%,50%)",
+        type: "text",
+      },
+      {
+        id: "advice",
+        label: "Now take a few moments and imagine you are that person. Think about the advice they would give you and write it here",
+        subtitle: "(this could be advice for a specific issue or career goal, or general career advice–you choose).",
+        color: "hsl(175,60%,40%)",
+        type: "text",
+      },
+      {
+        id: "additional-mentors",
+        label: "Who else can you think of that could give you valuable insights? Imagine being each mentor–and what they would do or say–if they were in your position.",
+        color: "hsl(30,90%,55%)",
+        type: "table",
+        columns: ["Additional Mentors", "Advice"],
+      },
+      {
+        id: "what-will-you-do",
+        label: "What will you do with all these ideas, and advice?",
+        subtitle: "Now, step back into YOU and review the advice your mentors have given you. Write down 3 specific ideas, actions to get unstuck, or specific situations where you might use these learnings:",
+        color: "hsl(350,70%,55%)",
+        type: "list",
+      },
+    ],
+  },
+
+  // ── Mental Health ──
+  "let-go": {
+    id: "let-go",
+    title: "What Do You Need to Let Go of?",
+    description:
+      "Although you might not feel inclined to take immediate action, jotting down what you need to release can heighten your awareness and naturally ease your grip. Read the story and ideas below, then create a simple list. What are you clinging to? What saps your energy or hinders your progress? What triggers frustration? What obstructs you from reaching your fullest potential?\n\nTwo Buddhist monks return to their monastery after the rains. They reach a swollen river and in front of them is a woman in a delicate silk kimono, distressed because she is unable to cross the river by herself. The older monk scoops her up, carries her safely to the other side and the two monks continue on their way in silence. Later, as the monks reach their destination, the younger monk (who has fumed for the last 5 hours) finally bursts out, \"How could you? We're not allowed to touch a woman!\" The older monk, surprised, replies: \"I put her down 5 hours ago, but you are still carrying her with you.\"",
+    importantNote:
+      "• As with the younger monk in the story, the things we hold onto (eg. that we feel angry, guilty, hurt about etc.) cloud our mind and stop us from fully enjoying life. The irony is that whatever you're holding onto, it probably bothers you much more than it does anyone else.\n• Letting go usually involves some form of forgiveness or acceptance – whether it's of yourself, someone else, a situation or even an unknown third party.\n• Letting go doesn't mean we condone a situation or behaviour, it's about lightening our load. When we let go of whatever is bothering us we set ourselves free – and get to reclaim that energy for ourselves.\n• While you can't change the past, you can learn from it and change how you feel going forwards. And remember – whatever you find the hardest to let go of is probably what you need to let go of the most.\n• If you need to let go of something you did ask, \"What could I do that will allow me to let this go?\" You may need to make note of what you learned, make some kind of amends, apologise or find a meaningful way to make it up to yourself or someone else.\n• Final thought: You don't need to know how to let go, you just need to be willing.",
+    fields: [
+      {
+        id: "let-go-table",
+        label: "What do I need to let go of?",
+        color: "hsl(210,75%,50%)",
+        type: "table",
+        columns: ["What do I need to let go of?", "How I can benefit by 'holding on'"],
+      },
+      {
+        id: "imagine-letting-go",
+        label: "Just for a second, imagine letting go of everything on this list. How does it feel?",
+        color: "hsl(175,60%,40%)",
+        type: "text",
+      },
+      {
+        id: "learned",
+        label: "What have you learned about yourself from doing this exercise?",
+        color: "hsl(350,70%,55%)",
+        type: "text",
+      },
+    ],
+  },
+
+  // ── Wellness / Mental Health ──
+  "too-comfortable": {
+    id: "too-comfortable",
+    title: "Are you sitting (too) comfortably?",
+    description:
+      "While in our comfort zone, we cruise on autopilot, feeling confident, relaxed, and secure, almost snug—it's effortless. But, could it be time to move on? Have you overstayed your welcome in this cozy space?",
+    fields: [
+      {
+        id: "tried-new",
+        label: "When was the last time you tried something new?",
+        color: "hsl(210,75%,50%)",
+        type: "text",
+      },
+      {
+        id: "learning-growing",
+        label: "How much are you learning and growing right now?",
+        color: "hsl(175,60%,40%)",
+        type: "text",
+      },
+      {
+        id: "too-much-not-enough",
+        label: "Do you feel you're doing too much – or not enough?",
+        color: "hsl(30,90%,55%)",
+        type: "text",
+      },
+      {
+        id: "last-risk",
+        label: "When was the last time you took a risk?",
+        color: "hsl(350,70%,55%)",
+        type: "text",
+      },
+      {
+        id: "shift-change",
+        label: "Do you feel its time for a shift – or a change?",
+        color: "hsl(265,55%,45%)",
+        type: "text",
+      },
+      {
+        id: "comfort-continuum",
+        label: "So, where are you on the \"Comfort Continuum\"?",
+        subtitle: "Use your gut feeling to represent how you feel in your life right now:",
+        color: "hsl(210,75%,50%)",
+        type: "text",
+      },
+      {
+        id: "serve-goals",
+        label: "Does where you are on the \"Comfort Continuum\" serve you and your goals?",
+        color: "hsl(175,60%,40%)",
+        type: "text",
+      },
+    ],
+    footerNote: "Do you need time in your comfort zone to rest and recharge? Are you just right, or are you heading towards Snoozeville?",
+  },
+
+  // ── Employee / Confidence ──
+  "daily-success-habits": {
+    id: "daily-success-habits",
+    title: "Daily Success Habits",
+    description:
+      "We tend to overlook the importance of simple daily habits in managing ourselves and our lives. But it's often the small changes we make to our daily routines that enable the big changes in our lives and careers.\n\nThis tool helps you build a simple personal framework around which the rest of the day's activities fall into place.\n\nUse this tool to create a daily infrastructure so that no matter what happens you feel calm and assured.",
+    importantNote:
+      "What supportive daily habits – SPECIFIC DAILY ACTIONS – could you introduce?\n\nWrite up to 5 actions that best support you. Include your home, personal, and work-life. These must be specific and measurable actions so you know exactly what to do, and can easily show you've completed it.\n\nYou know yourself best: Where do you sabotage yourself regularly? what ideas do you already have? What ideas have you had but are pretending not to know?\n\nEXAMPLES:\n• Have 15 minutes of silence or alone time each day\n• Drink 6 glasses of water a day\n• Be at my desk by 8:00am / leave by 6:00pm every day\n• Eat a healthy breakfast every morning\n• Be in bed by 10:30pm\n• Do at least 30 mins exercise/activity every day\n• Set a timer: spend 15 mins max on social media daily\n• Make all calls in the first hour of the day\n• Write my top 3 priorities for the day, every morning before starting work\n• Eat lunch away from my desk\n• Connect daily with partner/spouse (5 mins listening)\n• Write all appointments down – in one place\n• Meditate for 30 minutes each morning before breakfast",
+    footerNote:
+      "REMEMBER: It takes time and practice to implement new habits. They start as simple actions and gradually, as you do them regularly, become habits. It can take anything from 21-30 days to implement a new habit and a few months to cement a habit. So be kind to yourself on the days you don't remember – and just start again the next day!",
+    fields: [
+      {
+        id: "priorities",
+        label: "My Top 3 PRIORITIES in life right now are",
+        color: "hsl(210,75%,50%)",
+        type: "list",
+      },
+      {
+        id: "stressors",
+        label: "My Top 3 STRESSORS in life right now are",
+        color: "hsl(350,70%,55%)",
+        type: "list",
+      },
+      {
+        id: "habits-table",
+        label: "Daily Habits",
+        color: "hsl(175,60%,40%)",
+        type: "table",
+        columns: ["Habit", "Benefit"],
+      },
+      {
+        id: "commit-tomorrow",
+        label: "I will start.... (tomorrow)",
+        color: "hsl(30,90%,55%)",
+        type: "text",
+      },
+      {
+        id: "commit-next-week",
+        label: "I will start.... (next week)",
+        color: "hsl(30,90%,55%)",
+        type: "text",
+      },
+      {
+        id: "commit-next-month",
+        label: "I will start.... (next month)",
+        color: "hsl(30,90%,55%)",
+        type: "text",
+      },
+      {
+        id: "who-to-be",
+        label: "Who do I need to BE to implement these habits? I will be someone who is ....",
+        color: "hsl(265,55%,45%)",
+        type: "list",
+      },
+    ],
+  },
+
+  // ── Communicate / Confidence ──
+  "positive-visualisation": {
+    id: "positive-visualisation",
+    title: "Positive Visualisation",
+    description:
+      "1. Find a quiet place to sit down and relax\n2. Close your eyes\n3. Think back to an experience you have had that made you feel really good. It can be anything – a personal accomplishment, a youthful memory, a successful project at work\n4. Take yourself back there and replay the sequence of events\n5. Be as detailed as you can in reliving the moment for yourself\n6. Hear the sounds, see the sights and feel the emotions\n7. Replay this a few times until you are immersed in this event\n8. Now open your eyes",
+    fields: [
+      {
+        id: "event",
+        label: "Briefly explain your event",
+        color: "hsl(210,75%,50%)",
+        type: "text",
+      },
+    ],
+  },
+
+  // ── Organization ──
+  "get-perspective": {
+    id: "get-perspective",
+    title: "Get Perspective",
+    description:
+      "Allow yourself 30mins of quiet time to consider these questions that help you create and shape a vision for your future.\n\nWork through the questions in the order below and write your answers in the PRESENT tense.",
+    fields: [
+      {
+        id: "ultimate-goal",
+        label: "Where do you ultimately want to get to in your life/career?",
+        subtitle: "Consider areas like your home/family, work/career, health & well-being, finances, community/friendships, and personal growth/learning",
+        color: "hsl(210,75%,50%)",
+        type: "text",
+      },
+      {
+        id: "how-feel",
+        label: "Take a moment to imagine this. how would you feel?",
+        color: "hsl(175,60%,40%)",
+        type: "text",
+      },
+      {
+        id: "10-years",
+        label: "i) 10 years from now",
+        subtitle: "What do you want to be doing (work and personal life):",
+        color: "hsl(350,70%,55%)",
+        type: "text",
+      },
+      {
+        id: "5-years",
+        label: "ii) 5 years from now",
+        color: "hsl(30,90%,55%)",
+        type: "text",
+      },
+      {
+        id: "2-years",
+        label: "iii) 2 years from now",
+        color: "hsl(265,55%,45%)",
+        type: "text",
+      },
+      {
+        id: "1-year",
+        label: "iv) 1 year from now",
+        color: "hsl(210,75%,50%)",
+        type: "text",
+      },
+      {
+        id: "6-months",
+        label: "v) 6 months from now",
+        color: "hsl(175,60%,40%)",
+        type: "text",
+      },
+      {
+        id: "3-months",
+        label: "vi) 3 months from now",
+        color: "hsl(350,70%,55%)",
+        type: "text",
+      },
+    ],
+  },
+
+  // ── Communicate ──
+  "talk-to-yourself": {
+    id: "talk-to-yourself",
+    title: "Talk to Yourself!",
+    description:
+      "Do you ever find yourself talking to yourself? Well, here's a secret – it's actually a great way to improve your speaking skills alone and improve your English skills! Creating a monologue is a fun and engaging exercise that allows you to express yourself freely and practice speaking without any interruptions or distractions.\n\nTo create a monologue, simply choose a topic that interests you or something that you're passionate about. It could be anything from your favorite hobby, a recent trip you took, or even a movie you watched. Once you have your topic, start talking about it out loud as if you're having a conversation with someone. Pretend that you're explaining it to a friend or teaching someone about it.",
+    fields: [
+      {
+        id: "topic",
+        label: "Mention your topic here",
+        color: "hsl(210,75%,50%)",
+        type: "text",
+      },
+      {
+        id: "writing",
+        label: "Start Writing",
+        color: "hsl(175,60%,40%)",
+        type: "text",
+      },
+    ],
+  },
 };
 
 // Map exercise titles to template IDs
@@ -472,4 +752,11 @@ export const exerciseTitleToTemplateId: Record<string, string> = {
   "Unstick Yourself!": "unstick-yourself",
   "Love Your Weaknesses": "love-your-weaknesses",
   "Build a Bridge": "build-a-bridge",
+  "Mentor Magic!": "mentor-magic",
+  "Let Go": "let-go",
+  "Too Comfortable?": "too-comfortable",
+  "Daily Success Habits": "daily-success-habits",
+  "Positive Visualisation": "positive-visualisation",
+  "Get Perspective": "get-perspective",
+  "Talk to Yourself!": "talk-to-yourself",
 };
