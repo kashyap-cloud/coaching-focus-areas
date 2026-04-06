@@ -2,7 +2,8 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { coachingAreas, type CoachingArea, type Exercise } from "@/data/coachingAreas";
-import { exerciseTemplates, exerciseTitleToTemplateId } from "@/data/exerciseTemplates";
+import { exerciseTemplates, exerciseTitleToTemplateId, specialExercises } from "@/data/exerciseTemplates";
+import { selfCareQuiz, selfCareCheckin } from "@/data/wellnessExercises";
 import { learnContent } from "@/data/learnContent";
 import { resourcesContent } from "@/data/resourcesContent";
 import CoachingAreaCard from "@/components/CoachingAreaCard";
@@ -10,6 +11,8 @@ import CoachingAreaDetail from "@/components/CoachingAreaDetail";
 import ExerciseDetail from "@/components/ExerciseDetail";
 import LearnDetail from "@/components/LearnDetail";
 import ResourceDetail from "@/components/ResourceDetail";
+import SelfCareQuizExercise from "@/components/SelfCareQuizExercise";
+import SelfCareCheckinExercise from "@/components/SelfCareCheckinExercise";
 
 const Index = () => {
   const [selectedArea, setSelectedArea] = useState<CoachingArea | null>(null);
@@ -18,8 +21,8 @@ const Index = () => {
   const [selectedResource, setSelectedResource] = useState<{ areaId: string; type: "tips" | "quotes" | "ebooks" } | null>(null);
 
   const handleExerciseClick = (exercise: Exercise) => {
-    const templateId = exerciseTitleToTemplateId[exercise.title];
-    if (templateId && exerciseTemplates[templateId]) {
+    // Check if it's a special exercise or a regular template
+    if (specialExercises[exercise.title] || exerciseTitleToTemplateId[exercise.title]) {
       setSelectedExercise(exercise);
     }
   };
@@ -46,7 +49,9 @@ const Index = () => {
     setSelectedResource(null);
   };
 
-  const activeTemplate = selectedExercise
+  const specialType = selectedExercise ? specialExercises[selectedExercise.title] : null;
+
+  const activeTemplate = selectedExercise && !specialType
     ? exerciseTemplates[exerciseTitleToTemplateId[selectedExercise.title]]
     : null;
 
@@ -62,7 +67,19 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <div className="mx-auto max-w-lg px-4 py-6 sm:max-w-2xl">
         <AnimatePresence mode="wait">
-          {activeTemplate && selectedExercise ? (
+          {selectedExercise && specialType === "quiz" ? (
+            <SelfCareQuizExercise
+              key="self-care-quiz"
+              template={selfCareQuiz}
+              onBack={handleExerciseBack}
+            />
+          ) : selectedExercise && specialType === "checkin" ? (
+            <SelfCareCheckinExercise
+              key="self-care-checkin"
+              template={selfCareCheckin}
+              onBack={handleExerciseBack}
+            />
+          ) : activeTemplate && selectedExercise ? (
             <ExerciseDetail
               key={activeTemplate.id}
               template={activeTemplate}
