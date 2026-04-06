@@ -199,7 +199,6 @@ const StopProcrastinatingExercise = ({ onBack }: Props) => {
         <button onClick={() => setShowHistory(!showHistory)} className="flex items-center gap-2 rounded-xl bg-card px-4 py-2.5 text-sm font-semibold coaching-card-shadow transition-all hover:coaching-card-shadow-hover">
           <History className="h-4 w-4 text-primary" />
           <span className="text-foreground">History</span>
-          {history.length > 0 && <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-primary px-1.5 text-[10px] font-bold text-primary-foreground">{history.length}</span>}
         </button>
       </div>
 

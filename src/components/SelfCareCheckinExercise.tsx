@@ -182,11 +182,6 @@ const SelfCareCheckinExercise = ({ template, onBack }: Props) => {
         >
           <History className="h-4 w-4 text-primary" />
           <span className="text-foreground">History</span>
-          {history.length > 0 && (
-            <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-primary px-1.5 text-[10px] font-bold text-primary-foreground">
-              {history.length}
-            </span>
-          )}
         </button>
       </div>
 
