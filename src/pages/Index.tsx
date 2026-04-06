@@ -113,6 +113,26 @@ const Index = () => {
               key="love-loathe"
               onBack={handleExerciseBack}
             />
+          ) : selectedExercise && specialType === "discover-yourself" ? (
+            <DiscoverYourselfExercise
+              key="discover-yourself"
+              onBack={handleExerciseBack}
+            />
+          ) : selectedExercise && specialType === "gratitude-diary" ? (
+            <GratitudeDiaryExercise
+              key="gratitude-diary"
+              onBack={handleExerciseBack}
+            />
+          ) : selectedExercise && specialType === "wacky-wild-goal" ? (
+            <WackyWildGoalExercise
+              key="wacky-wild-goal"
+              onBack={handleExerciseBack}
+            />
+          ) : selectedExercise && specialType === "big-rocks" ? (
+            <BigRocksExercise
+              key="big-rocks"
+              onBack={handleExerciseBack}
+            />
           ) : activeTemplate && selectedExercise ? (
             <ExerciseDetail
               key={activeTemplate.id}
