@@ -383,10 +383,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "3 Month Vision", lucideIcon: "Binoculars", color: "purple" },
     ],
     learn: [
-      { title: "Boost Team's Potential" },
       { title: "Top Career Topics" },
       { title: "Coaching Factors" },
       { title: "Corporate Coaching?" },
+      { title: "Leadership Development" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
