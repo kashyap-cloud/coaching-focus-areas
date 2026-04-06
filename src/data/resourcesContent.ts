@@ -351,11 +351,11 @@ export const resourcesContent: Record<string, AreaResources> = {
       { text: "I find that the harder I work, the more luck I seem to have.", author: "Thomas Jefferson", borderColor: "hsl(185,60%,45%)", bgColor: "hsl(185,60%,97%)" },
     ],
     ebooks: [
-      { title: "The Rules of Work", author: "Richard Templar", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Richard_Templar-The_Rules_of_Work-EN.pdf" },
-      { title: "Getting Things Done", author: "David Allen", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Getting-Things-Done-The-Art-of-Stress-Free-Productivity.pdf" },
-      { title: "The Seven Habits of Highly Effective People", author: "Stephen R. Covey", url: "https://app.mantracare.com/wp-content/uploads/2024/12/ati12052021_1.pdf" },
-      { title: "How Successful People Think", author: "John C. Maxwell", url: "https://app.mantracare.com/wp-content/uploads/2024/12/How-Successful-People-Think-_Libtoon.com_.pdf" },
-      { title: "Give and Take", author: "Adam Grant", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Give-and-Take.pdf" },
+      { title: "Think & Grow Rich", author: "Napoleon Hill", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Think-And-Grow-Rich_2011-06.pdf" },
+      { title: "Shape Up", author: "Ryan Singer", url: "https://app.mantracare.com/wp-content/uploads/2024/12/shape-up.pdf" },
+      { title: "Work Smarter Not Harder", author: "Timo Kiander", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Work-Smarter-Not-Harder.pdf" },
+      { title: "The Only Leadership Book You'll Ever Need", author: "Peter Barron Stark & Jane Flaherty", url: "https://app.mantracare.com/wp-content/uploads/2024/12/The-Only-Leadership-Book-Youll-Ever-Need_-How-to-Build-Organizations-Where-Employees-Love-to-Come-to-Work-PDFDrive-.pdf" },
+      { title: "The Big Book Of Team Culture", author: "Activ Collab", url: "https://app.mantracare.com/wp-content/uploads/2024/12/TheBigBookOfTeamCulture.pdf" },
     ],
   },
 
