@@ -1183,7 +1183,7 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
 };
 
 // Special exercise IDs that use dedicated components
-export const specialExercises: Record<string, "quiz" | "checkin" | "planner" | "procrastinating" | "get-motivated" | "intuition" | "love-loathe" | "discover-yourself" | "gratitude-diary" | "wacky-wild-goal" | "big-rocks" | "rocking-chair"> = {
+export const specialExercises: Record<string, "quiz" | "checkin" | "planner" | "procrastinating" | "get-motivated" | "intuition" | "love-loathe" | "discover-yourself" | "gratitude-diary" | "wacky-wild-goal" | "big-rocks" | "rocking-chair" | "smart-goals"> = {
   "Self-Care Quiz": "quiz",
   "Self-care List": "checkin",
   "Success Planner": "planner",
@@ -1196,6 +1196,7 @@ export const specialExercises: Record<string, "quiz" | "checkin" | "planner" | "
   "Wacky Wild Goal": "wacky-wild-goal",
   "Big & Little Rocks": "big-rocks",
   "Rocking Chair": "rocking-chair",
+  "SMART! Goals": "smart-goals",
 };
 
 // Map exercise titles to template IDs
@@ -1234,4 +1235,9 @@ export const exerciseTitleToTemplateId: Record<string, string> = {
   "Alternate Uses": "alternate-uses",
   "My Day": "my-day",
   "Compound Collaborative": "compound-collaborative",
+  "Reminder List": "reminder-list",
+  "Intake Questions": "intake-questions",
+  "Take Stock – Take Action!": "take-stock-take-action",
+  "Reclaim Your Power": "reclaim-your-power",
+  "My Spheres of Influence": "spheres-of-influence",
 };
