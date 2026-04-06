@@ -40,7 +40,7 @@ export const resourcesContent: Record<string, AreaResources> = {
       { text: "Start by doing what is necessary, then what is possible, and suddenly you are doing the impossible.", author: "Francis of Assisi", borderColor: "hsl(185,60%,45%)", bgColor: "hsl(185,60%,97%)" },
     ],
     ebooks: [
-      { title: "Career Coaching", author: "Jody Michael Associates" },
+      { title: "Career Coaching", author: "Jody Michael Associates", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Career-Coaching-Ebook-FINAL.pdf" },
       { title: "80/20 Rule Personal Excellence", author: "Celestine Chua" },
       { title: "101 Ways To Be A Better Person", author: "Celestine Chua" },
       { title: "Worklife Reset", author: "Cindy Atlee & Dana Theus" },
