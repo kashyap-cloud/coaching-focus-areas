@@ -734,6 +734,57 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
       },
     ],
   },
+
+  // ── Finance ──
+  "financial-goals-chart": {
+    id: "financial-goals-chart",
+    title: "Financial Goals Chart",
+    description:
+      "This exercise helps to map out your monetary aspirations. It outlines short and long-term objectives, such as savings, investments, and debt management. This chart helps you track progress, set priorities, and stay focused on achieving financial milestones for greater stability and success.",
+    fields: [
+      { id: "budgeting-status", label: "Current status", subtitle: "", color: "hsl(0,80%,55%)" },
+      { id: "budgeting-goal", label: "Goal", color: "hsl(0,80%,55%)" },
+      { id: "budgeting-date", label: "Date to achieve goal", color: "hsl(0,80%,55%)" },
+      { id: "budgeting-steps", label: "Steps needed to achieve goal", color: "hsl(0,80%,55%)" },
+      { id: "budgeting-accountability", label: "Accountability: Who will help me reach the goal?", color: "hsl(0,80%,55%)" },
+
+      { id: "banking-status", label: "Current status", color: "hsl(210,75%,50%)" },
+      { id: "banking-goal", label: "Goal", color: "hsl(210,75%,50%)" },
+      { id: "banking-date", label: "Date to achieve goal", color: "hsl(210,75%,50%)" },
+      { id: "banking-steps", label: "Steps needed to achieve goal", color: "hsl(210,75%,50%)" },
+      { id: "banking-accountability", label: "Accountability: Who will help me reach the goal?", color: "hsl(210,75%,50%)" },
+
+      { id: "credit-status", label: "Current status", color: "hsl(175,60%,40%)" },
+      { id: "credit-goal", label: "Goal", color: "hsl(175,60%,40%)" },
+      { id: "credit-date", label: "Date to achieve goal", color: "hsl(175,60%,40%)" },
+      { id: "credit-steps", label: "Steps needed to achieve goal", color: "hsl(175,60%,40%)" },
+      { id: "credit-accountability", label: "Accountability: Who will help me reach the goal?", color: "hsl(175,60%,40%)" },
+
+      { id: "debt-status", label: "Current status", color: "hsl(350,70%,55%)" },
+      { id: "debt-goal", label: "Goal", color: "hsl(350,70%,55%)" },
+      { id: "debt-date", label: "Date to achieve goal", color: "hsl(350,70%,55%)" },
+      { id: "debt-steps", label: "Steps needed to achieve goal", color: "hsl(350,70%,55%)" },
+      { id: "debt-accountability", label: "Accountability: Who will help me reach the goal?", color: "hsl(350,70%,55%)" },
+
+      { id: "saving-status", label: "Current status", color: "hsl(30,90%,55%)" },
+      { id: "saving-goal", label: "Goal", color: "hsl(30,90%,55%)" },
+      { id: "saving-date", label: "Date to achieve goal", color: "hsl(30,90%,55%)" },
+      { id: "saving-steps", label: "Steps needed to achieve goal", color: "hsl(30,90%,55%)" },
+      { id: "saving-accountability", label: "Accountability: Who will help me reach the goal?", color: "hsl(30,90%,55%)" },
+
+      { id: "tax-status", label: "Current status", color: "hsl(265,55%,45%)" },
+      { id: "tax-goal", label: "Goal", color: "hsl(265,55%,45%)" },
+      { id: "tax-date", label: "Date to achieve goal", color: "hsl(265,55%,45%)" },
+      { id: "tax-steps", label: "Steps needed to achieve goal", color: "hsl(265,55%,45%)" },
+      { id: "tax-accountability", label: "Accountability: Who will help me reach the goal?", color: "hsl(265,55%,45%)" },
+    ],
+  },
+};
+
+// Special exercise IDs that use dedicated components
+export const specialExercises: Record<string, "quiz" | "checkin"> = {
+  "Self-Care Quiz": "quiz",
+  "Self-care List": "checkin",
 };
 
 // Map exercise titles to template IDs
@@ -749,6 +800,7 @@ export const exerciseTitleToTemplateId: Record<string, string> = {
   "Urgent vs. Important": "urgent-vs-important",
   "Plan, Do and Review": "plan-do-review",
   "My Money Priorities": "my-money-priorities",
+  "Financial Goals Chart": "financial-goals-chart",
   "Unstick Yourself!": "unstick-yourself",
   "Love Your Weaknesses": "love-your-weaknesses",
   "Build a Bridge": "build-a-bridge",
