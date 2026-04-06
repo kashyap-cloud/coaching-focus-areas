@@ -454,7 +454,6 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
       },
     ],
   },
-  },
 
   // ── Spiritual ──
   "mentor-magic": {
