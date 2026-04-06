@@ -895,7 +895,7 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
 };
 
 // Special exercise IDs that use dedicated components
-export const specialExercises: Record<string, "quiz" | "checkin" | "planner" | "procrastinating" | "get-motivated" | "intuition" | "love-loathe"> = {
+export const specialExercises: Record<string, "quiz" | "checkin" | "planner" | "procrastinating" | "get-motivated" | "intuition" | "love-loathe" | "discover-yourself" | "gratitude-diary" | "wacky-wild-goal" | "big-rocks"> = {
   "Self-Care Quiz": "quiz",
   "Self-care List": "checkin",
   "Success Planner": "planner",
@@ -903,6 +903,10 @@ export const specialExercises: Record<string, "quiz" | "checkin" | "planner" | "
   "Get Motivated!": "get-motivated",
   "Intuition Exercise": "intuition",
   "Love And Loathe List": "love-loathe",
+  "Discover Yourself": "discover-yourself",
+  "Gratitude Diary": "gratitude-diary",
+  "Wacky Wild Goal": "wacky-wild-goal",
+  "Big & Little Rocks": "big-rocks",
 };
 
 // Map exercise titles to template IDs
