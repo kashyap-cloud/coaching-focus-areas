@@ -1,0 +1,343 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLeft, History, Clock, ChevronDown, ChevronUp, ChevronRight, ChevronLeft, Send } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "@/hooks/use-toast";
+
+export interface CheckinCategory {
+  label: string;
+  color: string;
+}
+
+export interface CheckinTemplate {
+  id: string;
+  title: string;
+  description: string;
+  categories: CheckinCategory[];
+}
+
+interface HistoryEntry {
+  id: string;
+  date: string;
+  responses: Record<string, { score: number; need: string }>;
+}
+
+interface Props {
+  template: CheckinTemplate;
+  onBack: () => void;
+}
+
+const SelfCareCheckinExercise = ({ template, onBack }: Props) => {
+  const storageKey = `checkin-history-${template.id}`;
+  const [currentStep, setCurrentStep] = useState(0);
+  const [responses, setResponses] = useState<Record<string, { score: number; need: string }>>({});
+  const [showHistory, setShowHistory] = useState(false);
+  const [expandedEntry, setExpandedEntry] = useState<string | null>(null);
+  const [showResults, setShowResults] = useState(false);
+
+  const getHistory = (): HistoryEntry[] => {
+    try {
+      return JSON.parse(localStorage.getItem(storageKey) || "[]");
+    } catch {
+      return [];
+    }
+  };
+
+  const history = getHistory();
+  const category = template.categories[currentStep];
+  const total = template.categories.length;
+  const isFirst = currentStep === 0;
+  const isLast = currentStep === total - 1;
+
+  const currentResponse = responses[category.label] || { score: 5, need: "" };
+
+  const handleScoreChange = (score: number) => {
+    setResponses((prev) => ({
+      ...prev,
+      [category.label]: { ...currentResponse, score },
+    }));
+  };
+
+  const handleNeedChange = (need: string) => {
+    setResponses((prev) => ({
+      ...prev,
+      [category.label]: { ...currentResponse, need },
+    }));
+  };
+
+  const handleNext = () => {
+    if (isLast) {
+      handleSubmit();
+    } else {
+      setCurrentStep((s) => s + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (!isFirst) setCurrentStep((s) => s - 1);
+  };
+
+  const handleSubmit = () => {
+    const entry: HistoryEntry = {
+      id: Date.now().toString(),
+      date: new Date().toLocaleString(),
+      responses,
+    };
+    const prev = getHistory();
+    localStorage.setItem(storageKey, JSON.stringify([entry, ...prev].slice(0, 50)));
+    setShowResults(true);
+    toast({ title: "Check-in saved!" });
+  };
+
+  const resetCheckin = () => {
+    setResponses({});
+    setCurrentStep(0);
+    setShowResults(false);
+  };
+
+  if (showResults) {
+    const avgScore =
+      Object.values(responses).length > 0
+        ? Math.round(Object.values(responses).reduce((sum, r) => sum + r.score, 0) / Object.values(responses).length * 10) / 10
+        : 0;
+
+    return (
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        className="flex flex-col gap-5 pb-8"
+      >
+        <div className="flex items-center gap-3">
+          <button
+            onClick={onBack}
+            className="flex h-10 w-10 items-center justify-center rounded-xl bg-card coaching-card-shadow transition-all hover:coaching-card-shadow-hover"
+          >
+            <ArrowLeft className="h-5 w-5 text-foreground" />
+          </button>
+          <h1 className="text-xl font-bold text-foreground">{template.title} — Summary</h1>
+        </div>
+
+        <div className="rounded-2xl border border-border bg-card p-6 coaching-card-shadow">
+          <div className="text-center mb-6">
+            <p className="text-4xl font-bold text-primary mb-1">{avgScore}</p>
+            <p className="text-sm text-muted-foreground">Average Score out of 10</p>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            {template.categories.map((cat) => {
+              const resp = responses[cat.label];
+              return (
+                <div key={cat.label} className="rounded-xl border border-border bg-background p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="text-sm font-bold" style={{ color: cat.color }}>{cat.label}</p>
+                    <span className="text-lg font-bold text-foreground">{resp?.score ?? "—"}</span>
+                  </div>
+                  <div className="h-2 rounded-full bg-muted overflow-hidden">
+                    <div
+                      className="h-full rounded-full transition-all"
+                      style={{ width: `${(resp?.score ?? 0) * 10}%`, backgroundColor: cat.color }}
+                    />
+                  </div>
+                  {resp?.need && (
+                    <p className="mt-2 text-xs text-muted-foreground italic">"{resp.need}"</p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <button
+          onClick={resetCheckin}
+          className="flex items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-bold text-primary-foreground transition-all hover:opacity-90 coaching-card-shadow"
+        >
+          Do Another Check-In
+        </button>
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 40 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -40 }}
+      transition={{ duration: 0.3 }}
+      className="flex flex-col gap-5 pb-8"
+    >
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <button
+            onClick={onBack}
+            className="flex h-10 w-10 items-center justify-center rounded-xl bg-card coaching-card-shadow transition-all hover:coaching-card-shadow-hover"
+          >
+            <ArrowLeft className="h-5 w-5 text-foreground" />
+          </button>
+          <h1 className="text-xl font-bold text-foreground">{template.title}</h1>
+        </div>
+        <button
+          onClick={() => setShowHistory(!showHistory)}
+          className="flex items-center gap-2 rounded-xl bg-card px-4 py-2.5 text-sm font-semibold coaching-card-shadow transition-all hover:coaching-card-shadow-hover"
+        >
+          <History className="h-4 w-4 text-primary" />
+          <span className="text-foreground">History</span>
+          {history.length > 0 && (
+            <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-primary px-1.5 text-[10px] font-bold text-primary-foreground">
+              {history.length}
+            </span>
+          )}
+        </button>
+      </div>
+
+      {/* Description */}
+      <p className="text-sm leading-relaxed text-muted-foreground">{template.description}</p>
+
+      {/* Progress */}
+      <div className="flex items-center gap-3">
+        <div className="flex-1 h-2 rounded-full bg-muted overflow-hidden">
+          <motion.div
+            className="h-full bg-primary rounded-full"
+            animate={{ width: `${((currentStep + 1) / total) * 100}%` }}
+            transition={{ duration: 0.3 }}
+          />
+        </div>
+        <span className="text-xs font-semibold text-muted-foreground">{currentStep + 1}/{total}</span>
+      </div>
+
+      {/* History Panel */}
+      {showHistory && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          className="rounded-2xl border border-border bg-card p-4 coaching-card-shadow"
+        >
+          <h3 className="mb-3 flex items-center gap-2 text-sm font-bold text-foreground">
+            <Clock className="h-4 w-4 text-primary" />
+            Previous Check-Ins
+          </h3>
+          {history.length === 0 ? (
+            <p className="text-sm text-muted-foreground py-4 text-center">No history yet.</p>
+          ) : (
+            <div className="flex flex-col gap-2 max-h-80 overflow-y-auto">
+              {history.map((entry) => {
+                const avg = Object.values(entry.responses).length > 0
+                  ? Math.round(Object.values(entry.responses).reduce((s, r) => s + r.score, 0) / Object.values(entry.responses).length * 10) / 10
+                  : 0;
+                return (
+                  <button
+                    key={entry.id}
+                    onClick={() => setExpandedEntry(expandedEntry === entry.id ? null : entry.id)}
+                    className="w-full rounded-xl border border-border bg-background p-3 text-left transition-all hover:bg-muted/50"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-medium text-muted-foreground">{entry.date}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold text-primary">Avg: {avg}</span>
+                        {expandedEntry === entry.id ? (
+                          <ChevronUp className="h-4 w-4 text-muted-foreground" />
+                        ) : (
+                          <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                        )}
+                      </div>
+                    </div>
+                    {expandedEntry === entry.id && (
+                      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-3 flex flex-col gap-1.5">
+                        {Object.entries(entry.responses).map(([key, val]) => (
+                          <div key={key} className="flex items-center justify-between text-sm">
+                            <span className="text-foreground">{key}</span>
+                            <span className="font-bold text-primary">{val.score}/10</span>
+                          </div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </motion.div>
+      )}
+
+      {/* Category Card */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentStep}
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -30 }}
+          transition={{ duration: 0.2 }}
+          className="rounded-2xl border border-border bg-card p-6 coaching-card-shadow"
+        >
+          <h3 className="text-lg font-bold mb-4" style={{ color: category.color }}>
+            {category.label}
+          </h3>
+
+          {/* Score slider */}
+          <div className="mb-5">
+            <div className="flex items-center justify-between mb-2">
+              <p className="text-sm font-medium text-foreground">Rate yourself (1-10)</p>
+              <span className="text-2xl font-bold text-primary">{currentResponse.score}</span>
+            </div>
+            <input
+              type="range"
+              min={1}
+              max={10}
+              value={currentResponse.score}
+              onChange={(e) => handleScoreChange(Number(e.target.value))}
+              className="w-full h-2 rounded-full appearance-none bg-muted accent-primary cursor-pointer"
+            />
+            <div className="flex justify-between mt-1">
+              <span className="text-[10px] text-muted-foreground">Low</span>
+              <span className="text-[10px] text-muted-foreground">High</span>
+            </div>
+          </div>
+
+          {/* Need text */}
+          <div>
+            <p className="text-sm font-bold text-foreground mb-2">What do I need? Or what would raise my score?</p>
+            <Textarea
+              value={currentResponse.need}
+              onChange={(e) => handleNeedChange(e.target.value)}
+              placeholder="Write your thoughts..."
+              className="min-h-[100px] rounded-xl border-border bg-background resize-y text-sm"
+            />
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Navigation */}
+      <div className="flex gap-3">
+        {!isFirst && (
+          <motion.button
+            whileTap={{ scale: 0.98 }}
+            onClick={handlePrev}
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-muted py-3.5 text-sm font-bold text-foreground transition-all hover:bg-muted/80"
+          >
+            <ChevronLeft className="h-4 w-4" />
+            Previous
+          </motion.button>
+        )}
+        <motion.button
+          whileTap={{ scale: 0.98 }}
+          onClick={handleNext}
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-bold text-primary-foreground transition-all hover:opacity-90 coaching-card-shadow"
+        >
+          {isLast ? (
+            <>
+              <Send className="h-4 w-4" />
+              Submit
+            </>
+          ) : (
+            <>
+              Next
+              <ChevronRight className="h-4 w-4" />
+            </>
+          )}
+        </motion.button>
+      </div>
+    </motion.div>
+  );
+};
+
+export default SelfCareCheckinExercise;
