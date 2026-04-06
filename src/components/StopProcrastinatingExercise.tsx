@@ -4,6 +4,7 @@ import { ArrowLeft, History, Clock, ChevronDown, ChevronUp, Send, Plus, X } from
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import SuccessDialog from "@/components/SuccessDialog";
 
 interface HistoryEntry {
   id: string;
@@ -49,6 +50,7 @@ const StopProcrastinatingExercise = ({ onBack }: Props) => {
   const [tableValues, setTableValues] = useState<Record<string, string[][]>>({});
   const [showHistory, setShowHistory] = useState(false);
   const [expandedEntry, setExpandedEntry] = useState<string | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const getHistory = (): HistoryEntry[] => {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch { return []; }
@@ -99,7 +101,7 @@ const StopProcrastinatingExercise = ({ onBack }: Props) => {
     const entry: HistoryEntry = { id: Date.now().toString(), date: new Date().toLocaleString(), fields: merged };
     localStorage.setItem(STORAGE_KEY, JSON.stringify([entry, ...getHistory()].slice(0, 50)));
     setValues({}); setListValues({}); setTableValues({}); setPage(0);
-    toast({ title: "Stop Procrastinating entry saved!" });
+    setShowSuccess(true);
   };
 
   const renderHistoryValue = (raw: string | undefined) => {
@@ -274,6 +276,8 @@ const StopProcrastinatingExercise = ({ onBack }: Props) => {
           </motion.button>
         )}
       </div>
+    
+      <SuccessDialog open={showSuccess} onClose={() => setShowSuccess(false)} />
     </motion.div>
   );
 };

@@ -4,6 +4,7 @@ import { ArrowLeft, History, Clock, ChevronDown, ChevronUp, Send, Plus, X, Chevr
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import SuccessDialog from "@/components/SuccessDialog";
 
 interface HistoryEntry {
   id: string;
@@ -26,6 +27,7 @@ const DiscoverYourselfExercise = ({ onBack }: Props) => {
   const [values, setValues] = useState<Record<string, string>>({});
   const [showHistory, setShowHistory] = useState(false);
   const [expandedEntry, setExpandedEntry] = useState<string | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const getHistory = (): HistoryEntry[] => {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch { return []; }
@@ -65,7 +67,7 @@ const DiscoverYourselfExercise = ({ onBack }: Props) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify([entry, ...getHistory()].slice(0, 50)));
     setQualities(["", ""]); setBridge1(["", ""]); setBridge2(["", ""]); setBridge3(["", ""]);
     setValues({}); setPage(0);
-    toast({ title: "Saved successfully!" });
+    setShowSuccess(true);
   };
 
   const renderListField = (label: string, list: string[], setList: (v: string[]) => void) => (
@@ -221,6 +223,8 @@ At the end of your journey you will have 10% of your qualities left – I wonder
           </motion.button>
         )}
       </div>
+    
+      <SuccessDialog open={showSuccess} onClose={() => setShowSuccess(false)} />
     </motion.div>
   );
 };

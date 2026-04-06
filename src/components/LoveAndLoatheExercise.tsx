@@ -4,6 +4,7 @@ import { ArrowLeft, History, Clock, ChevronDown, ChevronUp, Send, Plus, X, Chevr
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import SuccessDialog from "@/components/SuccessDialog";
 
 interface HistoryEntry {
   id: string;
@@ -27,6 +28,7 @@ const LoveAndLoatheExercise = ({ onBack }: Props) => {
   const [increaseItems, setIncreaseItems] = useState<string[]>([""]);
   const [showHistory, setShowHistory] = useState(false);
   const [expandedEntry, setExpandedEntry] = useState<string | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const getHistory = (): HistoryEntry[] => {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch { return []; }
@@ -66,7 +68,7 @@ const LoveAndLoatheExercise = ({ onBack }: Props) => {
     setReduceItems([""]);
     setIncreaseItems([""]);
     setPage(0);
-    toast({ title: "Saved successfully!" });
+    setShowSuccess(true);
   };
 
   const description = "Get happier at work- or in your personal life. This deceptively simple exercise helps you bring more of what you love and cut out you 'loathe'.";
@@ -270,6 +272,8 @@ const LoveAndLoatheExercise = ({ onBack }: Props) => {
           <div key={p} className={`h-2 rounded-full transition-all ${page === p ? "w-6 bg-primary" : "w-2 bg-muted-foreground/30"}`} />
         ))}
       </div>
+    
+      <SuccessDialog open={showSuccess} onClose={() => setShowSuccess(false)} />
     </motion.div>
   );
 };

@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import type { ExerciseTemplate } from "@/data/exerciseTemplates";
 import { toast } from "@/hooks/use-toast";
+import SuccessDialog from "@/components/SuccessDialog";
 
 interface HistoryEntry {
   id: string;
@@ -25,6 +26,7 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
   const [ratedValues, setRatedValues] = useState<Record<string, Record<string, string>>>({});
   const [showHistory, setShowHistory] = useState(false);
   const [expandedEntry, setExpandedEntry] = useState<string | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const getHistory = (): HistoryEntry[] => {
     try {
@@ -137,7 +139,7 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
     setListValues({});
     setTableValues({});
     setRatedValues({});
-    toast({ title: "Saved successfully!" });
+    setShowSuccess(true);
   };
 
   const renderHistoryValue = (raw: string | undefined) => {
@@ -490,7 +492,9 @@ function TableField({
             </button>
           )}
           {rows.length <= 1 && <div className="w-8 shrink-0" />}
-        </motion.div>
+        
+      <SuccessDialog open={showSuccess} onClose={() => setShowSuccess(false)} />
+    </motion.div>
       ))}
       <button
         onClick={onAdd}
