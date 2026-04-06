@@ -977,6 +977,116 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
       { id: "insights", label: "What insights have you gained from this exercise?", color: "hsl(350,70%,55%)", type: "text" },
     ],
   },
+
+  // ── Organization ──
+  "career-discovery": {
+    id: "career-discovery",
+    title: "Career Discovery",
+    description:
+      "Below are 21 thoughtful questions designed to stimulate your thinking and help you look for the threads and patterns that weave throughout your life. These threads may point to possible careers, or they may simply be qualities to build into your work-life.",
+    importantNote:
+      "INSTRUCTIONS:\n• These questions will take time. So answer a few, then take a break when you get tired or stop enjoying the process.\n• It's helpful to take quiet time so you enjoy this process. Then you can answer each question as clearly and thoughtfully as possible, expressing your best response – and one that connects you to your deepest truth.\n• A few words or sentences can be enough, but often the 'gems' are found in the detail. And sometimes, just when we think we're finished, we pause and reflect, and a great new idea pops up – so be as thorough as you can.\n• Finally, if you find you're repeating answers in different questions – GREAT! Keep going! This is exactly what we're looking for – the common and repeating threads that keep popping up and can't be ignored.",
+    fields: [
+      { id: "grew-up-wanted", label: "When you were younger, what did you want to be when you grew up?", subtitle: "Consider this from as far back as you can remember. Write down as much detail as you can – however boring, silly or outrageous. Start with I remember ...", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "attracted-at-time", label: "What attracted you, at the time, to these careers or occupations?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "still-attractive", label: "Knowing what you know now, which careers – or part of them – are still:\ni) attractive - and why?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "now-unattractive", label: "ii) are now unattractive - and why?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "work-currently", label: "What aspects of these careers (whether good or bad) do you have in your work:\ni) currently", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "work-past", label: "ii) in past roles", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "enjoy-at-work", label: "How do you currently enjoy yourself at work? What are you doing and how are you being that makes this so?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "lottery-what", label: "If you won the lottery and became a multi-millionaire and could choose to be or do anything\ni) what would you be and what would you do with your time?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "lottery-attracts", label: "ii) what attracts you to these areas above? Answer as fully as you can:", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "hobbies-past", label: "What hobbies or interests have you had in the past (from your earliest rememberings to now)?\nStart with I remember ...", color: "hsl(0,80%,55%)", type: "text" },
+      { id: "hobbies-now", label: "What hobbies or interests do you have now?", color: "hsl(0,80%,55%)", type: "text" },
+      { id: "hobbies-time", label: "What hobbies or interests would you take up if you had more:\ni) Time?", color: "hsl(0,80%,55%)", type: "text" },
+      { id: "hobbies-money", label: "ii) Money", color: "hsl(0,80%,55%)", type: "text" },
+      { id: "hobbies-freedom", label: "iii) Freedom", color: "hsl(0,80%,55%)", type: "text" },
+      { id: "hobbies-attracts", label: "What attracts you to the various hobbies and interests you mention above?", color: "hsl(0,80%,55%)", type: "text" },
+      { id: "love-working-with", label: "Who have you (in the past) or do you (currently) really love working with?", color: "hsl(265,55%,45%)", type: "text" },
+      { id: "people-qualities", label: "What qualities do these people have? What qualities do they have in common?", color: "hsl(265,55%,45%)", type: "text" },
+      { id: "find-people", label: "Where might you find people with these qualities?", color: "hsl(265,55%,45%)", type: "text" },
+      { id: "your-qualities", label: "Which of your qualities do you most enjoy using?", color: "hsl(265,55%,45%)", type: "text" },
+      { id: "given-up", label: "If there was something you had given up on in your life, what would it be?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "your-dream", label: "What is your dream?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "rest-of-life", label: "What do you want the rest of your life to be about?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "want-from-work", label: "Deep down, what do you really, really want from your work life?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "no-obstacles", label: "What would you do next if there was no obstacles whatsoever?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "10-15-20-years", label: "What do you want to be doing with your life in 10, 15, and 20 years' time?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "common-threads", label: "Finally, review the answers to all your questions above. Then list out the common threads, themes, building blocks or key pieces of information you observe below:", color: "hsl(210,75%,50%)", type: "list" },
+      { id: "really-helpful", label: "What is really helpful and why?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "ponder-more", label: "What would you like to ponder on more?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "feel-differently", label: "How do you feel differently now about your goal or decision?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "values-reflected", label: "What values (things that are really important to you) can you see reflected in your responses?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "biggest-win", label: "What is your biggest win for completing this exercise?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "next-steps", label: "Finally, what will you do with this information? What are your next steps?", color: "hsl(30,90%,55%)", type: "table", columns: ["Action", "by When"] },
+    ],
+  },
+
+  "priority-matrix": {
+    id: "priority-matrix",
+    title: "Action/Priority Matrix",
+    description:
+      "Would you like to be more productive with the time you have? Achieve more with less effort? Delegate time-consuming tasks? Well, you can! Achieve more by identifying QUICK Win Tasks that are LOW Effort yet HIGH Impact, and letting go of Hard SLOGS: HIGH Effort, LOW Impact tasks.",
+    importantNote:
+      "INSTRUCTIONS:\nMany of us spend time on big project tasks. But what quick wins could focus on or let go of that would maximize your productivity? Use the empty spaces below to review your task-list and see what you learn.\n\n• Mention the % of time you currently spend in each state. Where do you spend most of your time?\n• Review your tasks for the week and then assign them to the states below.",
+    fields: [
+      { id: "quick-wins", label: "HIGH Impact, LOW Effort (Easy): QUICK Wins!", subtitle: "Spend 5 mins brainstorming these every week. Do as many as you can, identify one to complete daily!", color: "hsl(175,60%,40%)", type: "list" },
+      { id: "quick-wins-time", label: "Time Spent:", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "big-projects", label: "HIGH Impact, HIGH Effort (Hard): Big PROJECTS", subtitle: "Block out time to do the work. Plan and clarify required outputs. Break down tasks into smaller chunks.", color: "hsl(210,75%,50%)", type: "list" },
+      { id: "big-projects-time", label: "Time Spent:", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "filler-tasks", label: "LOW Impact, LOW Effort: FILLER Tasks", subtitle: "First ask: Is this low impact task really necessary? Use these to fill 15-30min gaps or take breaks from bigger tasks.", color: "hsl(30,90%,55%)", type: "list" },
+      { id: "filler-tasks-time", label: "Time Spent:", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "hard-slogs", label: "LOW Impact, HIGH Effort: Hard SLOGS!", subtitle: "Is this task really necessary? Who could you delegate to? Break it into smaller pieces if you HAVE to do it.", color: "hsl(350,70%,55%)", type: "list" },
+      { id: "hard-slogs-time", label: "Time Spent:", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "focus-quick-wins", label: "The Quick Wins I will focus on are", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "delegate-hard-slogs", label: "The Hard Slogs I will delegate or drop are", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "other-actions", label: "Other Action's I will take are", color: "hsl(210,75%,50%)", type: "text" },
+    ],
+  },
+
+  // ── Creativity ──
+  "dictionary-story": {
+    id: "dictionary-story",
+    title: "Dictionary Story",
+    description:
+      "Discovering how to weave a captivating and unified narrative from seemingly disparate elements can enhance your skill in establishing connections and melding unrelated ideas.\n\nSelect a word at random from the dictionary. Use the word you chose, the word above it and the word below it to create a short story.",
+    fields: [
+      { id: "selected-word", label: "Selected Word from Dictionary:", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "your-story", label: "Your Story", subtitle: "You can start with Once upon a time, Long time ago....", color: "hsl(175,60%,40%)", type: "text" },
+    ],
+  },
+
+  "alternate-uses": {
+    id: "alternate-uses",
+    title: "Alternate Uses",
+    description:
+      "Alternate uses is an exercise that encourages divergent thinking – the ability to generate ideas or solutions from a single idea or a piece of information. This skill is thought to be one of the most important factors of creativity.\n\nThe Alternate Uses exercise requires you to come up with as many ideas as possible of how to use a given item, with a limit of 3 minutes. A great thing about it is that the more you practice, the easier it gets, because your mind starts to apply this way of thinking to any situation of life automatically.",
+    fields: [
+      { id: "object", label: "What is the object that came to your mind?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "ideas", label: "Come up with as many ideas as possible of how to use the above item", color: "hsl(175,60%,40%)", type: "list" },
+    ],
+  },
+
+  "my-day": {
+    id: "my-day",
+    title: "My Day",
+    description:
+      "Compose a poetic reflection on your day, drawing inspiration from the distinctive style of your preferred poet or adhering to the structured format of a classic poem such as a sonnet or haiku. The discipline of adhering to a defined structure compels you to seek the perfect words or phrases that seamlessly fit the constraints, thereby enhancing your proficiency in the art of writing.",
+    fields: [
+      { id: "my-day-poem", label: "My Day", color: "hsl(265,55%,45%)", type: "text" },
+    ],
+  },
+
+  "compound-collaborative": {
+    id: "compound-collaborative",
+    title: "Compound Collaborative",
+    description:
+      "Discovering how to weave a captivating and unified narrative from seemingly disparate elements can enhance your skill in establishing connections and melding unrelated ideas.\n\nSelect a word at random from the dictionary. Use the word you chose, the word above it and the word below it to create a short story.",
+    fields: [
+      { id: "compound-word", label: "Your Compound Word:", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "your-story", label: "Start Your Story Here:", subtitle: "You can start with Once upon a time, A long time ago...", color: "hsl(175,60%,40%)", type: "text" },
+    ],
+  },
 };
 
 // Special exercise IDs that use dedicated components
@@ -1024,4 +1134,11 @@ export const exerciseTitleToTemplateId: Record<string, string> = {
   "Goals Motivator": "goals-motivator",
   "35 Questions to Ponder": "35-questions-to-ponder",
   "The Softened Start-Up": "softened-start-up",
+  "Career Discovery": "career-discovery",
+  "Priority Matrix": "priority-matrix",
+  "Expand Your Mind": "career-discovery",
+  "Dictionary Story": "dictionary-story",
+  "Alternate Uses": "alternate-uses",
+  "My Day": "my-day",
+  "Compound Collaborative": "compound-collaborative",
 };
