@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, BookOpenCheck, Download } from "lucide-react";
+import { ArrowLeft, BookOpenCheck } from "lucide-react";
 import { icons } from "lucide-react";
 import type { AreaResources } from "@/data/resourcesContent";
 
@@ -114,7 +114,7 @@ const ResourceDetail = ({ resourceType, resources, onBack }: Props) => {
                     <p className="text-sm font-bold text-foreground">{book.title}</p>
                     <p className="mt-1 text-xs font-semibold text-primary">– by {book.author}</p>
                   </div>
-                  <Download className="h-5 w-5 shrink-0 text-primary" />
+                  <span className="shrink-0 text-xs font-semibold text-primary whitespace-nowrap">Read Now →</span>
                 </Wrapper>
               </motion.div>
             );

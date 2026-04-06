@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, History, Clock, ChevronDown, ChevronUp, ChevronRight, ChevronLeft } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import SuccessDialog from "@/components/SuccessDialog";
 
 export interface QuizQuestion {
   text: string;
@@ -34,6 +35,7 @@ const SelfCareQuizExercise = ({ template, onBack }: Props) => {
   const [showHistory, setShowHistory] = useState(false);
   const [expandedEntry, setExpandedEntry] = useState<string | null>(null);
   const [showResults, setShowResults] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const getHistory = (): HistoryEntry[] => {
     try {
@@ -83,7 +85,7 @@ const SelfCareQuizExercise = ({ template, onBack }: Props) => {
     const prev = getHistory();
     localStorage.setItem(storageKey, JSON.stringify([entry, ...prev].slice(0, 50)));
     setShowResults(true);
-    toast({ title: "Quiz completed!" });
+    setShowSuccess(true);
   };
 
   const resetQuiz = () => {
@@ -193,11 +195,6 @@ const SelfCareQuizExercise = ({ template, onBack }: Props) => {
         >
           <History className="h-4 w-4 text-primary" />
           <span className="text-foreground">History</span>
-          {history.length > 0 && (
-            <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-primary px-1.5 text-[10px] font-bold text-primary-foreground">
-              {history.length}
-            </span>
-          )}
         </button>
       </div>
 
@@ -344,6 +341,8 @@ const SelfCareQuizExercise = ({ template, onBack }: Props) => {
           {!isLast && <ChevronRight className="h-4 w-4" />}
         </motion.button>
       </div>
+    
+      <SuccessDialog open={showSuccess} onClose={() => setShowSuccess(false)} title="Quiz Completed!" message="Great job! Your results have been saved. You can view your past quiz results anytime in the History section." />
     </motion.div>
   );
 };

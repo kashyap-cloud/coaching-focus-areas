@@ -4,6 +4,7 @@ import { ArrowLeft, History, Clock, ChevronDown, ChevronUp, Send, Plus, X, Chevr
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import SuccessDialog from "@/components/SuccessDialog";
 
 interface HistoryEntry {
   id: string;
@@ -23,6 +24,7 @@ const SmartGoalsExercise = ({ onBack }: Props) => {
   const [actions, setActions] = useState<{ action: string; byWhen: string }[]>([{ action: "", byWhen: "" }]);
   const [showHistory, setShowHistory] = useState(false);
   const [expandedEntry, setExpandedEntry] = useState<string | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const getHistory = (): HistoryEntry[] => {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch { return []; }
@@ -43,7 +45,7 @@ const SmartGoalsExercise = ({ onBack }: Props) => {
     const entry: HistoryEntry = { id: Date.now().toString(), date: new Date().toLocaleString(), data };
     localStorage.setItem(STORAGE_KEY, JSON.stringify([entry, ...getHistory()].slice(0, 50)));
     setValues({}); setActions([{ action: "", byWhen: "" }]); setPage(0);
-    toast({ title: "Saved successfully!" });
+    setShowSuccess(true);
   };
 
   const renderHistoryValue = (raw: string) => {
@@ -69,7 +71,6 @@ const SmartGoalsExercise = ({ onBack }: Props) => {
         </div>
         <button onClick={() => setShowHistory(!showHistory)} className="flex items-center gap-2 rounded-xl bg-card px-4 py-2.5 text-sm font-semibold coaching-card-shadow transition-all hover:coaching-card-shadow-hover">
           <History className="h-4 w-4 text-primary" /><span className="text-foreground">History</span>
-          {history.length > 0 && <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-primary px-1.5 text-[10px] font-bold text-primary-foreground">{history.length}</span>}
         </button>
       </div>
 
@@ -228,6 +229,8 @@ const SmartGoalsExercise = ({ onBack }: Props) => {
           </motion.button>
         )}
       </div>
+    
+      <SuccessDialog open={showSuccess} onClose={() => setShowSuccess(false)} />
     </motion.div>
   );
 };

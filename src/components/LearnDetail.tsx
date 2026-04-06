@@ -32,24 +32,25 @@ const LearnDetail = ({ article, onBack }: Props) => {
       {/* Content */}
       <div className="flex flex-col gap-4">
         {article.paragraphs.map((paragraph, i) => {
-          // Check if it looks like a heading (short, no period at end)
           const isHeading = paragraph.length < 80 && !paragraph.endsWith(".") && !paragraph.includes("\n");
 
           if (isHeading) {
             return (
-              <motion.p
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.03 }}
-                className="text-base font-bold text-foreground italic"
+                className="mt-2"
               >
-                {paragraph}
-              </motion.p>
+                {i > 0 && <div className="mb-3 h-px bg-gradient-to-r from-primary/20 via-primary/10 to-transparent" />}
+                <p className="text-base font-bold text-foreground">
+                  {paragraph}
+                </p>
+              </motion.div>
             );
           }
 
-          // Check for numbered list
           if (paragraph.includes("\n")) {
             const lines = paragraph.split("\n");
             return (
@@ -58,7 +59,7 @@ const LearnDetail = ({ article, onBack }: Props) => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.03 }}
-                className="flex flex-col gap-1"
+                className="flex flex-col gap-2 rounded-xl bg-card/60 border border-border/50 p-4"
               >
                 {lines.map((line, j) => (
                   <p key={j} className="text-sm leading-relaxed text-muted-foreground">
@@ -69,20 +70,21 @@ const LearnDetail = ({ article, onBack }: Props) => {
             );
           }
 
-          // Check for bold label pattern like "Self-Awareness: ..."
           const boldMatch = paragraph.match(/^([A-Z][\w\s\-]+:)\s(.+)$/);
           if (boldMatch) {
             return (
-              <motion.p
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.03 }}
-                className="text-sm leading-relaxed text-muted-foreground"
+                className="rounded-xl border-l-[3px] border-primary/40 bg-card/40 py-3 pl-4 pr-3"
               >
-                <span className="font-bold text-foreground">{boldMatch[1]}</span>{" "}
-                {boldMatch[2]}
-              </motion.p>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  <span className="font-bold text-foreground">{boldMatch[1]}</span>{" "}
+                  {boldMatch[2]}
+                </p>
+              </motion.div>
             );
           }
 

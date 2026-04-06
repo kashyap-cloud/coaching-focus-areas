@@ -4,6 +4,7 @@ import { ArrowLeft, History, Clock, ChevronDown, ChevronUp, Send, Plus, X } from
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import SuccessDialog from "@/components/SuccessDialog";
 
 interface HistoryEntry {
   id: string;
@@ -22,6 +23,7 @@ const IntuitionExercise = ({ onBack }: Props) => {
   const [associations, setAssociations] = useState<string[]>([""]);
   const [showHistory, setShowHistory] = useState(false);
   const [expandedEntry, setExpandedEntry] = useState<string | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const getHistory = (): HistoryEntry[] => {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch { return []; }
@@ -47,7 +49,7 @@ const IntuitionExercise = ({ onBack }: Props) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify([entry, ...prev].slice(0, 50)));
     setValues({});
     setAssociations([""]);
-    toast({ title: "Saved successfully!" });
+    setShowSuccess(true);
   };
 
   const MEDITATION_TEXT = `I invite you to take a deep breath and when you're comfortable, perhaps begin to close your eyes.
@@ -241,6 +243,8 @@ So, now that you have your image, I invite you now to take a breath for a moment
       <motion.button whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.98 }} onClick={handleSubmit} className="flex items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-bold text-primary-foreground transition-all hover:opacity-90 coaching-card-shadow">
         <Send className="h-4 w-4" />Submit
       </motion.button>
+    
+      <SuccessDialog open={showSuccess} onClose={() => setShowSuccess(false)} />
     </motion.div>
   );
 };

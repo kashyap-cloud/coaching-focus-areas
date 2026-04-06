@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import type { ExerciseTemplate } from "@/data/exerciseTemplates";
 import { toast } from "@/hooks/use-toast";
+import SuccessDialog from "@/components/SuccessDialog";
 
 interface HistoryEntry {
   id: string;
@@ -25,6 +26,7 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
   const [ratedValues, setRatedValues] = useState<Record<string, Record<string, string>>>({});
   const [showHistory, setShowHistory] = useState(false);
   const [expandedEntry, setExpandedEntry] = useState<string | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const getHistory = (): HistoryEntry[] => {
     try {
@@ -137,7 +139,7 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
     setListValues({});
     setTableValues({});
     setRatedValues({});
-    toast({ title: "Saved successfully!" });
+    setShowSuccess(true);
   };
 
   const renderHistoryValue = (raw: string | undefined) => {
@@ -222,20 +224,17 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
         >
           <History className="h-4 w-4 text-primary" />
           <span className="text-foreground">History</span>
-          {history.length > 0 && (
-            <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-primary px-1.5 text-[10px] font-bold text-primary-foreground">
-              {history.length}
-            </span>
-          )}
         </button>
       </div>
 
       {/* Description */}
-      <p className="text-sm leading-relaxed text-muted-foreground whitespace-pre-line">{template.description}</p>
+      <div className="rounded-2xl bg-card/60 border border-border/50 p-5">
+        <p className="text-sm leading-relaxed text-muted-foreground whitespace-pre-line">{template.description}</p>
+      </div>
 
       {template.importantNote && (
-        <div className="rounded-xl border border-border bg-muted/50 p-4">
-          <p className="text-xs font-bold uppercase tracking-wider text-foreground mb-1">Important Note:</p>
+        <div className="rounded-xl border-l-[3px] border-amber-400/60 bg-amber-50/30 dark:bg-amber-900/10 p-4">
+          <p className="text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-1">Important Note:</p>
           <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{template.importantNote}</p>
         </div>
       )}
@@ -316,11 +315,12 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
                   </h2>
                 </div>
               )}
-              <h3 className="text-sm font-bold mb-1 text-foreground">
+              <h3 className="text-sm font-bold mb-1 text-foreground flex items-center gap-2">
+                <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ backgroundColor: field.color }} />
                 {field.label}
               </h3>
               {field.subtitle && (
-                <p className="text-sm font-medium text-foreground mb-2 whitespace-pre-line">{field.subtitle}</p>
+                <p className="text-sm font-medium text-muted-foreground mb-2 whitespace-pre-line">{field.subtitle}</p>
               )}
               {field.prompts && (
                 <ul className="mb-3 ml-5 flex flex-col gap-1 list-disc">
@@ -383,6 +383,7 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
         <Send className="h-4 w-4" />
         Submit
       </motion.button>
+      <SuccessDialog open={showSuccess} onClose={() => setShowSuccess(false)} />
     </motion.div>
   );
 };

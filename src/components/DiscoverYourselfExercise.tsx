@@ -4,6 +4,7 @@ import { ArrowLeft, History, Clock, ChevronDown, ChevronUp, Send, Plus, X, Chevr
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import SuccessDialog from "@/components/SuccessDialog";
 
 interface HistoryEntry {
   id: string;
@@ -26,6 +27,7 @@ const DiscoverYourselfExercise = ({ onBack }: Props) => {
   const [values, setValues] = useState<Record<string, string>>({});
   const [showHistory, setShowHistory] = useState(false);
   const [expandedEntry, setExpandedEntry] = useState<string | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const getHistory = (): HistoryEntry[] => {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch { return []; }
@@ -65,7 +67,7 @@ const DiscoverYourselfExercise = ({ onBack }: Props) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify([entry, ...getHistory()].slice(0, 50)));
     setQualities(["", ""]); setBridge1(["", ""]); setBridge2(["", ""]); setBridge3(["", ""]);
     setValues({}); setPage(0);
-    toast({ title: "Saved successfully!" });
+    setShowSuccess(true);
   };
 
   const renderListField = (label: string, list: string[], setList: (v: string[]) => void) => (
@@ -112,7 +114,6 @@ At the end of your journey you will have 10% of your qualities left – I wonder
         </div>
         <button onClick={() => setShowHistory(!showHistory)} className="flex items-center gap-2 rounded-xl bg-card px-4 py-2.5 text-sm font-semibold coaching-card-shadow transition-all hover:coaching-card-shadow-hover">
           <History className="h-4 w-4 text-primary" /><span className="text-foreground">History</span>
-          {history.length > 0 && <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-primary px-1.5 text-[10px] font-bold text-primary-foreground">{history.length}</span>}
         </button>
       </div>
 
@@ -222,6 +223,8 @@ At the end of your journey you will have 10% of your qualities left – I wonder
           </motion.button>
         )}
       </div>
+    
+      <SuccessDialog open={showSuccess} onClose={() => setShowSuccess(false)} />
     </motion.div>
   );
 };

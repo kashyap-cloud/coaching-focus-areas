@@ -4,6 +4,7 @@ import { ArrowLeft, History, Clock, ChevronDown, ChevronUp, Send, ChevronRight }
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import SuccessDialog from "@/components/SuccessDialog";
 
 interface HistoryEntry {
   id: string;
@@ -57,6 +58,7 @@ const GetMotivatedExercise = ({ onBack }: Props) => {
   const [values, setValues] = useState<Record<string, string>>({});
   const [showHistory, setShowHistory] = useState(false);
   const [expandedEntry, setExpandedEntry] = useState<string | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const getHistory = (): HistoryEntry[] => {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch { return []; }
@@ -78,7 +80,7 @@ const GetMotivatedExercise = ({ onBack }: Props) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify([entry, ...prev].slice(0, 50)));
     setValues({});
     setPage(0);
-    toast({ title: "Saved successfully!" });
+    setShowSuccess(true);
   };
 
   const phrasesPage1 = MOTIVATIONAL_PHRASES.slice(0, 12);
@@ -137,11 +139,6 @@ const GetMotivatedExercise = ({ onBack }: Props) => {
         >
           <History className="h-4 w-4 text-primary" />
           <span className="text-foreground">History</span>
-          {history.length > 0 && (
-            <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-primary px-1.5 text-[10px] font-bold text-primary-foreground">
-              {history.length}
-            </span>
-          )}
         </button>
       </div>
 
@@ -330,6 +327,8 @@ const GetMotivatedExercise = ({ onBack }: Props) => {
           />
         ))}
       </div>
+    
+      <SuccessDialog open={showSuccess} onClose={() => setShowSuccess(false)} />
     </motion.div>
   );
 };
