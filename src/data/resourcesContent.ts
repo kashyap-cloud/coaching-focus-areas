@@ -351,11 +351,11 @@ export const resourcesContent: Record<string, AreaResources> = {
       { text: "I find that the harder I work, the more luck I seem to have.", author: "Thomas Jefferson", borderColor: "hsl(185,60%,45%)", bgColor: "hsl(185,60%,97%)" },
     ],
     ebooks: [
-      { title: "The Rules of Work", author: "Richard Templar" },
-      { title: "Getting Things Done", author: "David Allen" },
-      { title: "The Seven Habits of Highly Effective People", author: "Stephen R. Covey" },
-      { title: "How Successful People Think", author: "John C. Maxwell" },
-      { title: "Give and Take", author: "Adam Grant" },
+      { title: "The Rules of Work", author: "Richard Templar", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Richard_Templar-The_Rules_of_Work-EN.pdf" },
+      { title: "Getting Things Done", author: "David Allen", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Getting-Things-Done-The-Art-of-Stress-Free-Productivity.pdf" },
+      { title: "The Seven Habits of Highly Effective People", author: "Stephen R. Covey", url: "https://app.mantracare.com/wp-content/uploads/2024/12/ati12052021_1.pdf" },
+      { title: "How Successful People Think", author: "John C. Maxwell", url: "https://app.mantracare.com/wp-content/uploads/2024/12/How-Successful-People-Think-_Libtoon.com_.pdf" },
+      { title: "Give and Take", author: "Adam Grant", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Give-and-Take.pdf" },
     ],
   },
 
@@ -375,11 +375,11 @@ export const resourcesContent: Record<string, AreaResources> = {
       { text: "Management is doing things right; leadership is doing the right things.", author: "Peter Drucker", borderColor: "hsl(185,60%,45%)", bgColor: "hsl(185,60%,97%)" },
     ],
     ebooks: [
-      { title: "Essentials Of Corporate Communication", author: "Cees B.M. van Riel & Charles J. Fombrun" },
-      { title: "Concept of the Corporation", author: "Peter F. Drucker" },
-      { title: "The Effective Executive", author: "Peter E Drucker & Joseph A. Maciariello" },
-      { title: "Leading From Within", author: "David R. Kolzow" },
-      { title: "The Only Leadership Book You'll Ever Need", author: "Peter Barron Stark & Jane Flaherty" },
+      { title: "Essentials Of Corporate Communication", author: "Cees B.M. van Riel & Charles J. Fombrun", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Essentials-of-Corporate-Communication-PDFDrive.com-.pdf" },
+      { title: "Concept of the Corporation", author: "Peter F. Drucker", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Concept-of-the-Corporation-PDFDrive.com-.pdf" },
+      { title: "The Effective Executive", author: "Peter E Drucker & Joseph A. Maciariello", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Drucker-2006-The-Effective-Executive-The-Definitive-Guide-to-Getting-the-Right-Things-Done.pdf" },
+      { title: "Leading From Within", author: "David R. Kolzow", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Leading_from_Within.pdf" },
+      { title: "The Only Leadership Book You'll Ever Need", author: "Peter Barron Stark & Jane Flaherty", url: "https://app.mantracare.com/wp-content/uploads/2024/12/The-Only-Leadership-Book-Youll-Ever-Need_-How-to-Build-Organizations-Where-Employees-Love-to-Come-to-Work-PDFDrive-.pdf" },
     ],
   },
 
@@ -400,10 +400,10 @@ export const resourcesContent: Record<string, AreaResources> = {
     ],
     ebooks: [
       { title: "The Confidence Gap", author: "Russ Harris" },
-      { title: "Master Your Mind", author: "Anonymous" },
-      { title: "The Seven Habits of Highly Effective People", author: "Stephen R. Covey" },
-      { title: "Think and Grow Rich", author: "Napoleon Hill" },
-      { title: "How Successful People Think", author: "John C. Maxwell" },
+      { title: "Master Your Mind", author: "Anonymous", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Master-Your-Mind.pdf" },
+      { title: "The Seven Habits of Highly Effective People", author: "Stephen R. Covey", url: "https://app.mantracare.com/wp-content/uploads/2024/12/ati12052021_1.pdf" },
+      { title: "Think and Grow Rich", author: "Napoleon Hill", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Think-And-Grow-Rich_2011-06.pdf" },
+      { title: "How Successful People Think", author: "John C. Maxwell", url: "https://app.mantracare.com/wp-content/uploads/2024/12/How-Successful-People-Think-_Libtoon.com_.pdf" },
     ],
   },
 };
