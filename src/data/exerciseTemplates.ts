@@ -892,9 +892,8 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
       { id: "given-up", label: "If there was something you had given up on in your life, what would it be?", type: "text", color: "#0891b2" },
     ],
   },
-};
 
-  // ── Transform ──
+
   "goals-motivator": {
     id: "goals-motivator",
     title: "Goals Motivator",
