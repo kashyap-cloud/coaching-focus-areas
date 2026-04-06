@@ -61,10 +61,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "GROW", lucideIcon: "TrendingUp", color: "navy" },
     ],
     learn: [
-      { title: "Key Principles" },
-      { title: "Coaching Benefits" },
-      { title: "Unexpected Advantages" },
-      { title: "Hidden Capabilities" },
+      { title: "Career Transitions" },
+      { title: "Personal Branding" },
+      { title: "Networking Strategies" },
+      { title: "Skill Development" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
@@ -383,10 +383,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "3 Month Vision", lucideIcon: "Binoculars", color: "purple" },
     ],
     learn: [
-      { title: "Boost Team's Potential" },
       { title: "Top Career Topics" },
       { title: "Coaching Factors" },
       { title: "Corporate Coaching?" },
+      { title: "Leadership Development" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
