@@ -779,7 +779,6 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
       { id: "tax-accountability", label: "Accountability: Who will help me reach the goal?", color: "hsl(265,55%,45%)" },
     ],
   },
-};
 
 // ── Mindset ──
   "three-month-vision": {
