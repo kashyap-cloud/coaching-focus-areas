@@ -315,11 +315,12 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
                   </h2>
                 </div>
               )}
-              <h3 className="text-sm font-bold mb-1 text-foreground">
+              <h3 className="text-sm font-bold mb-1 text-foreground flex items-center gap-2">
+                <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ backgroundColor: field.color }} />
                 {field.label}
               </h3>
               {field.subtitle && (
-                <p className="text-sm font-medium text-foreground mb-2 whitespace-pre-line">{field.subtitle}</p>
+                <p className="text-sm font-medium text-muted-foreground mb-2 whitespace-pre-line">{field.subtitle}</p>
               )}
               {field.prompts && (
                 <ul className="mb-3 ml-5 flex flex-col gap-1 list-disc">
