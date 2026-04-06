@@ -892,10 +892,95 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
       { id: "given-up", label: "If there was something you had given up on in your life, what would it be?", type: "text", color: "#0891b2" },
     ],
   },
+
+
+  "goals-motivator": {
+    id: "goals-motivator",
+    title: "Goals Motivator",
+    description:
+      "Why we want our goals is totally unique to us, a pay-rise may mean self-esteem and validation, or it could mean security, a holiday or getting married. Once we understand WHY we want our goals – and why we want our goals NOW, it's easier to focus, go the 'extra mile' and find energy to take action towards our goals.\n\nTo get the most out of this exercise, be totally honest with yourself and let go of all self-judgements. Write whatever pops into your head – however random, silly or boring your answers might seem.",
+    fields: [
+      { id: "goal", label: "Write Your Goal Here:", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "motivation-score-start", label: "First, score how motivated you are currently to achieve this goal:", subtitle: "Rate from 1 (not motivated) to 10 (extremely motivated)", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "why-want-goal", label: "Why do you want this Goal?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "why-want-that-1", label: "Why do you want that? What does it give you?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "why-want-that-2", label: "Why do you want that? What does it give you?", subtitle: "These questions relate to the answer immediately before. Keep answering even if you repeat answers.", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "why-want-that-3", label: "Why do you want that? What does it give you?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "why-want-that-4", label: "Why do you want that? What does it give you?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "achieving-feeling", label: "Achieving this goal will leave me feeling:", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "why-now", label: "What circumstances in your life make this goal important to you right now? Why NOW and not next (or last) year?", subtitle: "Now you understand why you want your goal and how you want to feel. But to be really motivated, you need to be clear on why you want this goal now", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "how-feel-about-goal", label: "So, now you understand your true motivations, how does this change the way you feel about your goal?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "motivation-score-end", label: "I am now motivated to achieve this goal:", subtitle: "Rate from 1 to 10. If your motivation score is not 8 or above, why do you have this goal? Is it really your goal?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "learned", label: "What did you learn about yourself and your goal? What will you do differently?", color: "hsl(265,55%,45%)", type: "text" },
+    ],
+  },
+
+  // ── Communicate ──
+  "35-questions-to-ponder": {
+    id: "35-questions-to-ponder",
+    title: "35 Questions to Ponder",
+    description:
+      "Closeness within any team is important. When people know each other well, whether in the workplace, a sports team, or any other group setting, they are more likely to trust, respect, and understand one another.",
+    fields: [
+      { id: "q1", label: "Given the choice of anyone in the world, whom would you want as a dinner guest?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "q2", label: "Would you like to be famous? In what way?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "q3", label: "Before making a telephone call, do you ever rehearse what you are going to say? Why?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "q4", label: 'What would constitute a "perfect" day for you?', color: "hsl(210,75%,50%)", type: "text" },
+      { id: "q5", label: "When did you last sing to yourself? To someone else?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "q6", label: "If you were able to live to the age of 90 and retain either the mind or body of a 30-year-old for the last 60 years of your life, which would you want?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "q7", label: "Do you have a secret hunch about how you will die?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "q8", label: "Name three things you and the other person appear to have in common", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "q9", label: "For what in your life do you feel most grateful?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "q10", label: "If you could change anything about the way you were raised, what would it be?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "q11", label: "Take four minutes and tell the other person your life story in as much detail as possible", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "q12", label: "If you could wake up tomorrow having gained any one quality or ability, what would it be?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "q13", label: "If a crystal ball could tell you the truth about yourself, your life, the future, or anything else, what would you want to know?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "q14", label: "Is there something that you've dreamed of doing for a long time? Why haven't you done it?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "q15", label: "What is the greatest accomplishment of your life?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "q16", label: "What do you value most in a friendship?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "q17", label: "What is your most treasured memory?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "q18", label: "What is your most terrible memory?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "q19", label: "If you knew that you would die suddenly in one year, would you change anything about how you are now living? Why?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "q20", label: "What does friendship mean to you?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "q21", label: "What roles do love and affection play in your life?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "q22", label: "With your partner, alternate in sharing something you consider a positive characteristic of the other person. Share a total of five items.", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "q23", label: "How close and warm is your family? Do you feel your childhood was happier than most other people's?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "q24", label: "How do you feel about your relationship with your mother?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "q25", label: 'Complete this sentence: "I wish I had someone with whom I could share ... "', color: "hsl(350,70%,55%)", type: "text" },
+      { id: "q26", label: "If you were going to become a close friend with the other person, share what would be important for them to know", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "q27", label: "Tell the other person what you like about them; be very honest, saying things that you might not say to someone you've just met.", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "q28", label: "Share an embarrassing moment in your life.", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "q29", label: "When did you last cry in front of another person? By yourself?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "q30", label: "Tell the other person something that you like about them already", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "q31", label: "What is too serious to joke about, if anything?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "q32", label: "If you were to die this evening with no opportunity to communicate with anyone, what would you most regret not having told someone? Why haven't you told them yet?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "q33", label: "Your house, containing everything you own, catches fire. After saving your loved ones and pets, you have time to make a final dash to save any one item safely. What would it be? Why?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "q34", label: "Of all the people in your family, whose death would you find most disturbing? Why?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "q35", label: "Share a personal problem and ask the other person's advice on how he or she might handle it. Additionally, ask your partner to reflect on how you seem to be feeling about your chosen problem.", color: "hsl(30,90%,55%)", type: "text" },
+    ],
+  },
+
+  "softened-start-up": {
+    id: "softened-start-up",
+    title: "The Softened Start-Up",
+    description:
+      'While conflict is an inevitable part of life, how we choose to approach potential conflict determines how that conversation will play out. If you are critical or judgmental, you will likely receive negativity and defensiveness in return. A harsh start-up can feel like a direct attack on someone\'s character. For example, "You always spend too much money!", "Why can you never get things are done on time?" or "You never do anything around here."\n\nSoftening the start of a conversation is crucial to managing and resolving conflicts with your spouse or partner, your children, friends, or coworkers. A softened start-up allows you to voice your concerns and needs without blaming the other person. This makes it more likely they will be receptive to your complaint because your words and tone are not accusatory, judgmental, or negative.\n\nUsing the examples above, softened alternatives include, "I would like to sit down together and work out how we can budget our money better," "We talked about a deadline for the project and agreed on a schedule, please give this all of your attention," and "I like when we work together to get things done."',
+    fields: [
+      { id: "past-conflict", label: "Take a moment to think of a conflict you had in the past. This could be with a work colleague, family member, spouse, or partner, for example. Using the space below, describe what happened, including what was said and the outcome of the disagreement.", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "i-feel", label: 'I feel....', subtitle: 'Now that you have recalled a past conflict, you will think about how you might have approached the conversation in a gentler, non-confrontational way. A useful formula to follow when creating a softened start-up is:\n• Make an "I" statement\n• Describe how you feel\n• Describe the situation, be neutral, do not blame\n• Explain what you need so that things can be improved', color: "hsl(175,60%,40%)", type: "text" },
+      { id: "about", label: "About....", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "i-need", label: "I need.....", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "complete-exercise", label: "What was it like to complete this exercise?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "teach-about-conflict", label: "What did this exercise teach you about conflict?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "changed-thinking", label: "In what ways has this exercise changed how you think about approaching potential conflict?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "helpful", label: "In what ways did you find this exercise to be helpful?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "insights", label: "What insights have you gained from this exercise?", color: "hsl(350,70%,55%)", type: "text" },
+    ],
+  },
 };
 
 // Special exercise IDs that use dedicated components
-export const specialExercises: Record<string, "quiz" | "checkin" | "planner" | "procrastinating" | "get-motivated" | "intuition" | "love-loathe" | "discover-yourself" | "gratitude-diary" | "wacky-wild-goal" | "big-rocks"> = {
+export const specialExercises: Record<string, "quiz" | "checkin" | "planner" | "procrastinating" | "get-motivated" | "intuition" | "love-loathe" | "discover-yourself" | "gratitude-diary" | "wacky-wild-goal" | "big-rocks" | "rocking-chair"> = {
   "Self-Care Quiz": "quiz",
   "Self-care List": "checkin",
   "Success Planner": "planner",
@@ -907,6 +992,7 @@ export const specialExercises: Record<string, "quiz" | "checkin" | "planner" | "
   "Gratitude Diary": "gratitude-diary",
   "Wacky Wild Goal": "wacky-wild-goal",
   "Big & Little Rocks": "big-rocks",
+  "Rocking Chair": "rocking-chair",
 };
 
 // Map exercise titles to template IDs
@@ -935,4 +1021,7 @@ export const exerciseTitleToTemplateId: Record<string, string> = {
   "Talk to Yourself!": "talk-to-yourself",
   "3 Month Vision": "three-month-vision",
   "Powerful Questions": "powerful-questions",
+  "Goals Motivator": "goals-motivator",
+  "35 Questions to Ponder": "35-questions-to-ponder",
+  "The Softened Start-Up": "softened-start-up",
 };

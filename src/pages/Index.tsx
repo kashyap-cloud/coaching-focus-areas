@@ -22,6 +22,7 @@ import DiscoverYourselfExercise from "@/components/DiscoverYourselfExercise";
 import GratitudeDiaryExercise from "@/components/GratitudeDiaryExercise";
 import WackyWildGoalExercise from "@/components/WackyWildGoalExercise";
 import BigRocksExercise from "@/components/BigRocksExercise";
+import RockingChairExercise from "@/components/RockingChairExercise";
 
 const Index = () => {
   const [selectedArea, setSelectedArea] = useState<CoachingArea | null>(null);
@@ -131,6 +132,11 @@ const Index = () => {
           ) : selectedExercise && specialType === "big-rocks" ? (
             <BigRocksExercise
               key="big-rocks"
+              onBack={handleExerciseBack}
+            />
+          ) : selectedExercise && specialType === "rocking-chair" ? (
+            <RockingChairExercise
+              key="rocking-chair"
               onBack={handleExerciseBack}
             />
           ) : activeTemplate && selectedExercise ? (
