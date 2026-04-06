@@ -99,6 +99,16 @@ const Index = () => {
               key="get-motivated"
               onBack={handleExerciseBack}
             />
+          ) : selectedExercise && specialType === "intuition" ? (
+            <IntuitionExercise
+              key="intuition"
+              onBack={handleExerciseBack}
+            />
+          ) : selectedExercise && specialType === "love-loathe" ? (
+            <LoveAndLoatheExercise
+              key="love-loathe"
+              onBack={handleExerciseBack}
+            />
           ) : activeTemplate && selectedExercise ? (
             <ExerciseDetail
               key={activeTemplate.id}
