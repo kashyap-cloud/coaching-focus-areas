@@ -13,6 +13,8 @@ import LearnDetail from "@/components/LearnDetail";
 import ResourceDetail from "@/components/ResourceDetail";
 import SelfCareQuizExercise from "@/components/SelfCareQuizExercise";
 import SelfCareCheckinExercise from "@/components/SelfCareCheckinExercise";
+import WeeklySuccessPlannerExercise from "@/components/WeeklySuccessPlannerExercise";
+import StopProcrastinatingExercise from "@/components/StopProcrastinatingExercise";
 
 const Index = () => {
   const [selectedArea, setSelectedArea] = useState<CoachingArea | null>(null);
@@ -77,6 +79,16 @@ const Index = () => {
             <SelfCareCheckinExercise
               key="self-care-checkin"
               template={selfCareCheckin}
+              onBack={handleExerciseBack}
+            />
+          ) : selectedExercise && specialType === "planner" ? (
+            <WeeklySuccessPlannerExercise
+              key="weekly-planner"
+              onBack={handleExerciseBack}
+            />
+          ) : selectedExercise && specialType === "procrastinating" ? (
+            <StopProcrastinatingExercise
+              key="stop-procrastinating"
               onBack={handleExerciseBack}
             />
           ) : activeTemplate && selectedExercise ? (
