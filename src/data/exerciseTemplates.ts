@@ -782,9 +782,11 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
 };
 
 // Special exercise IDs that use dedicated components
-export const specialExercises: Record<string, "quiz" | "checkin"> = {
+export const specialExercises: Record<string, "quiz" | "checkin" | "planner" | "procrastinating"> = {
   "Self-Care Quiz": "quiz",
   "Self-care List": "checkin",
+  "Success Planner": "planner",
+  "Eliminate Delaying": "procrastinating",
 };
 
 // Map exercise titles to template IDs

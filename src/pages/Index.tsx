@@ -13,6 +13,8 @@ import LearnDetail from "@/components/LearnDetail";
 import ResourceDetail from "@/components/ResourceDetail";
 import SelfCareQuizExercise from "@/components/SelfCareQuizExercise";
 import SelfCareCheckinExercise from "@/components/SelfCareCheckinExercise";
+import WeeklySuccessPlannerExercise from "@/components/WeeklySuccessPlannerExercise";
+import StopProcrastinatingExercise from "@/components/StopProcrastinatingExercise";
 
 const Index = () => {
   const [selectedArea, setSelectedArea] = useState<CoachingArea | null>(null);
