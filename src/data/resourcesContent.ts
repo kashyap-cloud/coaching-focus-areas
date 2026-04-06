@@ -164,7 +164,7 @@ export const resourcesContent: Record<string, AreaResources> = {
       { title: "How Successful People Think", author: "John C. Maxwell", url: "https://app.mantracare.com/wp-content/uploads/2024/12/How-Successful-People-Think-_Libtoon.com_.pdf" },
       { title: "Getting Things Done", author: "David Allen", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Getting-Things-Done-The-Art-of-Stress-Free-Productivity.pdf" },
       { title: "Give and Take", author: "Adam Grant", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Give-and-Take.pdf" },
-      { title: "13 Things Mentally Strong People Don't Do", author: "Amy Morin", url: "https://app.mantracare.com/wp-content/uploads/2024/12/13-Things-Mentally-Strong-People-Dont-Do.pd" },
+      { title: "13 Things Mentally Strong People Don't Do", author: "Amy Morin", url: "https://app.mantracare.com/wp-content/uploads/2024/12/13-Things-Mentally-Strong-People-Dont-Do.pdf" },
     ],
   },
 
@@ -260,7 +260,7 @@ export const resourcesContent: Record<string, AreaResources> = {
       { title: "The Great Transformation", author: "Karl Polanyi", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Great_Transformation.pdf" },
       { title: "The Five Major Pieces To The Life Puzzle", author: "E. James Rohn", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Jim-Rohn-EBook-Five-Major-Pieces.pdf" },
       { title: "The 5 Second Rule", author: "Mel Robbins", url: "https://app.mantracare.com/wp-content/uploads/2024/12/The-5-Second-Rule.pdf" },
-      { title: "The Little Book of Conflict Transformation", author: "John Paul Lederach", url: "https://app.mantracare.com/wp-content/uploads/2024/12/The-Little-Book-of-Conflict-Transformation.pd" },
+      { title: "The Little Book of Conflict Transformation", author: "John Paul Lederach", url: "https://app.mantracare.com/wp-content/uploads/2024/12/The-Little-Book-of-Conflict-Transformation.pdf" },
     ],
   },
 
@@ -375,11 +375,11 @@ export const resourcesContent: Record<string, AreaResources> = {
       { text: "Management is doing things right; leadership is doing the right things.", author: "Peter Drucker", borderColor: "hsl(185,60%,45%)", bgColor: "hsl(185,60%,97%)" },
     ],
     ebooks: [
-      { title: "Think & Grow Rich", author: "Napolean Hill", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Think-And-Grow-Rich_2011-06.pdf" },
-      { title: "Shape Up", author: "Ryan Singer", url: "https://app.mantracare.com/wp-content/uploads/2024/12/shape-up.pdf" },
-      { title: "Work Smarter Not Harder", author: "Timo Kiander", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Work-Smarter-Not-Harder.pdf" },
-      { title: "The Only Leadership Book You'll Ever Need", author: "Peter Barron Stark & Jane Flaherty", url: "https://app.mantracare.com/wp-content/uploads/2024/12/The-Only-Leadership-Book-Youll-Ever-Need_-How-to-Build-Organizations-Where-Employees-Love-to-Come-to-Work-PDFDrive-.pdf" },
-      { title: "The Big Book Of Team Culture", author: "Activ collab", url: "https://app.mantracare.com/wp-content/uploads/2024/12/TheBigBookOfTeamCulture.pdf" },
+      { title: "Growth", author: "Activ", url: "https://app.mantracare.com/wp-content/uploads/2024/12/GROWTH.pdf" },
+      { title: "The Fearless Organization", author: "Amy C. Edmondson", url: "https://app.mantracare.com/wp-content/uploads/2024/12/The-Fearless-Organization_-Creating-Psychological-Safety-in-the-Workplace-for-Learning-Innovation-and-Growth.pdf" },
+      { title: "The Future of Jobs", author: "World Economic Forum", url: "https://app.mantracare.com/wp-content/uploads/2024/12/WEF_Future_of_Jobs_2023.pdf" },
+      { title: "The Essentials Of Leadership In Government", author: "Darryl Plecas, Colette Squires & Len Garis", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Essentials-of-Leadership-in-Govt-2018-2.pdf" },
+      { title: "Principles of Management", author: "Openstax", url: "https://app.mantracare.com/wp-content/uploads/2024/12/PrinciplesofManagement-OP_mGBMvoU_compressed.pdf" },
     ],
   },
 
