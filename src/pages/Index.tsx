@@ -92,6 +92,11 @@ const Index = () => {
               key="stop-procrastinating"
               onBack={handleExerciseBack}
             />
+          ) : selectedExercise && specialType === "get-motivated" ? (
+            <GetMotivatedExercise
+              key="get-motivated"
+              onBack={handleExerciseBack}
+            />
           ) : activeTemplate && selectedExercise ? (
             <ExerciseDetail
               key={activeTemplate.id}
