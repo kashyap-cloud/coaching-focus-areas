@@ -375,11 +375,11 @@ export const resourcesContent: Record<string, AreaResources> = {
       { text: "Management is doing things right; leadership is doing the right things.", author: "Peter Drucker", borderColor: "hsl(185,60%,45%)", bgColor: "hsl(185,60%,97%)" },
     ],
     ebooks: [
-      { title: "Essentials Of Corporate Communication", author: "Cees B.M. van Riel & Charles J. Fombrun", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Essentials-of-Corporate-Communication-PDFDrive.com-.pdf" },
-      { title: "Concept of the Corporation", author: "Peter F. Drucker", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Concept-of-the-Corporation-PDFDrive.com-.pdf" },
-      { title: "The Effective Executive", author: "Peter E Drucker & Joseph A. Maciariello", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Drucker-2006-The-Effective-Executive-The-Definitive-Guide-to-Getting-the-Right-Things-Done.pdf" },
-      { title: "Leading From Within", author: "David R. Kolzow", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Leading_from_Within.pdf" },
+      { title: "Think & Grow Rich", author: "Napolean Hill", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Think-And-Grow-Rich_2011-06.pdf" },
+      { title: "Shape Up", author: "Ryan Singer", url: "https://app.mantracare.com/wp-content/uploads/2024/12/shape-up.pdf" },
+      { title: "Work Smarter Not Harder", author: "Timo Kiander", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Work-Smarter-Not-Harder.pdf" },
       { title: "The Only Leadership Book You'll Ever Need", author: "Peter Barron Stark & Jane Flaherty", url: "https://app.mantracare.com/wp-content/uploads/2024/12/The-Only-Leadership-Book-Youll-Ever-Need_-How-to-Build-Organizations-Where-Employees-Love-to-Come-to-Work-PDFDrive-.pdf" },
+      { title: "The Big Book Of Team Culture", author: "Activ collab", url: "https://app.mantracare.com/wp-content/uploads/2024/12/TheBigBookOfTeamCulture.pdf" },
     ],
   },
 
@@ -399,11 +399,11 @@ export const resourcesContent: Record<string, AreaResources> = {
       { text: "The most beautiful thing you can wear is confidence.", author: "Blake Lively", borderColor: "hsl(185,60%,45%)", bgColor: "hsl(185,60%,97%)" },
     ],
     ebooks: [
-      { title: "The Confidence Gap", author: "Russ Harris" },
-      { title: "Master Your Mind", author: "Anonymous", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Master-Your-Mind.pdf" },
-      { title: "The Seven Habits of Highly Effective People", author: "Stephen R. Covey", url: "https://app.mantracare.com/wp-content/uploads/2024/12/ati12052021_1.pdf" },
-      { title: "Think and Grow Rich", author: "Napoleon Hill", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Think-And-Grow-Rich_2011-06.pdf" },
-      { title: "How Successful People Think", author: "John C. Maxwell", url: "https://app.mantracare.com/wp-content/uploads/2024/12/How-Successful-People-Think-_Libtoon.com_.pdf" },
+      { title: "Unshakeable Self-Confidence", author: "Unknown", url: "https://app.mantracare.com/wp-content/uploads/2024/12/self-confidence-wdb.pdf" },
+      { title: "Self-Esteem", author: "Matthew Mckay & Patrick Fanning", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Self-Esteem-_-a-proven-program-of-cognitive-techniques-for-assessing-improving-and-maintaining-your-self-esteem-3rd-Edition.pdf" },
+      { title: "The Power of Self-Confidence", author: "Brian Tracy", url: "https://app.mantracare.com/wp-content/uploads/2024/12/The-Power-of-Self-Confidence-by-Brain-Tracy-pdf-free-download.pdf" },
+      { title: "The Power of Self-Esteem", author: "Nathaniel Branden", url: "https://app.mantracare.com/wp-content/uploads/2024/12/The-Power-of-Self-Esteem.pdf" },
+      { title: "How to Develop Self-Confidence & Influence People", author: "Dale Carnegie", url: "https://app.mantracare.com/wp-content/uploads/2024/12/Dale-Carnegie-HOW-TO-DEVELOP-SELF-CONFIDENCE-AND-INFLUENCE-PEOPLE.pdf" },
     ],
   },
 };
