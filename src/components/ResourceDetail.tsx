@@ -91,24 +91,34 @@ const ResourceDetail = ({ resourceType, resources, onBack }: Props) => {
       {/* Ebooks */}
       {resourceType === "ebooks" && (
         <div className="flex flex-col gap-3">
-          {resources.ebooks.map((book, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.06 }}
-              className="flex items-center gap-4 rounded-2xl bg-card p-4 coaching-card-shadow"
-            >
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                <BookOpenCheck className="h-7 w-7 text-primary" strokeWidth={1.8} />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-bold text-foreground">{book.title}</p>
-                <p className="mt-1 text-xs font-semibold text-primary">– by {book.author}</p>
-              </div>
-              <Download className="h-5 w-5 shrink-0 text-primary" />
-            </motion.div>
-          ))}
+          {resources.ebooks.map((book, i) => {
+            const Wrapper = book.url ? "a" : "button";
+            const linkProps = book.url
+              ? { href: book.url, target: "_blank", rel: "noopener noreferrer" }
+              : { onClick: () => {} };
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.06 }}
+              >
+                <Wrapper
+                  {...(linkProps as any)}
+                  className="flex w-full items-center gap-4 rounded-2xl bg-card p-4 coaching-card-shadow transition-all hover:coaching-card-shadow-hover hover:scale-[1.01] active:scale-[0.99] cursor-pointer text-left"
+                >
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                    <BookOpenCheck className="h-7 w-7 text-primary" strokeWidth={1.8} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-bold text-foreground">{book.title}</p>
+                    <p className="mt-1 text-xs font-semibold text-primary">– by {book.author}</p>
+                  </div>
+                  <Download className="h-5 w-5 shrink-0 text-primary" />
+                </Wrapper>
+              </motion.div>
+            );
+          })}
         </div>
       )}
     </motion.div>
