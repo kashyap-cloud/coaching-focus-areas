@@ -16,6 +16,8 @@ import SelfCareCheckinExercise from "@/components/SelfCareCheckinExercise";
 import WeeklySuccessPlannerExercise from "@/components/WeeklySuccessPlannerExercise";
 import StopProcrastinatingExercise from "@/components/StopProcrastinatingExercise";
 import GetMotivatedExercise from "@/components/GetMotivatedExercise";
+import IntuitionExercise from "@/components/IntuitionExercise";
+import LoveAndLoatheExercise from "@/components/LoveAndLoatheExercise";
 
 const Index = () => {
   const [selectedArea, setSelectedArea] = useState<CoachingArea | null>(null);
@@ -95,6 +97,16 @@ const Index = () => {
           ) : selectedExercise && specialType === "get-motivated" ? (
             <GetMotivatedExercise
               key="get-motivated"
+              onBack={handleExerciseBack}
+            />
+          ) : selectedExercise && specialType === "intuition" ? (
+            <IntuitionExercise
+              key="intuition"
+              onBack={handleExerciseBack}
+            />
+          ) : selectedExercise && specialType === "love-loathe" ? (
+            <LoveAndLoatheExercise
+              key="love-loathe"
               onBack={handleExerciseBack}
             />
           ) : activeTemplate && selectedExercise ? (

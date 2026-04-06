@@ -861,15 +861,48 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
       },
     ],
   },
+
+  // ── Spiritual ──
+  "powerful-questions": {
+    id: "powerful-questions",
+    title: "Powerful Pondering Questions",
+    description: "Please answer each of these questions as clearly and thoughtfully as possible, expressing the best of who you are. A short answer – a few words or a couple of sentences are usually enough. But if you want to write more, then do. If there are any questions you don't feel comfortable with, you don't have to answer them. But know that it is often through exploring our discomfort, that we achieve our greatest learnings and growth.",
+    fields: [
+      { id: "role-in-world", label: "What do you consider to be your role in the world you live in?", type: "text", color: "#1e3a5f" },
+      { id: "secret-passion", label: "If there was a secret passion in your life, what would it be?", type: "text", color: "#0891b2" },
+      { id: "avoiding", label: "If there was something you were avoiding or running away from, what would it be?", type: "text", color: "#0891b2" },
+      { id: "motivates", label: "What motivates you?", type: "text", color: "#1e3a5f" },
+      { id: "sabotage", label: "How do you tend to sabotage yourself?", type: "text", color: "#0891b2" },
+      { id: "missing-fulfilling", label: "What is missing in your life? What would make life more fulfilling?", type: "text", color: "#0891b2" },
+      { id: "dream", label: "What is your dream?", type: "text", color: "#1e3a5f" },
+      { id: "higher-power", label: "Do you believe in God or the concept of some form of higher power? How does this fit into your life?", type: "text", color: "#0891b2" },
+      { id: "success-meaning", label: "What does success mean for you? What would a successful life look and feel like?", type: "text", color: "#0891b2" },
+      { id: "anything-in-world", label: "If you could have anything in the world what would it be?", type: "text", color: "#0891b2" },
+      { id: "rest-of-life", label: "What do you want the rest of your life to be about?", type: "text", color: "#0891b2" },
+      { id: "out-of-coaching", label: "What do you most want to get out of coaching?", type: "text", color: "#0891b2" },
+      { id: "tips-for-coach", label: "What tips could you give me, so that I can manage our coaching relationship as effectively as possible?", type: "text", color: "#0891b2" },
+      { id: "how-rigorous", label: "How rigorous do you want me to be as your coach?", type: "text", color: "#0891b2" },
+      { id: "learning-style", label: "How do you best learn? What is your learning style?", type: "text", color: "#0891b2" },
+      { id: "enjoy-yourself", label: "How do you enjoy yourself?", type: "text", color: "#0891b2" },
+      { id: "release-stress", label: "How specifically do you release stress?", type: "text", color: "#0891b2" },
+      { id: "look-after-self", label: "What do you do to look after yourself on a regular basis?", type: "text", color: "#0891b2" },
+      { id: "weak-points", label: "What do you think are your weak points in life?", type: "text", color: "#0891b2" },
+      { id: "strong-points", label: "What are your strong points?", type: "text", color: "#0891b2" },
+      { id: "happiest-unhappiest", label: "When were you happiest – and – unhappiest in your life? What made it so?", type: "text", color: "#0891b2" },
+      { id: "given-up", label: "If there was something you had given up on in your life, what would it be?", type: "text", color: "#0891b2" },
+    ],
+  },
 };
 
 // Special exercise IDs that use dedicated components
-export const specialExercises: Record<string, "quiz" | "checkin" | "planner" | "procrastinating" | "get-motivated"> = {
+export const specialExercises: Record<string, "quiz" | "checkin" | "planner" | "procrastinating" | "get-motivated" | "intuition" | "love-loathe"> = {
   "Self-Care Quiz": "quiz",
   "Self-care List": "checkin",
   "Success Planner": "planner",
   "Eliminate Delaying": "procrastinating",
   "Get Motivated!": "get-motivated",
+  "Intuition Exercise": "intuition",
+  "Love And Loathe List": "love-loathe",
 };
 
 // Map exercise titles to template IDs
@@ -897,4 +930,5 @@ export const exerciseTitleToTemplateId: Record<string, string> = {
   "Get Perspective": "get-perspective",
   "Talk to Yourself!": "talk-to-yourself",
   "3 Month Vision": "three-month-vision",
+  "Powerful Questions": "powerful-questions",
 };
