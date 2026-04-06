@@ -18,6 +18,10 @@ import StopProcrastinatingExercise from "@/components/StopProcrastinatingExercis
 import GetMotivatedExercise from "@/components/GetMotivatedExercise";
 import IntuitionExercise from "@/components/IntuitionExercise";
 import LoveAndLoatheExercise from "@/components/LoveAndLoatheExercise";
+import DiscoverYourselfExercise from "@/components/DiscoverYourselfExercise";
+import GratitudeDiaryExercise from "@/components/GratitudeDiaryExercise";
+import WackyWildGoalExercise from "@/components/WackyWildGoalExercise";
+import BigRocksExercise from "@/components/BigRocksExercise";
 
 const Index = () => {
   const [selectedArea, setSelectedArea] = useState<CoachingArea | null>(null);
