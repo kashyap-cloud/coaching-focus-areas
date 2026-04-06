@@ -228,11 +228,13 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
       </div>
 
       {/* Description */}
-      <p className="text-sm leading-relaxed text-muted-foreground whitespace-pre-line">{template.description}</p>
+      <div className="rounded-2xl bg-card/60 border border-border/50 p-5">
+        <p className="text-sm leading-relaxed text-muted-foreground whitespace-pre-line">{template.description}</p>
+      </div>
 
       {template.importantNote && (
-        <div className="rounded-xl border border-border bg-muted/50 p-4">
-          <p className="text-xs font-bold uppercase tracking-wider text-foreground mb-1">Important Note:</p>
+        <div className="rounded-xl border-l-[3px] border-amber-400/60 bg-amber-50/30 dark:bg-amber-900/10 p-4">
+          <p className="text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-1">Important Note:</p>
           <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{template.importantNote}</p>
         </div>
       )}
