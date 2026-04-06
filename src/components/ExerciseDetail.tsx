@@ -289,63 +289,84 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
 
       {/* Fields */}
       <div className="flex flex-col gap-6">
-        {template.fields.map((field, i) => (
-          <motion.div
-            key={field.id}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.05 }}
-          >
-            <h3 className="text-base font-bold mb-1" style={{ color: field.color }}>
-              {field.label}
-            </h3>
-            {field.subtitle && (
-              <p className="text-sm font-medium text-foreground mb-2 whitespace-pre-line">{field.subtitle}</p>
-            )}
-            {field.prompts && (
-              <ul className="mb-3 ml-5 flex flex-col gap-1 list-disc">
-                {field.prompts.map((p, j) => (
-                  <li key={j} className="text-sm text-muted-foreground">{p}</li>
-                ))}
-              </ul>
-            )}
+        {template.fields.map((field, i) => {
+          // Detect section headers for grouped templates (e.g., Financial Goals Chart)
+          const sectionHeaders: Record<string, string> = {
+            "budgeting-status": "Budgeting",
+            "banking-status": "Banking",
+            "credit-status": "Credit History",
+            "debt-status": "Debt Reduction",
+            "saving-status": "Saving",
+            "tax-status": "Tax Filing",
+          };
+          const sectionTitle = sectionHeaders[field.id];
 
-            {field.type === "list" ? (
-              <ListField
-                fieldId={field.id}
-                color={field.color}
-                items={getListItems(field.id)}
-                onChange={handleListItemChange}
-                onAdd={() => addListItem(field.id)}
-                onRemove={(idx) => removeListItem(field.id, idx)}
-              />
-            ) : field.type === "table" && field.columns ? (
-              <TableField
-                fieldId={field.id}
-                color={field.color}
-                columns={field.columns}
-                rows={getTableRows(field.id, field.columns.length)}
-                onChange={(rowIdx, colIdx, val) => handleTableCellChange(field.id, rowIdx, colIdx, val, field.columns!.length)}
-                onAdd={() => addTableRow(field.id, field.columns!.length)}
-                onRemove={(rowIdx) => removeTableRow(field.id, rowIdx)}
-              />
-            ) : field.type === "rated-list" && field.items ? (
-              <RatedListField
-                fieldId={field.id}
-                items={field.items}
-                ratings={ratedValues[field.id] || {}}
-                onChange={(item, val) => handleRatedChange(field.id, item, val)}
-              />
-            ) : (
-              <Textarea
-                value={values[field.id] || ""}
-                onChange={(e) => handleChange(field.id, e.target.value)}
-                placeholder="Enter your response..."
-                className="min-h-[120px] rounded-xl border-border bg-background resize-y text-sm transition-all focus:ring-2 focus:ring-primary/30"
-              />
-            )}
-          </motion.div>
-        ))}
+          return (
+            <motion.div
+              key={field.id}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.02 }}
+            >
+              {sectionTitle && (
+                <div className="mb-3 mt-2">
+                  {i > 0 && <div className="border-t border-border mb-4" />}
+                  <h2 className="text-lg font-bold" style={{ color: field.color }}>
+                    {sectionTitle}
+                  </h2>
+                </div>
+              )}
+              <h3 className="text-sm font-bold mb-1 text-foreground">
+                {field.label}
+              </h3>
+              {field.subtitle && (
+                <p className="text-sm font-medium text-foreground mb-2 whitespace-pre-line">{field.subtitle}</p>
+              )}
+              {field.prompts && (
+                <ul className="mb-3 ml-5 flex flex-col gap-1 list-disc">
+                  {field.prompts.map((p, j) => (
+                    <li key={j} className="text-sm text-muted-foreground">{p}</li>
+                  ))}
+                </ul>
+              )}
+
+              {field.type === "list" ? (
+                <ListField
+                  fieldId={field.id}
+                  color={field.color}
+                  items={getListItems(field.id)}
+                  onChange={handleListItemChange}
+                  onAdd={() => addListItem(field.id)}
+                  onRemove={(idx) => removeListItem(field.id, idx)}
+                />
+              ) : field.type === "table" && field.columns ? (
+                <TableField
+                  fieldId={field.id}
+                  color={field.color}
+                  columns={field.columns}
+                  rows={getTableRows(field.id, field.columns.length)}
+                  onChange={(rowIdx, colIdx, val) => handleTableCellChange(field.id, rowIdx, colIdx, val, field.columns!.length)}
+                  onAdd={() => addTableRow(field.id, field.columns!.length)}
+                  onRemove={(rowIdx) => removeTableRow(field.id, rowIdx)}
+                />
+              ) : field.type === "rated-list" && field.items ? (
+                <RatedListField
+                  fieldId={field.id}
+                  items={field.items}
+                  ratings={ratedValues[field.id] || {}}
+                  onChange={(item, val) => handleRatedChange(field.id, item, val)}
+                />
+              ) : (
+                <Textarea
+                  value={values[field.id] || ""}
+                  onChange={(e) => handleChange(field.id, e.target.value)}
+                  placeholder="Enter your response..."
+                  className="min-h-[100px] rounded-xl border-border bg-background resize-y text-sm transition-all focus:ring-2 focus:ring-primary/30"
+                />
+              )}
+            </motion.div>
+          );
+        })}
       </div>
 
       {template.footerNote && (
