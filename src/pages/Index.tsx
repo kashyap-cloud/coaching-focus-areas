@@ -81,6 +81,16 @@ const Index = () => {
               template={selfCareCheckin}
               onBack={handleExerciseBack}
             />
+          ) : selectedExercise && specialType === "planner" ? (
+            <WeeklySuccessPlannerExercise
+              key="weekly-planner"
+              onBack={handleExerciseBack}
+            />
+          ) : selectedExercise && specialType === "procrastinating" ? (
+            <StopProcrastinatingExercise
+              key="stop-procrastinating"
+              onBack={handleExerciseBack}
+            />
           ) : activeTemplate && selectedExercise ? (
             <ExerciseDetail
               key={activeTemplate.id}
