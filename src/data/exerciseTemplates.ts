@@ -1087,6 +1087,99 @@ export const exerciseTemplates: Record<string, ExerciseTemplate> = {
       { id: "your-story", label: "Start Your Story Here:", subtitle: "You can start with Once upon a time, A long time ago...", color: "hsl(175,60%,40%)", type: "text" },
     ],
   },
+
+  // ── Employee ──
+  "reminder-list": {
+    id: "reminder-list",
+    title: "Reminder List",
+    description:
+      "Each exercise is special. It's a unique exchange of ideas, thoughts, questions, observations and reflections that you perceive.\n\nThis list helps you prepare and make the most of your ideas that occur at different points.",
+    importantNote:
+      "Consider these categories as you reflect:\n\nFeelings about....\n• self/other, health, work/career, finances, life/meaning, attitudes/habits, a recent experience, what else?\n\nFuture events....\n• plans/commitments, visits/meetings, goals/actions, strategies to get there, what else?\n\nOther events....\n• disappointments, decisions, concerns, what else?\n\nPositive events....\n• achievements, changes, insights, happiness/joy, what else?\n\nAreas to get help....\n• stuck, missing/would like, patterns/habits, unsure about/confused, fears and worry, focus/motivation, what else?",
+    fields: [
+      { id: "ideas-to-discuss", label: "If you like, write some ideas below from the above list that you might like to discuss:", color: "hsl(210,75%,50%)", type: "text" },
+    ],
+  },
+
+  "intake-questions": {
+    id: "intake-questions",
+    title: "Intake Questions",
+    description:
+      "These questions are to stimulate your thinking and make our work together more productive. And because the personal affects business and vice versa.",
+    importantNote:
+      "• Answer each of these questions as clearly and thoughtfully as possible, expressing the best of who you are. A short answer – a few words or a couple of sentences are usually enough. But if you want to write more, then do.\n• Finally, if there are any questions you don't feel comfortable with, you don't have to answer them. But know that it is often through exploring our discomfort, that we achieve our greatest learnings and growth.",
+    fields: [
+      { id: "vision-mission", label: "What is your vision or mission statement? What do you consider your role to be professionally in the world?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "biggest-successes", label: "What have been the biggest successes professionally, so far?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "challenges", label: "What challenges are you currently facing in your office? What challenges do you foresee?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "key-goals", label: "If you had 3 absolutely key goals professionally, what would they be?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "strengths-achieve", label: "What strengths will help you achieve these goals?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "key-measures", label: "What are the key measures you use in your job?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "avoiding-at-work", label: "If there was something in your job that you were avoiding or running away from, what would it be?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "secret-change", label: "If there was a change you'd secretly like to make to your job, what would it be?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "whats-missing", label: "What's missing in your job? Eg. systems, processes, tools, technology, leadership, staff, a product or service etc.?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "out-of-coaching", label: "What do you personally want to get out of coaching?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "success-meaning", label: "What does success mean to you?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "biggest-strengths", label: "What are your 3 biggest strengths?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "sabotage", label: "How do you tend to sabotage yourself?", color: "hsl(265,55%,45%)", type: "text" },
+      { id: "personal-values", label: "Which personal values come through in your job? How are you different at work compared to at home?", color: "hsl(265,55%,45%)", type: "text" },
+      { id: "learning-style", label: "How do you best learn? What is your learning style?", color: "hsl(265,55%,45%)", type: "text" },
+      { id: "release-stress", label: "How specifically do you release stress? What do you do to look after yourself on a regular basis?", color: "hsl(265,55%,45%)", type: "text" },
+      { id: "enjoy-yourself", label: "How do you enjoy yourself?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "given-up", label: "If there was something you had given up on in your life – what would it be?", color: "hsl(175,60%,40%)", type: "text" },
+    ],
+  },
+
+  "take-stock-take-action": {
+    id: "take-stock-take-action",
+    title: "Take Stock and Take Action",
+    description:
+      "This is a great exercise to do over a cup of tea or coffee to pause, take stock and then take action.",
+    importantNote:
+      "INSTRUCTIONS:\n• Answer the questions below, then look for the key points, patterns and similarities you notice from your responses.\n• Finally, note down your Top 3 Observations and identify an action to move forwards for each one!\n\nNOTE: Feel free to take your time and get temporarily side-tracked as you consider your responses: the questions are deliberately vague – so just trust and write down whatever comes to your mind.",
+    fields: [
+      { id: "tolerances", label: "TOLERANCES: What are you PUTTING UP WITH at the moment?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "shoulds", label: "SHOULDS: What so you think you 'SHOULD' be doing right now, professionally & personally?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "frustrations", label: "FRUSTRATIONS: What things are FRUSTRATING you about yourself, your life, health, work, other?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "desires", label: "DESIRES: What do you REALLY, REALLY WANT right now in your personal and/or professional life?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "feelings-current", label: "FEELINGS: How do you CURRENTLY feel?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "feelings-want", label: "FEELINGS: How do you WANT to feel?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "key-observations", label: "Now, review your answers above. What do you notice? Put the most important thing first, then the second and third in order. Then considering your key learnings below, think of an action to address each one within the next week:", color: "hsl(175,60%,40%)", type: "table", columns: ["Key observation", "Action"] },
+    ],
+  },
+
+  // ── Corporate ──
+  "reclaim-your-power": {
+    id: "reclaim-your-power",
+    title: "Reclaim Your Power at Work",
+    description:
+      "We all have feelings while working – it's where most of us spend our prime years and the bulk of our time. These feelings change over time, and can be anything from misery to enthusiasm and joy.\n\nPeople who enjoy their work are usually good at making a distinction between who they are and the results of their work. This brings a healthy detachment that allows for enjoyment of work independent of circumstances. If you don't maintain this distinction, your enjoyment will always be dependent on whether or not things are going 'well'.\n\nIn order to make changes in your career it helps to understand what you enjoy – and what you don't – in your current work. Then you can make yourself more comfortable where you are while you ponder and take action on alternative careers, new ideas or new directions.\n\nRemember that it's very important, when making big changes in our lives, to move from a position of strength – and not from a position of weakness or unhappiness. This helps us avoid hasty or regrettable decisions.",
+    importantNote:
+      "INSTRUCTIONS:\n• The purpose of this exercise is to empower yourself in your current working situation.\n• First, find out what contributes to how you feel at work by answering the questions below.\n• Then use what you learn to identify 3 actions to reclaim your power at work.\n\nNOTE: It's important to be honest with yourself – awareness is a powerful tool for change. If you deny the truth of a situation, you also deny yourself the opportunity to make meaningful change.",
+    fields: [
+      { id: "time-enjoyment", label: "What % of your time at work are you feeling: ENJOYMENT / IN BETWEEN / MISERY", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "contribute-enjoyment", label: "What would you say most contribute to your enjoyment at work?", color: "hsl(175,60%,40%)", type: "text" },
+      { id: "contribute-misery", label: "What would you say most contribute to your misery at work?", color: "hsl(350,70%,55%)", type: "text" },
+      { id: "critical-variables", label: "What would you say are the underlying critical variables that affect your enjoyment of your work?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "do-differently", label: "What COULD you do differently at your CURRENT work to feel better?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "biggest-difference", label: "What is the biggest 'difference that makes the difference' as to whether you enjoy your work or not?", color: "hsl(265,55%,45%)", type: "text" },
+      { id: "empower-actions", label: "Now, what WILL you do differently to empower yourself in your CURRENT work situation?", color: "hsl(175,60%,40%)", type: "table", columns: ["Action", "by When"] },
+    ],
+  },
+
+  "spheres-of-influence": {
+    id: "spheres-of-influence",
+    title: "My Spheres of Influence",
+    description:
+      "This exercise helps you understand the areas of your life and work where you have influence – and where you don't. By getting clear on what you CAN control, you empower yourself to focus your energy where it matters most, letting go of what's outside your control.",
+    fields: [
+      { id: "can-control", label: "What CAN you control or influence in your work/life right now?", color: "hsl(175,60%,40%)", type: "list" },
+      { id: "cannot-control", label: "What can you NOT control?", color: "hsl(350,70%,55%)", type: "list" },
+      { id: "energy-wasted", label: "Where are you wasting energy on things you can't control?", color: "hsl(30,90%,55%)", type: "text" },
+      { id: "redirect-energy", label: "How could you redirect that energy to things within your sphere of influence?", color: "hsl(210,75%,50%)", type: "text" },
+      { id: "actions", label: "What 3 actions will you take this week to focus on what you CAN influence?", color: "hsl(175,60%,40%)", type: "list" },
+    ],
+  },
 };
 
 // Special exercise IDs that use dedicated components
