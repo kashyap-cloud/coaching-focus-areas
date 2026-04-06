@@ -40,9 +40,9 @@ const ResourceDetail = ({ resourceType, resources, onBack }: Props) => {
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.06 }}
+                transition={{ delay: i * 0.03, duration: 0.2 }}
                 className="flex items-start gap-4 rounded-2xl bg-card p-4 coaching-card-shadow"
               >
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary/10">
@@ -68,9 +68,9 @@ const ResourceDetail = ({ resourceType, resources, onBack }: Props) => {
           {resources.quotes.map((q, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.06 }}
+              transition={{ delay: i * 0.03, duration: 0.2 }}
               className="rounded-2xl bg-card p-5 coaching-card-shadow"
               style={{
                 borderLeft: `4px solid ${q.borderColor}`,
@@ -99,9 +99,9 @@ const ResourceDetail = ({ resourceType, resources, onBack }: Props) => {
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.06 }}
+                transition={{ delay: i * 0.03, duration: 0.2 }}
               >
                 <Wrapper
                   {...(linkProps as any)}
