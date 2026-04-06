@@ -63,9 +63,9 @@ const CoachingAreaDetail = ({ area, onBack, onExerciseClick, onLearnClick, onRes
             return (
               <motion.button
                 key={ex.title}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.06 }}
+                transition={{ delay: i * 0.03, duration: 0.2 }}
                 whileHover={{ y: -3, scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => onExerciseClick?.(ex)}
