@@ -61,10 +61,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "GROW", lucideIcon: "TrendingUp", color: "navy" },
     ],
     learn: [
-      { title: "Key Principles" },
-      { title: "Coaching Benefits" },
-      { title: "Unexpected Advantages" },
-      { title: "Hidden Capabilities" },
+      { title: "Career Transitions" },
+      { title: "Personal Branding" },
+      { title: "Networking Strategies" },
+      { title: "Skill Development" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
