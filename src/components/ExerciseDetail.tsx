@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, History, Clock, ChevronDown, ChevronUp, Send, Plus, X } from "lucide-react";
+import { ArrowLeft, History, Clock, ChevronDown, ChevronUp, Send, Plus, X, CloudCheck } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import type { ExerciseTemplate } from "@/data/exerciseTemplates";
 import { toast } from "@/hooks/use-toast";
 import SuccessDialog from "@/components/SuccessDialog";
+import { useExerciseSession } from "@/hooks/useExerciseSession";
+import { useTranslation } from "react-i18next";
+import { useTranslatedContent } from "@/hooks/useTranslatedContent";
+
 
 interface HistoryEntry {
   id: string;
@@ -16,9 +20,14 @@ interface HistoryEntry {
 interface Props {
   template: ExerciseTemplate;
   onBack: () => void;
+  coachingAreaId?: string;
+  exerciseId?: string;
 }
 
-const ExerciseDetail = ({ template, onBack }: Props) => {
+const ExerciseDetail = ({ template: originalTemplate, onBack, coachingAreaId, exerciseId }: Props) => {
+  const { t } = useTranslation();
+  const { getTranslatedExercise } = useTranslatedContent();
+  const template = getTranslatedExercise(originalTemplate.id, originalTemplate);
   const storageKey = `exercise-history-${template.id}`;
   const [values, setValues] = useState<Record<string, string>>({});
   const [listValues, setListValues] = useState<Record<string, string[]>>({});
@@ -27,6 +36,17 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
   const [showHistory, setShowHistory] = useState(false);
   const [expandedEntry, setExpandedEntry] = useState<string | null>(null);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [cloudSaved, setCloudSaved] = useState(false);
+
+  const { initSession, submitTemplateExercise, status: dbStatus } = useExerciseSession();
+
+  // Start a DB session as soon as the exercise opens
+  useEffect(() => {
+    if (coachingAreaId && exerciseId) {
+      initSession(coachingAreaId, exerciseId);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const getHistory = (): HistoryEntry[] => {
     try {
@@ -106,7 +126,7 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const merged: Record<string, string> = { ...values };
     template.fields.forEach((field) => {
       if (field.type === "list") {
@@ -128,6 +148,8 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
       toast({ title: "Please fill in at least one field", variant: "destructive" });
       return;
     }
+
+    // ── 1. Save to localStorage (instant, local) ──────────────────
     const entry: HistoryEntry = {
       id: Date.now().toString(),
       date: new Date().toLocaleString(),
@@ -135,6 +157,21 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
     };
     const prev = getHistory();
     localStorage.setItem(storageKey, JSON.stringify([entry, ...prev].slice(0, 50)));
+
+    // ── 2. Save to Neon DB (cloud, async) ─────────────────────────
+    if (coachingAreaId && exerciseId) {
+      const dbFields = template.fields.map((field) => ({
+        fieldId: field.id,
+        fieldLabel: field.label,
+        fieldType: field.type ?? "text",
+        responseText: field.type === "text" || !field.type ? (merged[field.id] ?? null) : null,
+        responseJson: field.type === "list" || field.type === "table" || field.type === "rated-list"
+          ? (merged[field.id] ? JSON.parse(merged[field.id]) : null)
+          : null,
+      }));
+      submitTemplateExercise(dbFields).then(() => setCloudSaved(true)).catch(console.error);
+    }
+
     setValues({});
     setListValues({});
     setTableValues({});
@@ -208,65 +245,75 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
       className="flex flex-col gap-5 pb-8"
     >
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <button
-            onClick={onBack}
-            className="flex h-10 w-10 items-center justify-center rounded-xl bg-card coaching-card-shadow transition-all hover:coaching-card-shadow-hover"
-          >
-            <ArrowLeft className="h-5 w-5 text-foreground" />
-          </button>
-          <h1 className="text-xl font-bold text-foreground">{template.title}</h1>
+      <div className="flex items-center gap-3">
+        <button
+          onClick={onBack}
+          className="flex h-10 w-10 items-center justify-center rounded-xl bg-card coaching-card-shadow transition-all hover:coaching-card-shadow-hover"
+          title={t("common.back", "Back")}
+        >
+          <ArrowLeft className="h-5 w-5 text-foreground" />
+        </button>
+        <div className="flex-1">
+          <h2 className="text-xl font-bold text-foreground leading-tight">{template.title}</h2>
+          <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
+            <span className="flex items-center gap-1"><Clock size={12} /> 10-15 {t("common.minutes", "min")}</span>
+            <span className="flex items-center gap-1"><History size={12} /> 4 {t("common.sessionsCount", "sessions")}</span>
+          </div>
         </div>
         <button
           onClick={() => setShowHistory(!showHistory)}
-          className="flex items-center gap-2 rounded-xl bg-card px-4 py-2.5 text-sm font-semibold coaching-card-shadow transition-all hover:coaching-card-shadow-hover"
+          className={`flex h-10 w-10 items-center justify-center rounded-xl transition-all coaching-card-shadow ${
+            showHistory ? "bg-primary text-primary-foreground" : "bg-card text-foreground hover:coaching-card-shadow-hover"
+          }`}
+          title={t("common.history", "History")}
         >
-          <History className="h-4 w-4 text-primary" />
-          <span className="text-foreground">History</span>
+          <History className="h-5 w-5" />
         </button>
       </div>
 
       {/* Description */}
-      <div className="rounded-2xl bg-card/60 border border-border/50 p-5">
-        <p className="text-sm leading-relaxed text-muted-foreground whitespace-pre-line">{template.description}</p>
-      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed bg-white/50 p-3 rounded-xl border border-slate-100 italic">
+        {template.description}
+      </p>
 
       {template.importantNote && (
-        <div className="rounded-xl border-l-[3px] border-amber-400/60 bg-amber-50/30 dark:bg-amber-900/10 p-4">
-          <p className="text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-1">Important Note:</p>
-          <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{template.importantNote}</p>
+        <div className="rounded-xl border border-indigo-100 bg-indigo-50/50 p-4 text-xs text-indigo-900">
+          <p className="font-bold mb-1">{t("common.importantNote", "Important Note")}:</p>
+          {template.importantNote}
         </div>
       )}
 
-      {/* History Panel */}
+      {/* History Drawer */}
       {showHistory && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="rounded-2xl border border-border bg-card p-4 coaching-card-shadow"
+          className="overflow-hidden rounded-2xl bg-slate-50 border border-slate-200"
         >
-          <h3 className="mb-3 flex items-center gap-2 text-sm font-bold text-foreground">
-            <Clock className="h-4 w-4 text-primary" />
-            Previous Entries
-          </h3>
+          <div className="p-4 border-b border-slate-200 bg-slate-100/50 flex justify-between items-center">
+            <h3 className="text-sm font-bold text-slate-700">{t("common.previousEntries", "Previous Entries")}</h3>
+            <span className="text-[10px] uppercase tracking-wider font-bold text-slate-400">{history.length} {t("common.saved", "Saved")}</span>
+          </div>
           {history.length === 0 ? (
-            <p className="text-sm text-muted-foreground py-4 text-center">No history yet. Submit your first entry!</p>
+            <div className="p-8 text-center">
+              <History className="h-10 w-10 text-slate-300 mx-auto mb-2 opacity-50" />
+              <p className="text-xs text-slate-500">{t("common.noHistory", "No history yet. Submit your first entry!")}</p>
+            </div>
           ) : (
-            <div className="flex flex-col gap-2 max-h-80 overflow-y-auto">
+            <div className="divide-y divide-slate-200 max-h-[300px] overflow-y-auto">
               {history.map((entry) => (
                 <button
                   key={entry.id}
                   onClick={() => setExpandedEntry(expandedEntry === entry.id ? null : entry.id)}
-                  className="w-full rounded-xl border border-border bg-background p-3 text-left transition-all hover:bg-muted/50"
+                  className="w-full p-4 text-left transition-all hover:bg-white"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-medium text-muted-foreground">{entry.date}</span>
+                    <span className="text-xs font-medium text-slate-500">{entry.date}</span>
                     {expandedEntry === entry.id ? (
-                      <ChevronUp className="h-4 w-4 text-muted-foreground" />
+                      <ChevronUp className="h-4 w-4 text-slate-400" />
                     ) : (
-                      <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                      <ChevronDown className="h-4 w-4 text-slate-400" />
                     )}
                   </div>
                   {expandedEntry === entry.id && (
@@ -289,14 +336,13 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
       {/* Fields */}
       <div className="flex flex-col gap-6">
         {template.fields.map((field, i) => {
-          // Detect section headers for grouped templates (e.g., Financial Goals Chart)
           const sectionHeaders: Record<string, string> = {
-            "budgeting-status": "Budgeting",
-            "banking-status": "Banking",
-            "credit-status": "Credit History",
-            "debt-status": "Debt Reduction",
-            "saving-status": "Saving",
-            "tax-status": "Tax Filing",
+            "budgeting-status": t("common.budgeting", "Budgeting"),
+            "banking-status": t("common.banking", "Banking"),
+            "credit-status": t("common.creditHistory", "Credit History"),
+            "debt-status": t("common.debtReduction", "Debt Reduction"),
+            "saving-status": t("common.savingLabel", "Saving"),
+            "tax-status": t("common.taxFiling", "Tax Filing"),
           };
           const sectionTitle = sectionHeaders[field.id];
 
@@ -322,7 +368,7 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
               {field.subtitle && (
                 <p className="text-sm font-medium text-muted-foreground mb-2 whitespace-pre-line">{field.subtitle}</p>
               )}
-              {field.prompts && (
+              {Array.isArray(field.prompts) && field.prompts.length > 0 && (
                 <ul className="mb-3 ml-5 flex flex-col gap-1 list-disc">
                   {field.prompts.map((p, j) => (
                     <li key={j} className="text-sm text-muted-foreground">{p}</li>
@@ -360,7 +406,7 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
                 <Textarea
                   value={values[field.id] || ""}
                   onChange={(e) => handleChange(field.id, e.target.value)}
-                  placeholder="Enter your response..."
+                  placeholder={t("common.enterResponse", "Enter your response...")}
                   className="min-h-[100px] rounded-xl border-border bg-background resize-y text-sm transition-all focus:ring-2 focus:ring-primary/30"
                 />
               )}
@@ -378,11 +424,20 @@ const ExerciseDetail = ({ template, onBack }: Props) => {
         whileHover={{ scale: 1.01 }}
         whileTap={{ scale: 0.98 }}
         onClick={handleSubmit}
-        className="flex items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-bold text-primary-foreground transition-all hover:opacity-90 coaching-card-shadow"
+        disabled={dbStatus === "saving"}
+        className="flex items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-bold text-primary-foreground transition-all hover:opacity-90 coaching-card-shadow disabled:opacity-60"
       >
-        <Send className="h-4 w-4" />
-        Submit
+        {dbStatus === "saving" ? (
+          <><span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />{t("common.saving", "Saving...")}</>
+        ) : (
+          <><Send className="h-4 w-4" />{t("common.submit", "Submit")}</>
+        )}
       </motion.button>
+      {cloudSaved && (
+        <p className="flex items-center justify-center gap-1.5 text-xs text-emerald-600 font-medium">
+          <CloudCheck className="h-3.5 w-3.5" /> {t("common.savedToCloud", "Response saved to cloud")}
+        </p>
+      )}
       <SuccessDialog open={showSuccess} onClose={() => setShowSuccess(false)} />
     </motion.div>
   );
@@ -405,39 +460,31 @@ function ListField({
   onAdd: () => void;
   onRemove: (idx: number) => void;
 }) {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col gap-2">
-      {items.map((item, idx) => (
-        <motion.div key={idx} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} className="flex items-center gap-2">
-          <span
-            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white"
-            style={{ backgroundColor: color }}
-          >
-            {idx + 1}
-          </span>
+      {Array.isArray(items) && items.map((item, idx) => (
+        <div key={idx} className="flex gap-2">
           <Input
             value={item}
             onChange={(e) => onChange(fieldId, idx, e.target.value)}
-            placeholder={`Item ${idx + 1}...`}
-            className="flex-1 rounded-xl border-border bg-background text-sm transition-all focus:ring-2 focus:ring-primary/30"
+            placeholder={`${t("common.item", "Item")} ${idx + 1}...`}
+            className="rounded-xl border-border bg-background text-sm transition-all focus:ring-2 focus:ring-primary/30"
           />
-          {items.length > 1 && (
-            <button
-              onClick={() => onRemove(idx)}
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          )}
-        </motion.div>
+          <button
+            onClick={() => onRemove(idx)}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-500 hover:bg-red-50 hover:text-red-500 transition-colors"
+          >
+            <X size={16} />
+          </button>
+        </div>
       ))}
       <button
         onClick={onAdd}
-        className="mt-1 flex items-center gap-2 self-start rounded-xl px-3 py-2 text-sm font-semibold transition-colors hover:bg-muted"
+        className="flex items-center gap-2 self-start text-xs font-bold transition-all hover:opacity-80"
         style={{ color }}
       >
-        <Plus className="h-4 w-4" />
-        Add item
+        <Plus size={14} /> {t("common.addItem", "Add item")}
       </button>
     </div>
   );
@@ -460,51 +507,52 @@ function TableField({
   onAdd: () => void;
   onRemove: (rowIdx: number) => void;
 }) {
+  const { t } = useTranslation();
   return (
-    <div className="flex flex-col gap-3">
-      {/* Column headers */}
-      <div className="flex items-center gap-2">
-        <div className="w-7 shrink-0" />
-        {columns.map((col, ci) => (
-          <p key={ci} className="flex-1 text-xs font-semibold text-muted-foreground">{col}</p>
-        ))}
-        <div className="w-8 shrink-0" />
+    <div className="flex flex-col gap-3 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50/30 p-4">
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[500px]">
+          <thead>
+            <tr>
+              {Array.isArray(columns) && columns.map((col, i) => (
+                <th key={i} className="pb-3 text-left text-[10px] font-bold uppercase tracking-wider text-muted-foreground px-2">
+                  {col}
+                </th>
+              ))}
+              <th className="w-10"></th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-100">
+            {Array.isArray(rows) && rows.map((row, rowIdx) => (
+              <tr key={rowIdx}>
+                {Array.isArray(row) && row.map((cell, colIdx) => (
+                  <td key={colIdx} className="py-2 px-1">
+                    <Input
+                      value={cell}
+                      onChange={(e) => onChange(rowIdx, colIdx, e.target.value)}
+                      className="h-9 rounded-lg border-border bg-white text-xs"
+                    />
+                  </td>
+                ))}
+                <td className="py-2 pl-2">
+                  <button
+                    onClick={() => onRemove(rowIdx)}
+                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-400 hover:bg-red-50 hover:text-red-500 transition-colors"
+                  >
+                    <X size={14} />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-      {rows.map((row, ri) => (
-        <motion.div key={ri} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} className="flex items-center gap-2">
-          <span
-            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white"
-            style={{ backgroundColor: color }}
-          >
-            {ri + 1}
-          </span>
-          {columns.map((_, ci) => (
-            <Input
-              key={ci}
-              value={row[ci] || ""}
-              onChange={(e) => onChange(ri, ci, e.target.value)}
-              placeholder={columns[ci]}
-              className="flex-1 rounded-xl border-border bg-background text-sm transition-all focus:ring-2 focus:ring-primary/30"
-            />
-          ))}
-          {rows.length > 1 && (
-            <button
-              onClick={() => onRemove(ri)}
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          )}
-          {rows.length <= 1 && <div className="w-8 shrink-0" />}
-        </motion.div>
-      ))}
       <button
         onClick={onAdd}
-        className="mt-1 flex items-center gap-2 self-start rounded-xl px-3 py-2 text-sm font-semibold transition-colors hover:bg-muted"
+        className="flex items-center gap-2 self-start text-xs font-bold transition-all hover:opacity-80 mt-1"
         style={{ color }}
       >
-        <Plus className="h-4 w-4" />
-        Add row
+        <Plus size={14} /> {t("common.addRow", "Add row")}
       </button>
     </div>
   );
@@ -522,12 +570,8 @@ function RatedListField({
   onChange: (item: string, val: string) => void;
 }) {
   return (
-    <div className="flex flex-col gap-0">
-      <div className="flex items-center justify-between border-b border-border pb-2 mb-2">
-        <p className="text-xs font-semibold text-muted-foreground">Item</p>
-        <p className="text-xs font-semibold text-muted-foreground w-20 text-center">Rating</p>
-      </div>
-      {items.map((item) => (
+    <div className="flex flex-col gap-1">
+      {Array.isArray(items) && items.map((item) => (
         <div key={item} className="flex items-center justify-between py-2 border-b border-border/50">
           <p className="text-sm font-medium text-foreground">{item}</p>
           <Input

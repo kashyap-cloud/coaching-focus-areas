@@ -1,19 +1,4 @@
-import careerImg from "@/assets/coaching/career.png";
-import executiveImg from "@/assets/coaching/executive.png";
-import wellnessImg from "@/assets/coaching/wellness.png";
-import leadershipImg from "@/assets/coaching/leadership.png";
-import financeImg from "@/assets/coaching/finance.png";
-import performanceImg from "@/assets/coaching/performance.png";
-import mindsetImg from "@/assets/coaching/mindset.png";
-import spiritualImg from "@/assets/coaching/spiritual.png";
-import mentalHealthImg from "@/assets/coaching/mental-health.png";
-import transformImg from "@/assets/coaching/transform.png";
-import communicateImg from "@/assets/coaching/communicate.png";
-import organizationImg from "@/assets/coaching/organization.png";
-import creativityImg from "@/assets/coaching/creativity.png";
-import employeeImg from "@/assets/coaching/employee.png";
-import corporateImg from "@/assets/coaching/corporate.png";
-import confidenceImg from "@/assets/coaching/confidence.png";
+// Category images are no longer used in favor of professional Lucide icons.
 
 export type ExerciseColor = "navy" | "red" | "blue" | "purple" | "orange" | "teal" | "yellow" | "salmon";
 
@@ -30,8 +15,10 @@ export interface LearnItem {
 export interface CoachingArea {
   id: string;
   name: string;
-  image: string;
+  image?: string;
+  lucideIcon: string;
   bgColor: string;
+  iconColor: string;
   exercises: Exercise[];
   learn: LearnItem[];
   resources: { type: "tips" | "quotes" | "ebooks"; title: string; subtitle: string }[];
@@ -52,8 +39,9 @@ export const coachingAreas: CoachingArea[] = [
   {
     id: "career",
     name: "Career",
-    image: careerImg,
+    lucideIcon: "Briefcase",
     bgColor: "bg-coaching-career",
+    iconColor: "text-blue-600",
     exercises: [
       { title: "Improvement Canvas", lucideIcon: "Presentation", color: "red" },
       { title: "SWOT Analysis", lucideIcon: "LayoutGrid", color: "blue" },
@@ -63,7 +51,7 @@ export const coachingAreas: CoachingArea[] = [
     learn: [
       { title: "Career Transitions" },
       { title: "Personal Branding" },
-      { title: "Networking Strategies" },
+      { title: "Networking" },
       { title: "Skill Development" },
     ],
     resources: [
@@ -75,8 +63,9 @@ export const coachingAreas: CoachingArea[] = [
   {
     id: "executive",
     name: "Executive",
-    image: executiveImg,
+    lucideIcon: "UserCog",
     bgColor: "bg-coaching-executive",
+    iconColor: "text-slate-700",
     exercises: [
       { title: "GROW", lucideIcon: "TrendingUp", color: "navy" },
       { title: "Improvement Canvas", lucideIcon: "Presentation", color: "red" },
@@ -84,10 +73,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "Not To-Do List", lucideIcon: "ListChecks", color: "purple" },
     ],
     learn: [
-      { title: "Key Principles" },
-      { title: "Benefits" },
-      { title: "Unexpected Advantages" },
-      { title: "Hidden Capabilities" },
+      { title: "6 Coaching Principles" },
+      { title: "7 Coaching Benefits" },
+      { title: "Hidden Advantages" },
+      { title: "Unlock Potential" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
@@ -98,8 +87,9 @@ export const coachingAreas: CoachingArea[] = [
   {
     id: "wellness",
     name: "Wellness",
-    image: wellnessImg,
+    lucideIcon: "HeartPulse",
     bgColor: "bg-coaching-wellness",
+    iconColor: "text-pink-500",
     exercises: [
       { title: "Self-Care Quiz", lucideIcon: "ClipboardCheck", color: "blue" },
       { title: "Self-care List", lucideIcon: "CheckSquare", color: "blue" },
@@ -107,10 +97,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "Too Comfortable?", lucideIcon: "Armchair", color: "blue" },
     ],
     learn: [
-      { title: "Achieving Healthy Lifestyle" },
-      { title: "Discovering Equilibrium" },
-      { title: "Health Vs. Wellness" },
-      { title: "Natural Health and Nutrition" },
+      { title: "18 Wellness Tips" },
+      { title: "Wellness Coaching" },
+      { title: "Health vs. Wellness" },
+      { title: "27 Health Tips" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
@@ -121,8 +111,9 @@ export const coachingAreas: CoachingArea[] = [
   {
     id: "leadership",
     name: "Leadership",
-    image: leadershipImg,
+    lucideIcon: "Users",
     bgColor: "bg-coaching-leadership",
+    iconColor: "text-teal-600",
     exercises: [
       { title: "Detox Toxic Relationships", lucideIcon: "Plus", color: "navy" },
       { title: "Make Heart Sing", lucideIcon: "Heart", color: "red" },
@@ -130,10 +121,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "Putting Up With?", lucideIcon: "Flag", color: "orange" },
     ],
     learn: [
-      { title: "Alter Your Views" },
-      { title: "Crafting a Culture" },
-      { title: "Unsure About Coaching?" },
-      { title: "Significance of Roles" },
+      { title: "Embrace Change" },
+      { title: "Hybrid Culture" },
+      { title: "Types of Coaching" },
+      { title: "Roles & Duties" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
@@ -144,8 +135,9 @@ export const coachingAreas: CoachingArea[] = [
   {
     id: "finance",
     name: "Finance",
-    image: financeImg,
+    lucideIcon: "DollarSign",
     bgColor: "bg-coaching-finance",
+    iconColor: "text-emerald-600",
     exercises: [
       { title: "Urgent vs. Important", lucideIcon: "Hourglass", color: "navy" },
       { title: "Plan, Do and Review", lucideIcon: "ClipboardEdit", color: "red" },
@@ -153,10 +145,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "Financial Goals Chart", lucideIcon: "Target", color: "orange" },
     ],
     learn: [
-      { title: "Secure Your Future" },
-      { title: "Why Personal Finance?" },
-      { title: "Financial Coaching?" },
-      { title: "Controlling Your Finances" },
+      { title: "8 Finance Tips" },
+      { title: "Personal Finance" },
+      { title: "Financial Coaching" },
+      { title: "Budgeting" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
@@ -167,8 +159,9 @@ export const coachingAreas: CoachingArea[] = [
   {
     id: "performance",
     name: "Performance",
-    image: performanceImg,
+    lucideIcon: "TrendingUp",
     bgColor: "bg-coaching-performance",
+    iconColor: "text-orange-600",
     exercises: [
       { title: "Success Planner", lucideIcon: "CalendarCheck", color: "blue" },
       { title: "Eliminate Delaying", lucideIcon: "Clock", color: "blue" },
@@ -176,10 +169,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "Love Your Weaknesses", lucideIcon: "Sparkles", color: "purple" },
     ],
     learn: [
+      { title: "High Performance" },
       { title: "Performance Coaching" },
-      { title: "What & How?" },
-      { title: "Performance Advantages" },
-      { title: "Seeking a Coach?" },
+      { title: "Performance Benefits" },
+      { title: "Finding a Coach" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
@@ -190,8 +183,9 @@ export const coachingAreas: CoachingArea[] = [
   {
     id: "mindset",
     name: "Mindset",
-    image: mindsetImg,
+    lucideIcon: "Brain",
     bgColor: "bg-coaching-mindset",
+    iconColor: "text-indigo-600",
     exercises: [
       { title: "3 Month Vision", lucideIcon: "Binoculars", color: "navy" },
       { title: "Get Motivated!", lucideIcon: "Puzzle", color: "orange" },
@@ -200,9 +194,9 @@ export const coachingAreas: CoachingArea[] = [
     ],
     learn: [
       { title: "Mastering Mindset" },
-      { title: "Fostering a Mindset" },
-      { title: "A Coaching Mindset" },
-      { title: "What Does a Coach Do?" },
+      { title: "Fostering Mindset" },
+      { title: "Leadership Mindset" },
+      { title: "The Mindset Coach" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
@@ -213,8 +207,9 @@ export const coachingAreas: CoachingArea[] = [
   {
     id: "spiritual",
     name: "Spiritual",
-    image: spiritualImg,
+    lucideIcon: "Sun",
     bgColor: "bg-coaching-spiritual",
+    iconColor: "text-amber-500",
     exercises: [
       { title: "Mentor Magic!", lucideIcon: "Users", color: "blue" },
       { title: "Intuition Exercise", lucideIcon: "Brain", color: "teal" },
@@ -222,10 +217,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "Powerful Questions", lucideIcon: "MessageCircleQuestion", color: "blue" },
     ],
     learn: [
-      { title: "Enhance Your Life" },
-      { title: "Essence of Spirituality" },
-      { title: "Exploring the Mechanics" },
-      { title: "Spiritual Vs Life Coaching" },
+      { title: "10 Spiritual Tips" },
+      { title: "Spiritual Essence" },
+      { title: "Spiritual Mechanics" },
+      { title: "Spiritual vs Life" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
@@ -236,8 +231,9 @@ export const coachingAreas: CoachingArea[] = [
   {
     id: "mental-health",
     name: "Mental Health",
-    image: mentalHealthImg,
+    lucideIcon: "Activity",
     bgColor: "bg-coaching-mental",
+    iconColor: "text-rose-500",
     exercises: [
       { title: "Let Go", lucideIcon: "Bird", color: "salmon" },
       { title: "Too Comfortable?", lucideIcon: "Armchair", color: "blue" },
@@ -245,10 +241,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "Gratitude Diary", lucideIcon: "CloudSun", color: "red" },
     ],
     learn: [
-      { title: "Know Mental Health" },
-      { title: "Foundations of Wellness" },
+      { title: "Mental Health" },
+      { title: "Wellness Bases" },
       { title: "Coaching vs Counseling" },
-      { title: "Path to Well-Being" },
+      { title: "Well-Being Path" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
@@ -259,8 +255,9 @@ export const coachingAreas: CoachingArea[] = [
   {
     id: "transform",
     name: "Transform",
-    image: transformImg,
+    lucideIcon: "RefreshCw",
     bgColor: "bg-coaching-transform",
+    iconColor: "text-purple-600",
     exercises: [
       { title: "Wacky Wild Goal", lucideIcon: "Target", color: "navy" },
       { title: "Big & Little Rocks", lucideIcon: "Gem", color: "orange" },
@@ -268,10 +265,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "Goals Motivator", lucideIcon: "Star", color: "red" },
     ],
     learn: [
-      { title: "Coaching to Transform" },
-      { title: "Why Coach?" },
-      { title: "Exploring Coaching" },
-      { title: "What Does It Entail?" },
+      { title: "Transformation" },
+      { title: "Why Transform?" },
+      { title: "Transform Models" },
+      { title: "The Transform Process" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
@@ -282,8 +279,9 @@ export const coachingAreas: CoachingArea[] = [
   {
     id: "communicate",
     name: "Communicate",
-    image: communicateImg,
+    lucideIcon: "MessageSquare",
     bgColor: "bg-coaching-communicate",
+    iconColor: "text-sky-500",
     exercises: [
       { title: "Talk to Yourself!", lucideIcon: "MessageCircle", color: "navy" },
       { title: "35 Questions to Ponder", lucideIcon: "HelpCircle", color: "orange" },
@@ -291,10 +289,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "The Softened Start-Up", lucideIcon: "SmilePlus", color: "red" },
     ],
     learn: [
-      { title: "Becoming Proficient" },
-      { title: "Why Coaching?" },
-      { title: "Crafting Contact" },
-      { title: "Handling Discussions" },
+      { title: "Team Comm" },
+      { title: "Comm Coaches" },
+      { title: "Tough Messages" },
+      { title: "10 Comm Strategies" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
@@ -305,8 +303,9 @@ export const coachingAreas: CoachingArea[] = [
   {
     id: "organization",
     name: "Organization",
-    image: organizationImg,
+    lucideIcon: "Building",
     bgColor: "bg-coaching-organization",
+    iconColor: "text-violet-600",
     exercises: [
       { title: "Get Perspective", lucideIcon: "Users", color: "orange" },
       { title: "Career Discovery", lucideIcon: "Search", color: "blue" },
@@ -314,10 +313,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "Priority Matrix", lucideIcon: "LayoutGrid", color: "purple" },
     ],
     learn: [
-      { title: "Implement Coaching" },
-      { title: "Discovering Advantages" },
-      { title: "Coaching in Organization" },
-      { title: "Complete Overhaul" },
+      { title: "4 Setup Steps" },
+      { title: "Org Success" },
+      { title: "Org FAQ" },
+      { title: "Why Org Coaching?" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
@@ -328,8 +327,9 @@ export const coachingAreas: CoachingArea[] = [
   {
     id: "creativity",
     name: "Creativity",
-    image: creativityImg,
+    lucideIcon: "Palette",
     bgColor: "bg-coaching-creativity",
+    iconColor: "text-blue-500",
     exercises: [
       { title: "Dictionary Story", lucideIcon: "BookOpen", color: "navy" },
       { title: "Alternate Uses", lucideIcon: "Shuffle", color: "navy" },
@@ -337,10 +337,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "Compound Collaborative", lucideIcon: "Hexagon", color: "purple" },
     ],
     learn: [
-      { title: "Unleash Your Potential" },
-      { title: "Boost Your Confidence" },
-      { title: "Prioritize Your Essence" },
-      { title: "Explore Creativity" },
+      { title: "Unleash Potential" },
+      { title: "4 Creative Tips" },
+      { title: "Nurture Essence" },
+      { title: "Creative Coaching" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
@@ -351,8 +351,9 @@ export const coachingAreas: CoachingArea[] = [
   {
     id: "employee",
     name: "Employee",
-    image: employeeImg,
+    lucideIcon: "User",
     bgColor: "bg-coaching-employee",
+    iconColor: "text-neutral-600",
     exercises: [
       { title: "Daily Success Habits", lucideIcon: "Clock", color: "navy" },
       { title: "Reminder List", lucideIcon: "Bell", color: "red" },
@@ -360,10 +361,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "Take Stock – Take Action!", lucideIcon: "Rocket", color: "purple" },
     ],
     learn: [
-      { title: "7 Essential Techniques" },
-      { title: "Guiding an Employee" },
-      { title: "Coaching for Employees" },
-      { title: "Achieving Effective Coaching" },
+      { title: "7 Techniques" },
+      { title: "Guiding Employees" },
+      { title: "Employee Guide" },
+      { title: "Team Coaching" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
@@ -374,8 +375,9 @@ export const coachingAreas: CoachingArea[] = [
   {
     id: "corporate",
     name: "Corporate",
-    image: corporateImg,
+    lucideIcon: "Building2",
     bgColor: "bg-coaching-corporate",
+    iconColor: "text-slate-800",
     exercises: [
       { title: "Reclaim Your Power", lucideIcon: "Presentation", color: "navy" },
       { title: "My Spheres of Influence", lucideIcon: "Sun", color: "orange" },
@@ -383,10 +385,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "3 Month Vision", lucideIcon: "Binoculars", color: "purple" },
     ],
     learn: [
-      { title: "Top Career Topics" },
-      { title: "Coaching Factors" },
-      { title: "Corporate Coaching?" },
-      { title: "Leadership Development" },
+      { title: "15 Career Topics" },
+      { title: "Corporate Factors" },
+      { title: "Corporate Vitality" },
+      { title: "Leadership Corp" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },
@@ -397,8 +399,9 @@ export const coachingAreas: CoachingArea[] = [
   {
     id: "confidence",
     name: "Confidence",
-    image: confidenceImg,
+    lucideIcon: "Shield",
     bgColor: "bg-coaching-confidence",
+    iconColor: "text-amber-700",
     exercises: [
       { title: "Daily Success Habits", lucideIcon: "Clock", color: "blue" },
       { title: "Priority Matrix", lucideIcon: "LayoutGrid", color: "purple" },
@@ -406,10 +409,10 @@ export const coachingAreas: CoachingArea[] = [
       { title: "Expand Your Mind", lucideIcon: "Brain", color: "red" },
     ],
     learn: [
-      { title: "Reconstruct Confidence" },
-      { title: "Strengthen Confidence" },
-      { title: "Confidence Coaching?" },
-      { title: "Boost Your Confidence" },
+      { title: "Self-Confidence" },
+      { title: "30 Questions" },
+      { title: "Build Resilience" },
+      { title: "Authentic Flow" },
     ],
     resources: [
       { type: "tips", title: "Tips", subtitle: "Get control of your life" },

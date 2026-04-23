@@ -4,6 +4,9 @@ import { icons } from "lucide-react";
 import type { CoachingArea, Exercise } from "@/data/coachingAreas";
 import { exerciseColorMap } from "@/data/coachingAreas";
 import { learnImages } from "@/data/learnImages";
+import { useTranslation } from "react-i18next";
+import { useTranslatedContent } from "@/hooks/useTranslatedContent";
+import { exerciseTitleToTemplateId } from "@/data/exerciseTemplates";
 
 interface Props {
   area: CoachingArea;
@@ -19,19 +22,23 @@ const resourceIcons = {
   ebooks: BookOpen,
 };
 
-const resourceBg = {
-  tips: "bg-coaching-mindset",
-  quotes: "bg-coaching-wellness",
-  ebooks: "bg-coaching-performance",
-};
-
-const resourceIconBg = {
-  tips: "bg-[hsl(210,75%,50%)]",
-  quotes: "bg-[hsl(280,55%,50%)]",
-  ebooks: "bg-[hsl(330,65%,55%)]",
-};
-
 const CoachingAreaDetail = ({ area, onBack, onExerciseClick, onLearnClick, onResourceClick }: Props) => {
+  const { t } = useTranslation();
+  const { getTranslatedArea } = useTranslatedContent();
+  const translatedArea = getTranslatedArea(area);
+
+  const resourceBg = {
+    tips: "bg-coaching-mindset",
+    quotes: "bg-coaching-wellness",
+    ebooks: "bg-coaching-performance",
+  };
+
+  const resourceIconBg = {
+    tips: "bg-[hsl(210,75%,50%)]",
+    quotes: "bg-[hsl(280,55%,50%)]",
+    ebooks: "bg-[hsl(330,65%,55%)]",
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 40 }}
@@ -45,21 +52,24 @@ const CoachingAreaDetail = ({ area, onBack, onExerciseClick, onLearnClick, onRes
         <button
           onClick={onBack}
           className="flex h-10 w-10 items-center justify-center rounded-xl bg-card coaching-card-shadow transition-all hover:coaching-card-shadow-hover"
+          title={t("common.back", "Back")}
         >
           <ArrowLeft className="h-5 w-5 text-foreground" />
         </button>
-        <h1 className="text-2xl font-bold text-foreground">{area.name}</h1>
+        <h1 className="text-2xl font-bold text-foreground">{translatedArea.name}</h1>
       </div>
 
       {/* Exercises */}
       <section>
         <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-          Exercises
+          {t("common.exercises", "Exercises")}
         </h2>
         <div className="grid grid-cols-4 gap-3">
           {area.exercises.map((ex, i) => {
             const IconComponent = icons[ex.lucideIcon as keyof typeof icons];
             const colorClass = exerciseColorMap[ex.color];
+            const templateId = exerciseTitleToTemplateId[ex.title as keyof typeof exerciseTitleToTemplateId] || ex.title;
+            
             return (
               <motion.button
                 key={ex.title}
@@ -81,7 +91,7 @@ const CoachingAreaDetail = ({ area, onBack, onExerciseClick, onLearnClick, onRes
                   )}
                 </div>
                 <span className="text-xs font-semibold text-foreground text-center leading-tight max-w-[90px]">
-                  {ex.title}
+                  {t(`exercises.${templateId}.title`, { defaultValue: ex.title })}
                 </span>
               </motion.button>
             );
@@ -92,7 +102,7 @@ const CoachingAreaDetail = ({ area, onBack, onExerciseClick, onLearnClick, onRes
       {/* Learn */}
       <section>
         <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-          Learn
+          {t("common.learn", "Learn")}
         </h2>
         <div className="grid grid-cols-4 gap-3">
           {area.learn.map((item, i) => (
@@ -117,7 +127,7 @@ const CoachingAreaDetail = ({ area, onBack, onExerciseClick, onLearnClick, onRes
                 />
               </div>
               <span className="text-xs font-semibold text-foreground text-center leading-tight max-w-[90px]">
-                {item.title}
+                {t(`learn.${area.id}.${i}.title`, { defaultValue: item.title })}
               </span>
             </motion.button>
           ))}
@@ -127,31 +137,34 @@ const CoachingAreaDetail = ({ area, onBack, onExerciseClick, onLearnClick, onRes
       {/* Resources */}
       <section>
         <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-          Resources
+          {t("common.resources", "Resources")}
         </h2>
         <div className="flex flex-col gap-3">
-          {area.resources.map((res, i) => {
-            const Icon = resourceIcons[res.type];
+          {area.resources.map((resource, i) => {
+            const Icon = resourceIcons[resource.type];
             return (
               <motion.button
-                key={res.type}
-                initial={{ opacity: 0, x: 12 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.15 + i * 0.04, duration: 0.2 }}
-                whileHover={{ x: 4 }}
-                onClick={() => onResourceClick?.(area.id, res.type)}
-                className={`flex items-center gap-4 rounded-2xl p-4 coaching-card-shadow transition-all hover:coaching-card-shadow-hover ${resourceBg[res.type]}`}
+                key={resource.type}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + i * 0.03, duration: 0.2 }}
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                onClick={() => onResourceClick?.(area.id, resource.type)}
+                className={`flex items-center gap-4 rounded-2xl p-4 text-left transition-all coaching-card-shadow hover:coaching-card-shadow-hover ${resourceBg[resource.type]}`}
               >
-                <div
-                  className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl ${resourceIconBg[res.type]}`}
-                >
-                  <Icon className="h-7 w-7 text-white" strokeWidth={1.8} />
+                <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm`}>
+                  <Icon className="h-6 w-6 text-primary" strokeWidth={2} />
                 </div>
-                <div className="flex-1 text-left">
-                  <p className="text-sm font-bold text-foreground">{res.title}</p>
-                  <p className="text-xs text-muted-foreground">{res.subtitle}</p>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-base font-bold text-foreground">
+                    {t(`common.${resource.type}.title`, { defaultValue: resource.title })}
+                  </h3>
+                  <p className="text-sm text-muted-foreground truncate">
+                    {t(`common.${resource.type}.subtitle`, { defaultValue: resource.subtitle })}
+                  </p>
                 </div>
-                <ChevronRight className="h-5 w-5 text-muted-foreground" />
+                <ChevronRight className="h-5 w-5 text-muted-foreground/50" />
               </motion.button>
             );
           })}

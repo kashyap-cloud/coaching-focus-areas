@@ -121,7 +121,9 @@ const StopProcrastinatingExercise = ({ onBack }: Props) => {
           </table>
         </div>
       );
-    } catch {}
+    } catch (e) {
+      console.error("Error parsing history value", e);
+    }
     return <span className="text-sm text-foreground whitespace-pre-wrap">{raw}</span>;
   };
 

@@ -95,7 +95,9 @@ const WeeklySuccessPlannerExercise = ({ onBack }: Props) => {
           {parsed.map((item: string, i: number) => <li key={i} className="text-sm text-foreground">{item}</li>)}
         </ul>
       );
-    } catch {}
+    } catch (e) {
+      console.error("Error parsing history value", e);
+    }
     return <span className="text-sm text-foreground whitespace-pre-wrap">{raw}</span>;
   };
 

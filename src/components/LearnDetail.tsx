@@ -1,13 +1,21 @@
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import type { LearnArticle } from "@/data/learnContent";
+import { useTranslatedContent } from "@/hooks/useTranslatedContent";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   article: LearnArticle;
   onBack: () => void;
+  areaId: string;
+  index: number;
 }
 
-const LearnDetail = ({ article, onBack }: Props) => {
+const LearnDetail = ({ article: originalArticle, onBack, areaId, index }: Props) => {
+  const { t } = useTranslation();
+  const { getTranslatedLearn } = useTranslatedContent();
+  const article = getTranslatedLearn(areaId, index, originalArticle);
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 40 }}
@@ -21,6 +29,7 @@ const LearnDetail = ({ article, onBack }: Props) => {
         <button
           onClick={onBack}
           className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-card coaching-card-shadow transition-all hover:coaching-card-shadow-hover"
+          title={t("common.back", "Back")}
         >
           <ArrowLeft className="h-5 w-5 text-foreground" />
         </button>
@@ -70,7 +79,7 @@ const LearnDetail = ({ article, onBack }: Props) => {
             );
           }
 
-          const boldMatch = paragraph.match(/^([A-Z][\w\s\-]+:)\s(.+)$/);
+          const boldMatch = paragraph.match(/^([A-Z][\w\s-]+:)\s(.+)$/);
           if (boldMatch) {
             return (
               <motion.div

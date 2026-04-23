@@ -24,12 +24,19 @@ import WackyWildGoalExercise from "@/components/WackyWildGoalExercise";
 import BigRocksExercise from "@/components/BigRocksExercise";
 import RockingChairExercise from "@/components/RockingChairExercise";
 import SmartGoalsExercise from "@/components/SmartGoalsExercise";
+import ExerciseHistoryModal from "@/components/ExerciseHistoryModal";
+import LanguageSelector from "@/components/LanguageSelector";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+
 
 const Index = () => {
+  const { t } = useTranslation();
   const [selectedArea, setSelectedArea] = useState<CoachingArea | null>(null);
   const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(null);
   const [selectedLearn, setSelectedLearn] = useState<{ areaId: string; index: number } | null>(null);
   const [selectedResource, setSelectedResource] = useState<{ areaId: string; type: "tips" | "quotes" | "ebooks" } | null>(null);
+  const navigate = useNavigate();
 
   const handleExerciseClick = (exercise: Exercise) => {
     // Check if it's a special exercise or a regular template
@@ -54,6 +61,9 @@ const Index = () => {
   const handleLearnBack = () => setSelectedLearn(null);
   const handleResourceBack = () => setSelectedResource(null);
   const handleAreaBack = () => {
+    if (selectedArea === null && selectedExercise === null && selectedLearn === null && selectedResource === null) {
+      navigate(-1);
+    }
     setSelectedArea(null);
     setSelectedExercise(null);
     setSelectedLearn(null);
@@ -150,11 +160,15 @@ const Index = () => {
               key={activeTemplate.id}
               template={activeTemplate}
               onBack={handleExerciseBack}
+              coachingAreaId={selectedArea?.id}
+              exerciseId={activeTemplate.id}
             />
-          ) : activeLearnArticle ? (
+          ) : activeLearnArticle && selectedLearn ? (
             <LearnDetail
               key={activeLearnArticle.id}
               article={activeLearnArticle}
+              areaId={selectedLearn.areaId}
+              index={selectedLearn.index}
               onBack={handleLearnBack}
             />
           ) : activeResources && selectedResource ? (
@@ -182,14 +196,20 @@ const Index = () => {
               exit={{ opacity: 0, x: -40 }}
               transition={{ duration: 0.25 }}
             >
-              <div className="mb-2 flex items-center gap-3">
-                <button className="flex h-10 w-10 items-center justify-center rounded-xl bg-card coaching-card-shadow">
-                  <ArrowLeft className="h-5 w-5 text-foreground" />
-                </button>
-                <h1 className="text-2xl font-bold text-foreground">Coaching Areas</h1>
+              <div className="flex items-center justify-between mb-6" dir="ltr">
+                <div className="flex items-center gap-3">
+                  <button 
+                    onClick={handleAreaBack}
+                    className="flex h-10 w-10 items-center justify-center rounded-xl bg-card coaching-card-shadow transition-all hover:coaching-card-shadow-hover"
+                  >
+                    <ArrowLeft className="h-5 w-5 text-foreground" />
+                  </button>
+                  <h1 className="text-2xl font-bold text-foreground">{t("common.coachingAreas")}</h1>
+                </div>
+                <LanguageSelector />
               </div>
               <p className="mb-6 text-center text-sm text-muted-foreground">
-                What coaching focus interests you?
+                {t("common.whatInterestsYou")}
               </p>
               <div className="grid grid-cols-4 gap-4">
                 {coachingAreas.map((area, i) => (

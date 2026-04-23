@@ -12,7 +12,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
   career: {
     0: {
       id: "career-navigating-transitions",
-      title: "Navigating Career Transitions: How to Make Your Next Move with Confidence",
+      title: "Career Transitions",
       paragraphs: [
         "Career transitions—whether switching industries, pursuing a promotion, or pivoting to an entirely new field—are among the most significant decisions in professional life. Yet many professionals remain stuck in roles that no longer serve them, held back by uncertainty and fear of the unknown.",
         "Understanding When It's Time for a Change",
@@ -26,7 +26,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     1: {
       id: "career-building-personal-brand",
-      title: "Building a Strong Personal Brand for Career Growth",
+      title: "Personal Branding",
       paragraphs: [
         "In today's competitive job market, technical skills alone aren't enough. Your personal brand—the unique combination of skills, experiences, and values you present to the world—plays a critical role in how opportunities find you.",
         "What Is a Personal Brand? Your personal brand is the narrative others associate with your name. It encompasses your reputation, expertise, communication style, and the value you consistently deliver. Whether you're conscious of it or not, you already have a personal brand.",
@@ -38,7 +38,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     2: {
       id: "career-networking-strategies",
-      title: "Effective Networking Strategies That Actually Work",
+      title: "Networking",
       paragraphs: [
         "Networking remains one of the most powerful yet misunderstood career tools. Many professionals dread it, associating it with awkward small talk and transactional exchanges. But authentic networking is about building genuine relationships that create mutual value over time.",
         "Quality Over Quantity: Having 500 superficial connections is less valuable than 50 meaningful ones. Focus on building relationships with people whose work you admire, whose insights challenge you, and whose goals align with yours.",
@@ -51,7 +51,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     3: {
       id: "career-skill-development",
-      title: "Continuous Skill Development: Staying Relevant in a Changing Job Market",
+      title: "Skill Development",
       paragraphs: [
         "The modern job market evolves at an unprecedented pace. Skills that were highly sought five years ago may now be baseline expectations, while entirely new competencies emerge regularly. Staying relevant requires a commitment to continuous learning.",
         "The Skill Gap Challenge: Studies consistently show that employers struggle to find candidates with the right mix of technical and soft skills. For professionals, this gap represents both a challenge and an opportunity—those who invest in upskilling position themselves ahead of the curve.",
@@ -67,7 +67,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
   executive: {
     0: {
       id: "executive-key-principles",
-      title: "Six Key Principles for Leaders to Master the Art of Effective Coaching.",
+      title: "6 Coaching Principles",
       paragraphs: [
         "You might find yourself well-versed and comfortable with the idea of being a visiting leadership coach, often finding it easier to dispense advice to an unfamiliar audience. The confidence exhibited by these coaching professionals is unsurprising in such situations. However, when faced with coaching a colleague or subordinate within your own organization, the scenario becomes different. Can coaching someone you collaborate with daily be a daunting task?",
         "The 6 Fundamental Principles of Leadership Coaching",
@@ -83,7 +83,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     1: {
       id: "executive-coaching-benefits",
-      title: "Seven surprising benefits of executive coaching.",
+      title: "7 Coaching Benefits",
       paragraphs: [
         "The surge in executive coaching's acceptance, once met with skepticism, now drives a more enriched workplace. The industry's growth owes to a single reason: its proven efficacy among CEOs, managers, small business owners, and leaders.",
         "Outlined below are seven ways in which executive coaching benefits leaders:\n1. Enhanced self-awareness\n2. Improved self-regulation\n3. Elevated empathy levels\n4. Enhanced cognitive abilities at work\n5. Heightened motivation\n6. Polished social skills\n7. Improved leadership proficiency",
@@ -103,7 +103,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     2: {
       id: "executive-unexpected-advantages",
-      title: "Discover Unexpected Advantages",
+      title: "Hidden Advantages",
       paragraphs: [
         "Executive coaching is often sought by leaders aiming to enhance their leadership in a fast-evolving work landscape. While it's valuable for navigating change, its benefits extend beyond that, offering surprising advantages for everyday professional concerns. Here are five unexpected perks of engaging an executive coach that might be eye-opening for newcomers:",
         "Alleviating executive isolation: As leaders ascend the corporate ladder, feelings of isolation amplify due to the unique stress and responsibility. While coaching is initially sought for specific growth areas, it also serves as a remedy for isolation. In my work with tech leaders, I facilitate connections among clients, fostering relationships that combat executive isolation.",
@@ -116,7 +116,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     3: {
       id: "executive-hidden-capabilities",
-      title: "Discover your hidden capabilities and propel your career to new heights.",
+      title: "Unlock Potential",
       paragraphs: [
         "Many used to believe executive coaching was exclusive to the C-Suite, but that's changed. It's now more accessible than ever. No matter where you are on the organizational chart, growth and development are within reach.",
         "If you're feeling stuck professionally, there's a way forward. Executive coaching can bring the self-awareness needed to unlock your potential and propel your career.",
@@ -134,7 +134,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
   wellness: {
     0: {
       id: "wellness-healthy-lifestyle",
-      title: "18 Suggestions for Achieving a Healthy Lifestyle through Wellness",
+      title: "18 Wellness Tips",
       paragraphs: [
         "Maintaining a healthy lifestyle can be challenging, especially when balancing everyday life demands. However, small and consistent changes often yield significant impacts in health and wellness. Here are wellness tips to seamlessly integrate simple adjustments into your routine, fostering lasting effects:",
         "1. Kickstart your day with a glass of water. Morning hydration aids digestion, detoxifies, boosts energy, and enhances skin health after hours of rest.\n2. Begin positively. Engage in inspiring activities like journaling or nature walks, setting a tone for a positive mindset throughout the day.\n3. Prioritize sleep. Adequate rest supports productivity, concentration, and overall well-being.\n4. Embrace fresh air. Allocate at least 30 minutes daily for outdoor time, whether for exercise or relaxation, to absorb vitamin D.\n5. Stay active. Incorporate movement into your day by opting for stairs, short walks, or biking, enhancing energy levels and benefiting mind and body.\n6. Monitor steps. Tracking daily steps encourages physical activity and awareness of your movement.\n7. Rest your eyes. Prevent eye strain by taking breaks from screens, looking away every 20 minutes for at least 20 seconds.\n8. Opt for real food. Whole, unprocessed foods boost health, manage weight, and provide sustained energy.\n9. Choose smart snacks. Opt for nutritious options like nuts, veggies, Greek yogurt, or dark chocolate to satisfy without weighing you down.",
@@ -144,7 +144,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     1: {
       id: "wellness-equilibrium",
-      title: "Discovering equilibrium: Exploring the essence of wellness coaching.",
+      title: "Wellness Coaching",
       paragraphs: [
         "Leading a life of wellness and balance sounds straightforward in theory: eat healthily, exercise regularly, prioritize self-care, and maintain a consistent sleep routine. But life often throws challenges our way—career demands, family obligations, emergencies, and health issues—that hinder our ability to care for ourselves as we should. Neglecting our well-being can impede our capacity to care for others effectively.",
         "Asking for assistance in managing these challenges is nothing to be ashamed of. We all encounter moments when personal and professional motivation wanes, and seeking guidance becomes essential. If the pressures in your life are mounting, considering wellness coaching could be beneficial.",
@@ -159,7 +159,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     2: {
       id: "wellness-health-differ",
-      title: "How do Health and Wellness Differ?",
+      title: "Health vs. Wellness",
       paragraphs: [
         "Health and wellness are often treated as interchangeable terms, yet they carry distinct definitions that have evolved over time.",
         "In ancient eras, health primarily meant freedom from illness and was deeply intertwined with religious beliefs, associating well-being with the appeasement of divine entities. Hippocrates, credited as the pioneer of modern medicine, broke away from this view. He championed the idea of balance within the body as fundamental to health, laying the groundwork for a holistic perspective in functional medicine.",
@@ -174,7 +174,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     3: {
       id: "wellness-evidence-tips",
-      title: "27 Evidence-Based Tips for Natural Health and Nutrition",
+      title: "27 Health Tips",
       paragraphs: [
         "Enhance your health and well-being with a plethora of natural and home remedies, ranging from steering clear of charred meats and added sugars to incorporating meditation into your routine. Here are 27 evidence-based health and nutrition tips to guide you:",
         "Limit Sugary Drinks: Choose alternatives like water, unsweetened teas, sparkling water, and coffee to reduce the risk of heart disease and type 2 diabetes.\n\nEat Nuts and Seeds: Embrace the nutritional benefits of nuts and seeds, which can aid in weight loss and lower the risk of type 2 diabetes and heart disease.\n\nAvoid Ultra-Processed Foods: Steer clear of highly processed foods as they contribute to obesity, type 2 diabetes, heart disease, and other chronic conditions.\n\nDon't Fear Coffee: Enjoy the health benefits of coffee in moderation, as it is rich in antioxidants and linked to longevity.\n\nEat Fatty Fish: Include fatty fish like salmon in your diet for high-quality protein, omega-3 fatty acids, and a reduced risk of heart disease and dementia.\n\nGet Enough Sleep: Prioritize quality sleep to enhance insulin sensitivity, regulate appetite hormones, and prevent weight gain.\n\nFeed Your Gut Bacteria: Improve gut health by consuming fermented foods, probiotic supplements, and fiber-rich foods.",
@@ -189,7 +189,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
   leadership: {
     0: {
       id: "leadership-embrace-discomfort",
-      title: "Alter how you view change: Embrace discomfort as a part of your growth journey.",
+      title: "Embrace Change",
       paragraphs: [
         "Navigating the past couple of years amidst the pandemic has been a collective challenge. For many, the rapid adjustments required have transformed short-term discomfort into ongoing hurdles. The swift pace of technological advancements and shifting landscapes in business and policies only intensify these effects. We're collectively undergoing a series of profound changes, leaving many feeling overwhelmed and adrift.",
         "Adapting and thriving in this environment means embracing discomfort, accepting that discomfort is an inevitable part of growth.",
@@ -205,7 +205,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     1: {
       id: "leadership-hybrid-culture",
-      title: "Crafting a Necessary Hybrid Culture: A Guide to its Formation",
+      title: "Hybrid Culture",
       paragraphs: [
         "If you've kept up with the headlines lately, the talk about the future of work likely revolved around one thing: hybrid work environments. Hybrid work arrangements and the emergence of new hybrid cultures seem to be the direction many organizations are taking, whether by choice or due to the ongoing impact of the pandemic.",
         "While numerous companies have shifted to a hybrid work model, not all have actively cultivated a hybrid culture. Most have been preoccupied with the logistics of making hybrid operations function.",
@@ -220,7 +220,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     2: {
       id: "leadership-coaching-types",
-      title: "Get the lowdown on various types of coaching in professional and personal spheres.",
+      title: "Types of Coaching",
       paragraphs: [
         "In the past two decades, coaching has gained immense popularity. More individuals recognize the value of having a coach to navigate challenging tasks. Coaching serves as a tool for individuals at various levels to leverage their strengths and achieve their objectives.",
         "Workplace Coaching Styles:",
@@ -233,7 +233,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     3: {
       id: "leadership-roles-responsibilities",
-      title: "The Significance of Defining Roles and Responsibilities",
+      title: "Roles & Duties",
       paragraphs: [
         "Defining the roles and responsibilities within your organization isn't just about finding the right person for the job. It's also about enhancing the employee experience and streamlining your organization's efficiency.",
         "What do we mean by job roles and responsibilities? Every position encompasses specific responsibilities that align with its role. Job responsibilities pertain to the duties and tasks linked to a particular role, often outlined in a job description. Roles refer to a person's position within a team.",
@@ -252,7 +252,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
   finance: {
     0: {
       id: "finance-secure-future",
-      title: "8 Tips to Secure Your Financial Future",
+      title: "8 Finance Tips",
       paragraphs: [
         "Commence your financial journey today; the earlier you start, the greater your potential for savings growth. Acquiring basic financial knowledge is crucial for building a secure financial future.",
         "Opt for Cash Over Credit: Exercise financial patience and self-discipline. Delay gratification and save for your needs, ensuring transactions are made with cash or a debit card. Reserve credit card usage for emergencies to avoid accumulating interest.",
@@ -268,7 +268,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     1: {
       id: "finance-personal-finance",
-      title: "What does personal finance entail, and why does it matter?",
+      title: "Personal Finance",
       paragraphs: [
         "Personal finance encompasses the art of managing one's money, incorporating elements such as budgeting, banking, insurance, mortgages, investments, retirement planning, taxes, and estate planning. This term not only refers to individual financial management but also encapsulates the broader industry that provides financial services and guidance to households.",
         "Navigating personal finance requires aligning individual goals with financial constraints. Developing financial literacy is crucial to distinguish between sound and unsound advice, enabling individuals to make informed and intelligent financial decisions.",
@@ -282,7 +282,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     2: {
       id: "finance-coaching",
-      title: "What does financial coaching entail, and what makes it essential for you?",
+      title: "Financial Coaching",
       paragraphs: [
         "A skilled coach offers invaluable support and accountability across all aspects of life, but their impact is particularly significant in managing finances. Navigating financial matters is complex—it involves emotions, personal experiences, and the need for solid education.",
         "What defines a financial coach? A financial coach is someone trained and trusted to assess your financial landscape, pinpoint areas for improvement, and guide you in enhancing your financial management skills. Rather than making decisions on your behalf, they focus on empowering you with the knowledge and abilities necessary to confidently pursue your financial objectives.",
@@ -295,7 +295,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     3: {
       id: "finance-budget-management",
-      title: "Controlling Your Finances: A Guide to Budget Management",
+      title: "Budgeting",
       paragraphs: [
         "Whether you're grappling with debt or managing household expenses, mastering money management is crucial. Here are our key recommendations to help you maintain control over your finances:",
         "Create a Budget: Initiating a budget is the foundational step in financial management. Seek assistance promptly if your budget reveals financial challenges. A budget provides insights into your income sources, monthly expenditures, and budgeting for occasional expenses.",
@@ -314,7 +314,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
   performance: {
     0: {
       id: "performance-high-performance",
-      title: "High-Performance Coaching",
+      title: "High Performance",
       paragraphs: [
         "High-performance coaching isn't solely about catering to star talent. It's a holistic approach aiming to unlock the full potential in anyone's life, whether personal or professional. For managers adopting this coaching style, it's about elevating workplace performance.",
         "It involves collaboration among organizational leaders to cultivate an environment where everyone can excel. Drawing heavily from sports and military strategies, high-performance coaching begins by understanding individuals' aspirations. It then navigates the paths toward those visions and outlines actionable steps.",
@@ -327,7 +327,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     1: {
       id: "performance-workplace",
-      title: "What exactly is performance coaching and how might it be applied within a professional setting?",
+      title: "Performance Coaching",
       paragraphs: [
         "The 2022 State of Coaching and Mentoring report highlights that while 65% of HR professionals acknowledge coaching as pivotal to their organizational strategy, only 39% strongly believe their mentors excel at coaching.",
         "When executed effectively, coaching emerges as a catalyst for organizational triumph, boasting an astounding 788% ROI in executive coaching, as evidenced by a study. However, the crux of the issue lies in the deficiency of adept coaching among most leaders.",
@@ -341,7 +341,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     2: {
       id: "performance-career-success",
-      title: "Advantages of Engaging in Performance Coaching for Achieving Career Success",
+      title: "Performance Benefits",
       paragraphs: [
         "In today's intricate business environment, leaders must continuously grow and guide their teams with impactful and effective leadership. Failure to adapt to this evolving landscape leaves leaders stuck in outdated approaches.",
         "A coaching approach facilitates accessible guidance for team members, navigating the maze of expectations and competencies. However, these coaching conversations must be skillful, encouraging openness and action.",
@@ -356,7 +356,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     3: {
       id: "performance-seeking-coach",
-      title: "Are you seeking a performance coach?",
+      title: "Finding a Coach",
       paragraphs: [
         "Considering professional coaching, whether for yourself or someone within your organization, often leads to more queries than clarifications, especially when exploring the realm of performance coaches.",
         "What Defines a Performance Coach? A performance coach offers tailored guidance to individuals, fostering performance enhancement, surmounting obstacles to success, goal achievement, and skill development. Often conducted one-on-one over a period, typically spanning three to twelve months.",
@@ -372,7 +372,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
   mindset: {
     0: {
       id: "mindset-comprehensive-guide",
-      title: "Mastering Mindset Coaching: A Comprehensive Guide",
+      title: "Mastering Mindset",
       paragraphs: [
         "In our journey through life, our mindset shapes our success. Today, with the aid of mindset coaching, we can cultivate the optimal mindset to propel us toward our aspirations.",
         "Understanding Mindset Coaching: Mindset coaching is a personalized form of guidance aimed at identifying the barriers hindering an individual from achieving their fullest potential. It delves into ingrained behaviors and beliefs that may act as roadblocks to success.",
@@ -388,7 +388,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     1: {
       id: "mindset-fostering-coaching",
-      title: "Fostering a Coaching Mindset: Empowering Growth and Goal Achievement in Others",
+      title: "Fostering Mindset",
       paragraphs: [
         "Imagine embarking on a hike, uncertain of your destination. Starting on a gravel path feels too simple, so you veer onto a steeper trail littered with boulders. It's more challenging, and doubt may creep in. Yet, you persist, surmounting obstacles until you reach the mountain's peak. Surveying your achievement, you spy another summit on the horizon—a metaphor for the journey of coaching.",
         "What is coaching? To understand coaching, it's crucial to differentiate it from mentoring, training, and counseling. Coaches refrain from offering direct advice, believing their coachee possesses the answers and potential for personal growth. Rather than prescribing solutions, coaches employ diverse skills to broaden perspectives and facilitate the coachee's goal attainment.",
@@ -401,7 +401,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     2: {
       id: "mindset-leadership-coaching",
-      title: "Leadership with a Coaching Mindset",
+      title: "Leadership Mindset",
       paragraphs: [
         "In the quest to enhance leadership effectiveness, consider embracing a coaching mindset. Coaching revolves around assisting individuals in attaining their objectives and unlocking their full potential. Leading with a coaching mindset has the power to inspire and propel your team toward remarkable achievements.",
         "Understanding the Coaching Mindset: A coaching mindset represents a transformative leadership approach that prioritizes empowering individuals and teams over issuing directives. It involves posing impactful questions, actively listening, and delivering real-time support to help employees devise solutions.",
@@ -416,7 +416,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     3: {
       id: "mindset-what-coach-does",
-      title: "What does a mindset coach do, and is it beneficial for me?",
+      title: "The Mindset Coach",
       paragraphs: [
         "All coaching fundamentally revolves around the cultivation of a mindset. At its core, coaching aims to guide individuals from their current state to their desired destination. This involves helping them:\n- Gain clarity on their true desires\n- Assess their current situation and past efforts\n- Explore and discuss potential courses of action\n- Establish a plan for implementation",
         "Mindset coaching distinguishes itself by incorporating an additional layer. A mindset coach collaborates with clients to uncover limiting beliefs, obstacles, behaviors, habits, and thought patterns that hinder them from realizing their desired life or business outcomes.",
@@ -433,7 +433,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
   spiritual: {
     0: {
       id: "spiritual-enhance-life",
-      title: "10 Ways Spiritual Life Coaches Can Enhance Your Life",
+      title: "10 Spiritual Tips",
       paragraphs: [
         "Not experiencing fulfillment in your life? That's the sensation that arises when you're not aligned with your dharma, and a dharma coach can assist you in discovering your purpose.",
         "Are you living the life you've always envisioned, or is there a nagging feeling that something is amiss? Pay attention to your inner voice. Each of us is here on this planet, inhabiting this body, to fulfill our unique purpose. Envision the best version of your life with closed eyes—feeling fulfilled, creative, and divine.",
@@ -452,7 +452,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     1: {
       id: "spiritual-essence",
-      title: "What is the essence of Spiritual Coaching, and could it be a suitable fit for you?",
+      title: "Spiritual Essence",
       paragraphs: [
         "Life isn't meant for autopilot decisions guided by others' opinions. Your journey matters, and living authentically is crucial. Tuning into your heart and soul is vital, even if you're uncertain about your desires or drawn to a path that feels unfamiliar. Ignoring this call would mean sleepwalking through life, conforming to societal norms but damaging your spirit in the process. Settling for \"good enough\" falls short of life's true essence. Deep within, wisdom waits to guide you to a more fulfilling existence. Collaborating with a Spiritual Life Coach eases this journey, uncovering what your soul craves. Connecting with your infinite spiritual core becomes a transformative gift you offer yourself.",
         "YOUR LIFE IS PRECIOUS—MAKE IT COUNT.",
@@ -470,7 +470,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     2: {
       id: "spiritual-mechanics",
-      title: "Exploring the Mechanics of Spiritual Life Coaching",
+      title: "Spiritual Mechanics",
       paragraphs: [
         "Spiritual life coaching diverges from conventional life coaching by delving into deeper realms of personal understanding rather than merely addressing practical goals. While traditional coaching often revolves around identifying goals through guided questioning, spiritual life coaching takes a markedly different approach.",
         "In this realm, a spiritual life coach acknowledges that your conscious mind may not authentically grasp your deepest desires and purpose in life. The objectives you set might be influenced by societal expectations, comparisons, or external pressures rather than resonating with your soul's true aspirations.",
@@ -485,7 +485,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     3: {
       id: "spiritual-vs-life-coaching",
-      title: "How do spiritual coaching and life coaching differ from each other?",
+      title: "Spiritual vs Life",
       paragraphs: [
         "Spiritual coaches delve into deeper understanding, focusing on intuition and inner guidance. They strive to harmonize your mental state and connect you with your surroundings and nature. Success, for them, is being at peace with oneself, open to inner guidance, and less concerned with future anxieties or past regrets. They equip you to listen to your inner voice, helping you act upon what you know is right but might feel unable to pursue.",
         "On the other hand, life coaches concentrate on tangible goals and self-improvement in the material world. They teach self-discipline, motivation, accountability, and setting meaningful goals. Their approach is grounded in reality, aiming to enhance your social, professional, personal, and emotional life. They guide you in career choices, emotional control, relationships, finances, and overall life management.",
@@ -498,7 +498,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
   "mental-health": {
     0: {
       id: "mentalhealth-distinguishing",
-      title: "Understanding Mental Health: Distinguishing the Normal from the Concerning",
+      title: "Mental Health",
       paragraphs: [
         "Distinguishing between ordinary mental health and potential disorders can be intricate. For instance, interpreting whether pre-speech jitters signal a disorder or regular nervousness isn't always straightforward. When does timidity cross into the realm of social phobia?",
         "Mental health encompasses your cognitive processes, emotional regulation, and behavior. However, when these functions experience significant disruption causing distress or impairing daily functionality, a mental disorder might be at play. This disruption can hinder various aspects of life, from personal relationships to occupational performance.",
@@ -510,7 +510,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     1: {
       id: "mentalhealth-foundations",
-      title: "Foundations of Mental Wellness",
+      title: "Wellness Bases",
       paragraphs: [
         "What is Mental Health? Mental health encompasses emotional and psychological well-being, playing a crucial role in leading a happy and healthy life. Resilience and the ability to cope with life's challenges are key components of good mental health, influenced by various factors such as life events and genetics.",
         "Strategies for Maintaining Mental Health: Numerous strategies contribute to establishing and maintaining good mental health, including maintaining a positive attitude, engaging in physical activity, helping others, ensuring sufficient sleep, adopting a healthy diet, seeking professional help when needed, socializing, and developing effective coping skills.",
@@ -528,7 +528,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     2: {
       id: "mentalhealth-coaching-vs-counseling",
-      title: "Distinguishing Between Mental Health Coaching and Mental Health Counseling",
+      title: "Coaching vs Counseling",
       paragraphs: [
         "Is mental health coaching the same as mental health counseling, and do they serve the same purpose or treat the same individuals? If not, what sets them apart?",
         "Mental health coaching revolves around aiding clients in envisioning a life free from obstacles like depression, focusing on emotional well-being. This specialized coaching branch intersects with therapy but doesn't target or treat mental illness. Coaches in this area don't perceive mental health through the lens of illness or psychological problems but rather as an area necessitating clarification of life goals, support, guidance, behavior adjustment, and life skills enhancement.",
@@ -541,7 +541,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     3: {
       id: "mentalhealth-wellbeing-path",
-      title: "Embarking on a Path to Well-Being",
+      title: "Well-Being Path",
       paragraphs: [
         "In a world where daily pressures can take a toll on mental health, finding effective support is essential. While traditional therapy has been invaluable, the recognition of mental health coaching's transformative potential is growing. Explore the impact of mental health coaching on your life, its distinctions from traditional therapy, and how it can reshape your well-being.",
         "The Rise of Mental Health Coaching",
@@ -564,7 +564,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
   transform: {
     0: {
       id: "transform-nurturing-empowerment",
-      title: "Coaching for Transformation: Nurturing Empowerment and Personal Evolution",
+      title: "Transformation",
       paragraphs: [
         "Transformational coaching transcends conventional methods by focusing on profound inner shifts and self-awareness, offering a deeper route to personal development. It tackles limiting beliefs, nurtures vulnerability, and aligns intentions with an individual's genuine purpose, forming a robust foundation for enduring and positive change.",
         "What is Transformational Coaching? It stands as a dynamic and comprehensive process that surpasses the surface-level focus of traditional coaching. Instead of solely addressing external goals, it delves into an individual's core beliefs, values, emotions, and thought patterns. The primary goal is to catalyze profound personal growth.",
@@ -576,7 +576,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     1: {
       id: "transform-why-crucial",
-      title: "What makes having a transformational life coach so crucial?",
+      title: "Why Transform?",
       paragraphs: [
         "A Transformational Life Coach is a specialist trained to facilitate change in your life, guiding you from your current state to where you aspire to be by focusing on internal processes and 'being' rather than mere 'doing'. This journey involves addressing pivotal questions, such as \"Who Am I At My Best?\"",
         "As you clarify your optimal self, previously untapped resources within you surface, empowering you to evolve into an upgraded version of yourself capable of tackling greater challenges. A Transformational Life Coach serves as your guiding companion, offering an objective perspective on life's complexities.",
@@ -590,7 +590,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     2: {
       id: "transform-approaches",
-      title: "Exploring Various Transformational Coaching Approaches and Their Impact",
+      title: "Transform Models",
       paragraphs: [
         "One global study discovered that executives saw a 788% return on investment (ROI) through the coaching they received. Coaching serves as a catalyst for personal improvement, fostering better decisions and healthy habits.",
         "What Is Transformational Coaching? While many are familiar with life coaching, transformational coaching shares parallels yet delves further. Life coaching primarily addresses habits and behaviors. Transformational coaching goes a step further—it redefines how clients perceive themselves.",
@@ -602,7 +602,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     3: {
       id: "transform-what-entails",
-      title: "What does Transformational Coaching entail?",
+      title: "The Transform Process",
       paragraphs: [
         "Throughout different stages of our lives, we encounter pivotal moments where change becomes imperative, yet the scope and nature of that change often remain unclear. Transformation, marked by significant shifts, contrasts with transition, a more direct journey from one point to another.",
         "Transformational Coaching Explained: Transformational coaching involves partnering with someone to navigate profound changes that foster personal growth, development, and a fundamental reshaping of one's reality. This approach delves deeply into all aspects that might aid this transformation.",
@@ -617,7 +617,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
   communicate: {
     0: {
       id: "communicate-team-proficiency",
-      title: "Becoming Proficient in Team Communication",
+      title: "Team Comm",
       paragraphs: [
         "In today's fast-paced world, effective team communication is more crucial than ever. It serves as the adhesive that binds employees, fostering collaboration, innovation, and productivity.",
         "Understanding Team Communication's Role: Team communication involves exchanging information, ideas, and opinions among group members, encompassing verbal and non-verbal cues. Its effectiveness is pivotal for collaboration, problem-solving, trust building, conflict resolution, and learning and development.",
@@ -630,7 +630,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     1: {
       id: "communicate-finding-coaches",
-      title: "Understanding Communication Coaches and How to Locate Them",
+      title: "Comm Coaches",
       paragraphs: [
         "Mastering effective communication is a challenge for many. Beyond words, understanding social cues, interpreting body language, and actively listening are equally essential. Even the most confident individuals can benefit from refining these skills.",
         "Communication coaching is a specialized form of career coaching that focuses on enhancing your ability to communicate effectively in diverse professional settings. A coach assists you in pinpointing your strengths and areas for improvement, tailoring a program to address your specific needs.",
@@ -642,7 +642,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     2: {
       id: "communicate-delivering-news",
-      title: "Crafting Effective Communication: Delivering Unpleasant News to Your Team",
+      title: "Tough Messages",
       paragraphs: [
         "Managers consistently seek improved methods for communicating difficult news. The most frequent tough messages encompass: You didn't secure the promotion. Our project funding fell through. You're being reassigned. Your performance isn't meeting the expected level. Today marks your last day.",
         "Picture someone delivering these words to your own child. How would you wish for it to be conveyed? You desire clear and compassionate delivery. It's important to emphasize that past errors don't define future potential. Every individual holds vast potential for growth and success.",
@@ -651,7 +651,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     3: {
       id: "communicate-difficult-discussions",
-      title: "Ten effective strategies for handling challenging discussions with your manager",
+      title: "10 Comm Strategies",
       paragraphs: [
         "Facing a challenging discussion, whether in a professional or personal context, is something most people find daunting. The inherent challenge lies in managing emotions. When upset, it's easy to let emotions dictate our words, potentially leading to regrettable statements.",
         "Effectively conveying your message while maintaining composure is essential. How can you express your thoughts in a manner that your manager will genuinely consider?",
@@ -665,7 +665,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
   organization: {
     0: {
       id: "organization-four-steps",
-      title: "Implementing Coaching for Organizational Transformation in Four Key Steps",
+      title: "4 Setup Steps",
       paragraphs: [
         "In the contemporary landscape, businesses are in a perpetual state of adaptation. Surprisingly, coaching remains an underutilized cornerstone, despite research showing that companies fostering robust coaching cultures tend to experience higher revenue growth compared to industry peers.",
         "Transitioning an organization toward a coaching culture stands as a transformative organizational development tool, surpassing mere personal development initiatives. It serves as the backbone for methodically executing corporate strategies.",
@@ -678,7 +678,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     1: {
       id: "organization-key-advantages",
-      title: "Discovering the Key Advantages of Organizational Coaching",
+      title: "Org Success",
       paragraphs: [
         "Today's workforce seeks more than monetary rewards; it craves purpose, personal achievement, and a passion-driven work environment. Retaining talent necessitates supporting individuals to reach their zenith.",
         "Understanding Organizational Coaching: It targets systemic change within a company, employing experienced coaches to facilitate transformative shifts from within. Diverse coaching methods like integrated coaching, executive coaching, team coaching, and online coaching cater to varied requirements.",
@@ -689,7 +689,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     2: {
       id: "organization-questions-answered",
-      title: "Coaching in Organizations: All Your Questions Answered",
+      title: "Org FAQ",
       paragraphs: [
         "Organizational coaching is a targeted approach to instigating systemic change within a company, often intersecting with executive coaching and team coaching. While executive coaching focuses on individual development, team coaching involves collaboration between a manager and their direct reports.",
         "In contrast to other coaching forms, organizational coaching centers on the collective entities that constitute an organization. Its aim is to facilitate the evolution of teams in alignment with corporate goals. These coaching engagements can be extensive and intricate, involving executive leadership and multiple teams.",
@@ -701,7 +701,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     3: {
       id: "organization-vital-transformation",
-      title: "Organization Coaching is Vital for Comprehensive Transformation",
+      title: "Why Org Coaching?",
       paragraphs: [
         "Organizational coaching focuses on driving systemic change within a company. Unlike individual business coaching, it centers efforts on the entire organization or specific segments within it.",
         "This form of coaching, led by external coaches or a team, stands apart from developing internal coaches. Effectiveness goes beyond understanding challenges—it involves comprehending organizational culture and establishing trust among all employees.",
@@ -716,7 +716,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
   creativity: {
     0: {
       id: "creativity-unleash-potential",
-      title: "Unleash Your Creative Potential: How Creative Coaching Propels You",
+      title: "Unleash Potential",
       paragraphs: [
         "Many of us harbor aspirations to write a book, embark on a business venture, or explore new career paths. However, while the ambition exists, the path to realizing these goals can often appear daunting. Enter creative coaching: a potent resource aiding in the release of our inherent creativity.",
         "Creative coaching involves collaborating with a professional coach to uncover strengths, unveil hidden potential, and dismantle any barriers hindering us from reaching our fullest capabilities. Through this collaboration, we learn to bolster confidence in our creative prowess and enhance productivity.",
@@ -729,7 +729,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     1: {
       id: "creativity-confidence-tips",
-      title: "Boost Your Confidence and Self-Belief with these 4 Creative Tips",
+      title: "4 Creative Tips",
       paragraphs: [
         "Cultivating Creative Faith involves developing a deeper trust in our abilities, a fundamental element known as Confidence. Confidence is a quality we can actively nurture. There's much we can do to elevate our confidence levels, setting a higher baseline for our self-assurance.",
         "The poet Sylvia Plath once remarked that self-doubt is creativity's worst adversary. Conversely, inspirational speaker Danielle LaPorte sees doubt as an intrinsic part of the creative process. Even the most celebrated creative minds have grappled with insecurities. However, the creative impulse is resilient—it motivates creators to pursue their craft despite doubts.",
@@ -741,7 +741,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     2: {
       id: "creativity-nurturing-essence",
-      title: "What unfolds when you prioritize nurturing your creative essence?",
+      title: "Nurture Essence",
       paragraphs: [
         "Perhaps you don't consider yourself a \"creative type.\" Maybe you perceive creative individuals as a distinct breed, possessing an inherent talent you believe you lack. However, creativity can manifest in multifaceted ways—from interior decor to parenting, communication to scientific pursuits.",
         "A curious and expansive mindset defines creativity, and it resides within us all. Your unique creativity might merely require some encouragement and kind words to reveal itself.",
@@ -753,7 +753,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     3: {
       id: "creativity-exploring-coaching",
-      title: "Exploring Creative Coaching: Empowering Your Innovation and Ideas",
+      title: "Creative Coaching",
       paragraphs: [
         "In the realm of nurturing creativity, one of the most potent resources available is creative coaching. Its surging popularity is warranted for a multitude of reasons. Unlike prescribing where you should be, coaching meets you at your present point, aiding you in manifesting your optimal self.",
         "Creative coaching serves as a catalyst for individuals to harness their maximum potential while dismantling barriers hindering progress. A creative coach collaborates with clients, fostering the revelation of their best selves, both generally and creatively.",
@@ -768,7 +768,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
   employee: {
     0: {
       id: "employee-7-techniques",
-      title: "Unveiling 7 Essential Employee Coaching Techniques",
+      title: "7 Techniques",
       paragraphs: [
         "Coaching serves as the catalyst for human transformation, driving individuals to unlock undiscovered facets of themselves. In any successful organization, coaching plays a pivotal role. Employee coaching creates opportunities for individuals to cultivate sought-after skills.",
         "Research underscores the profound impact of employee coaching. Coaching builds mental fitness, resilience, self-awareness, and self-efficacy, leading to improved individual and team performance. Thriving employees contribute to teams that are 31% more productive, 1.2 times more resilient, and 22% more satisfied.",
@@ -779,7 +779,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     1: {
       id: "employee-optimal-techniques",
-      title: "Optimal Techniques for Guiding an Employee through Workplace Coaching",
+      title: "Guiding Employees",
       paragraphs: [
         "Coaching within a professional setting wields significant influence over individual and collective productivity, efficiency, and accuracy. Mastery of effective coaching techniques empowers managers to better motivate, train, and guide their teams.",
         "The scope of staff coaching spans various scenarios: aiding performance improvement, offering guidance for professional development, enhancing people management skills, mentoring new employees, and assisting in skill acquisition.",
@@ -792,7 +792,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     2: {
       id: "employee-comprehensive-guide",
-      title: "Coaching for Employees: Comprehensive Overview and Step-by-Step Guide",
+      title: "Employee Guide",
       paragraphs: [
         "Explore the in-depth world of employee coaching with this comprehensive guide. While traditional performance management systems often follow a top-down approach, employee coaching provides a dynamic alternative.",
         "The collaborative approach sees coaches and employees form partnerships to tackle challenges, set goals, and discover hidden skills, fostering both personal and organizational success.",
@@ -804,7 +804,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     3: {
       id: "employee-team-coaching",
-      title: "Leadership Team Coaching for Organizational Growth",
+      title: "Team Coaching",
       paragraphs: [
         "Teams must achieve more with fewer resources and in shorter time frames. Effective leadership team coaching can efficiently drive organizational growth by fostering learning from failures, optimizing performance, and adapting quickly to changes.",
         "Team Coaching Sessions facilitate participants in delivering results while improving processes and relational dynamics. Coaches offer feedback, create reflective spaces, challenge unproductive dynamics, and leverage untapped strengths.",
@@ -819,7 +819,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
   corporate: {
     0: {
       id: "corporate-career-topics",
-      title: "Explore These 15 Career Coaching Topics with Your Coach",
+      title: "15 Career Topics",
       paragraphs: [
         "If you're one of those people who draw a blank when asked about their last week, you're not alone. But to make the most of your career coaching, having some idea of what you want to discuss is crucial.",
         "For organizations, empowering employees to steer their career coaching sessions autonomously is important. Yet, fostering this coaching capability might require some education and awareness-building within the workforce.",
@@ -831,7 +831,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     1: {
       id: "corporate-incorporating-coaching",
-      title: "When incorporating corporate coaching, take these factors into account",
+      title: "Corporate Factors",
       paragraphs: [
         "Throughout the pandemic, a surge in feelings of loneliness and apathy became apparent. The World Happiness Report highlighted that relationship quality and connectedness significantly impacted psychological well-being. These aspects often aren't prioritized in many corporate leadership models.",
         "This underscores the necessity for a new post-pandemic leadership style, particularly in a hybrid work environment. Inclusive leadership, rooted in connectedness rather than competition, is essential.",
@@ -844,7 +844,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     2: {
       id: "corporate-what-constitutes",
-      title: "What constitutes Corporate Coaching, and what makes it vital?",
+      title: "Corporate Vitality",
       paragraphs: [
         "Corporate Coaching involves fostering a time-bound professional relationship aimed at honing an employee's talents and maximizing their potential, aligned with the company's values and objectives.",
         "However, this definition overlooks subtleties. Corporate Coaching isn't a unilateral process; it hinges on the interaction between the coach and the coachee. If the individual isn't genuinely committed to growth, no amount of invested time will yield results.",
@@ -856,7 +856,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     3: {
       id: "corporate-leadership-development",
-      title: "Corporate Leadership Development Through Coaching",
+      title: "Leadership Corp",
       paragraphs: [
         "In today's rapidly evolving business environment, corporate leadership development through coaching has become a strategic imperative. Organizations that invest in developing their leaders through structured coaching programs see measurable improvements in performance, employee engagement, and bottom-line results.",
         "The modern corporate leader faces unprecedented complexity—from managing remote teams across time zones to navigating digital transformation and maintaining organizational culture during periods of change. Traditional leadership development programs often fall short because they treat leadership as a set of skills to acquire rather than a mindset to cultivate.",
@@ -871,7 +871,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
   confidence: {
     0: {
       id: "confidence-reconstructing",
-      title: "Reconstructing Your Self-Confidence and Self-Esteem",
+      title: "Self-Confidence",
       paragraphs: [
         "People often seek guidance on projecting executive presence and confidence, yet understanding true confidence is a complex journey. It doesn't stem from external circumstances but rather emerges from within. Negative internal dialogues can corrode this confidence, impacting our potential for success.",
         "A pivotal moment in one's career often involves seizing an opportunity fueled by self-assurance, despite the challenge and skepticism from others. Confidence opens doors, enabling us to embrace risks and seize opportunities, reinforcing our competence and presence.",
@@ -884,7 +884,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     1: {
       id: "confidence-30-questions",
-      title: "30 Self-Reflective Questions for Strengthening Your Self-Confidence",
+      title: "30 Questions",
       paragraphs: [
         "Building self-confidence involves asking introspective questions that guide professionals to enhance their self-esteem and trust in their abilities. Here's a set of queries aimed at fostering assurance and personal growth:",
         "Identify Purpose: What actions bring you a sense of purpose? Recognizing these moments fuels confidence.\n\nAcknowledge Strengths: What are your key strengths? Identifying skills and accomplishments boosts self-esteem.\n\nDefine Self-Assurance: What does self-assurance mean to you? Understanding this feeling helps chart a path.\n\nContribute to Others: How can you empower others? Encouraging others' confidence reflects positively on your own.\n\nRevisit Values: What are your core beliefs? Aligning actions with values boosts confidence.",
@@ -895,7 +895,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     2: {
       id: "confidence-building-resilience",
-      title: "Building Resilience: The Foundation of Lasting Confidence",
+      title: "Build Resilience",
       paragraphs: [
         "Resilience and confidence are deeply intertwined. When we develop the ability to bounce back from setbacks, our confidence naturally strengthens. Resilience isn't about avoiding challenges—it's about developing the inner resources to navigate them effectively.",
         "The relationship between resilience and confidence creates a positive feedback loop. Each time we overcome a challenge, our belief in our ability to handle future obstacles grows. This accumulated experience forms the bedrock of authentic, lasting confidence.",
@@ -907,7 +907,7 @@ export const learnContent: Record<string, AreaLearnContent> = {
     },
     3: {
       id: "confidence-authentic-presence",
-      title: "Developing Authentic Confidence and Executive Presence",
+      title: "Authentic Flow",
       paragraphs: [
         "Authentic confidence is fundamentally different from bravado or false confidence. It comes from a deep understanding of your values, strengths, and purpose. When your outer expression aligns with your inner truth, you project a natural authority that others recognize and respect.",
         "Executive presence—the ability to inspire confidence in others—is built on three pillars: gravitas (how you act), communication (how you speak), and appearance (how you present yourself). Of these, gravitas carries the most weight.",

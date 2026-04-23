@@ -4,6 +4,8 @@ import { ArrowLeft, History, Clock, ChevronDown, ChevronUp, ChevronRight, Chevro
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import SuccessDialog from "@/components/SuccessDialog";
+import { useTranslation } from "react-i18next";
+import { useTranslatedContent } from "@/hooks/useTranslatedContent";
 
 export interface CheckinCategory {
   label: string;
@@ -29,6 +31,10 @@ interface Props {
 }
 
 const SelfCareCheckinExercise = ({ template, onBack }: Props) => {
+  const { t } = useTranslation();
+  const { getTranslatedCheckin } = useTranslatedContent();
+  const translated = getTranslatedCheckin(template);
+
   const storageKey = `checkin-history-${template.id}`;
   const [currentStep, setCurrentStep] = useState(0);
   const [responses, setResponses] = useState<Record<string, { score: number; need: string }>>({});
@@ -46,8 +52,8 @@ const SelfCareCheckinExercise = ({ template, onBack }: Props) => {
   };
 
   const history = getHistory();
-  const category = template.categories[currentStep];
-  const total = template.categories.length;
+  const category = translated.categories[currentStep];
+  const total = translated.categories.length;
   const isFirst = currentStep === 0;
   const isLast = currentStep === total - 1;
 
@@ -113,23 +119,26 @@ const SelfCareCheckinExercise = ({ template, onBack }: Props) => {
           <button
             onClick={onBack}
             className="flex h-10 w-10 items-center justify-center rounded-xl bg-card coaching-card-shadow transition-all hover:coaching-card-shadow-hover"
+            title={t("common.back")}
           >
             <ArrowLeft className="h-5 w-5 text-foreground" />
           </button>
-          <h1 className="text-xl font-bold text-foreground">{template.title} — Summary</h1>
+          <h1 className="text-xl font-bold text-foreground">
+            {translated.title} — {t("common.results")}
+          </h1>
         </div>
 
         <div className="rounded-2xl border border-border bg-card p-6 coaching-card-shadow">
           <div className="text-center mb-6">
             <p className="text-4xl font-bold text-primary mb-1">{avgScore}</p>
-            <p className="text-sm text-muted-foreground">Average Score out of 10</p>
+            <p className="text-sm text-muted-foreground">{t("common.averageScore", "Average Score out of 10")}</p>
           </div>
 
           <div className="flex flex-col gap-3">
-            {template.categories.map((cat) => {
+            {translated.categories.map((cat, idx) => {
               const resp = responses[cat.label];
               return (
-                <div key={cat.label} className="rounded-xl border border-border bg-background p-4">
+                <div key={idx} className="rounded-xl border border-border bg-background p-4">
                   <div className="flex items-center justify-between mb-2">
                     <p className="text-sm font-bold" style={{ color: cat.color }}>{cat.label}</p>
                     <span className="text-lg font-bold text-foreground">{resp?.score ?? "—"}</span>
@@ -153,7 +162,7 @@ const SelfCareCheckinExercise = ({ template, onBack }: Props) => {
           onClick={resetCheckin}
           className="flex items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-bold text-primary-foreground transition-all hover:opacity-90 coaching-card-shadow"
         >
-          Do Another Check-In
+          {t("common.retakeQuiz")}
         </button>
       </motion.div>
     );
@@ -167,30 +176,30 @@ const SelfCareCheckinExercise = ({ template, onBack }: Props) => {
       transition={{ duration: 0.3 }}
       className="flex flex-col gap-5 pb-8"
     >
-      {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <button
             onClick={onBack}
             className="flex h-10 w-10 items-center justify-center rounded-xl bg-card coaching-card-shadow transition-all hover:coaching-card-shadow-hover"
+            title={t("common.back")}
           >
             <ArrowLeft className="h-5 w-5 text-foreground" />
           </button>
-          <h1 className="text-xl font-bold text-foreground">{template.title}</h1>
+          <h1 className="text-xl font-bold text-foreground">{translated.title}</h1>
         </div>
         <button
           onClick={() => setShowHistory(!showHistory)}
-          className="flex items-center gap-2 rounded-xl bg-card px-4 py-2.5 text-sm font-semibold coaching-card-shadow transition-all hover:coaching-card-shadow-hover"
+          className={`flex items-center gap-2 rounded-xl bg-card px-4 py-2.5 text-sm font-semibold coaching-card-shadow transition-all hover:coaching-card-shadow-hover ${
+            showHistory ? "bg-primary text-primary-foreground" : ""
+          }`}
         >
-          <History className="h-4 w-4 text-primary" />
-          <span className="text-foreground">History</span>
+          <History className={`h-4 w-4 ${showHistory ? "text-primary-foreground" : "text-primary"}`} />
+          <span className={showHistory ? "text-primary-foreground" : "text-foreground"}>{t("common.history")}</span>
         </button>
       </div>
 
-      {/* Description */}
-      <p className="text-sm leading-relaxed text-muted-foreground">{template.description}</p>
+      <p className="text-sm leading-relaxed text-muted-foreground">{translated.description}</p>
 
-      {/* Progress */}
       <div className="flex items-center gap-3">
         <div className="flex-1 h-2 rounded-full bg-muted overflow-hidden">
           <motion.div
@@ -202,7 +211,6 @@ const SelfCareCheckinExercise = ({ template, onBack }: Props) => {
         <span className="text-xs font-semibold text-muted-foreground">{currentStep + 1}/{total}</span>
       </div>
 
-      {/* History Panel */}
       {showHistory && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
@@ -211,10 +219,10 @@ const SelfCareCheckinExercise = ({ template, onBack }: Props) => {
         >
           <h3 className="mb-3 flex items-center gap-2 text-sm font-bold text-foreground">
             <Clock className="h-4 w-4 text-primary" />
-            Previous Check-Ins
+            {t("common.previousResults")}
           </h3>
           {history.length === 0 ? (
-            <p className="text-sm text-muted-foreground py-4 text-center">No history yet.</p>
+            <p className="text-sm text-muted-foreground py-4 text-center">{t("common.noHistory")}</p>
           ) : (
             <div className="flex flex-col gap-2 max-h-80 overflow-y-auto">
               {history.map((entry) => {
@@ -230,7 +238,7 @@ const SelfCareCheckinExercise = ({ template, onBack }: Props) => {
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-medium text-muted-foreground">{entry.date}</span>
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-bold text-primary">Avg: {avg}</span>
+                        <span className="text-xs font-bold text-primary">{t("common.averageScore")}: {avg}</span>
                         {expandedEntry === entry.id ? (
                           <ChevronUp className="h-4 w-4 text-muted-foreground" />
                         ) : (
@@ -238,16 +246,6 @@ const SelfCareCheckinExercise = ({ template, onBack }: Props) => {
                         )}
                       </div>
                     </div>
-                    {expandedEntry === entry.id && (
-                      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-3 flex flex-col gap-1.5">
-                        {Object.entries(entry.responses).map(([key, val]) => (
-                          <div key={key} className="flex items-center justify-between text-sm">
-                            <span className="text-foreground">{key}</span>
-                            <span className="font-bold text-primary">{val.score}/10</span>
-                          </div>
-                        ))}
-                      </motion.div>
-                    )}
                   </button>
                 );
               })}
@@ -256,7 +254,6 @@ const SelfCareCheckinExercise = ({ template, onBack }: Props) => {
         </motion.div>
       )}
 
-      {/* Category Card */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentStep}
@@ -270,10 +267,9 @@ const SelfCareCheckinExercise = ({ template, onBack }: Props) => {
             {category.label}
           </h3>
 
-          {/* Score slider */}
           <div className="mb-5">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm font-medium text-foreground">Rate yourself (1-10)</p>
+              <p className="text-sm font-medium text-foreground">{t("common.rateYourself", "Rate yourself (1-10)")}</p>
               <span className="text-2xl font-bold text-primary">{currentResponse.score}</span>
             </div>
             <input
@@ -284,26 +280,20 @@ const SelfCareCheckinExercise = ({ template, onBack }: Props) => {
               onChange={(e) => handleScoreChange(Number(e.target.value))}
               className="w-full h-2 rounded-full appearance-none bg-muted accent-primary cursor-pointer"
             />
-            <div className="flex justify-between mt-1">
-              <span className="text-[10px] text-muted-foreground">Low</span>
-              <span className="text-[10px] text-muted-foreground">High</span>
-            </div>
           </div>
 
-          {/* Need text */}
           <div>
-            <p className="text-sm font-bold text-foreground mb-2">What do I need? Or what would raise my score?</p>
+            <p className="text-sm font-bold text-foreground mb-2">{t("common.whatDoINeed", "What do I need?")}</p>
             <Textarea
               value={currentResponse.need}
               onChange={(e) => handleNeedChange(e.target.value)}
-              placeholder="Write your thoughts..."
+              placeholder={t("common.writeThoughts", "Write your thoughts...")}
               className="min-h-[100px] rounded-xl border-border bg-background resize-y text-sm"
             />
           </div>
         </motion.div>
       </AnimatePresence>
 
-      {/* Navigation */}
       <div className="flex gap-3">
         {!isFirst && (
           <motion.button
@@ -312,7 +302,7 @@ const SelfCareCheckinExercise = ({ template, onBack }: Props) => {
             className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-muted py-3.5 text-sm font-bold text-foreground transition-all hover:bg-muted/80"
           >
             <ChevronLeft className="h-4 w-4" />
-            Previous
+            {t("common.previous")}
           </motion.button>
         )}
         <motion.button
@@ -320,21 +310,12 @@ const SelfCareCheckinExercise = ({ template, onBack }: Props) => {
           onClick={handleNext}
           className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-bold text-primary-foreground transition-all hover:opacity-90 coaching-card-shadow"
         >
-          {isLast ? (
-            <>
-              <Send className="h-4 w-4" />
-              Submit
-            </>
-          ) : (
-            <>
-              Next
-              <ChevronRight className="h-4 w-4" />
-            </>
-          )}
+          {isLast ? t("common.submit") : t("common.next")}
+          {!isLast && <ChevronRight className="h-4 w-4" />}
         </motion.button>
       </div>
     
-      <SuccessDialog open={showSuccess} onClose={() => setShowSuccess(false)} title="Check-in Complete!" message="Your self-care check-in has been saved. View your progress over time in the History section." />
+      <SuccessDialog open={showSuccess} onClose={() => setShowSuccess(false)} />
     </motion.div>
   );
 };

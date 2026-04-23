@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { ArrowLeft, BookOpenCheck } from "lucide-react";
 import { icons } from "lucide-react";
 import type { AreaResources } from "@/data/resourcesContent";
+import { useTranslation } from "react-i18next";
+import { useTranslatedContent } from "@/hooks/useTranslatedContent";
 
 interface Props {
   areaId: string;
@@ -10,9 +12,17 @@ interface Props {
   onBack: () => void;
 }
 
-const titles = { tips: "Tips", quotes: "Quotes", ebooks: "Ebooks" };
+const ResourceDetail = ({ areaId, resourceType, resources: originalResources, onBack }: Props) => {
+  const { t } = useTranslation();
+  const { getTranslatedResource } = useTranslatedContent();
+  const resources = getTranslatedResource(areaId, originalResources);
 
-const ResourceDetail = ({ resourceType, resources, onBack }: Props) => {
+  const titles = { 
+    tips: t("common.tips", "Tips"), 
+    quotes: t("common.quotes", "Quotes"), 
+    ebooks: t("common.ebooks", "Ebooks") 
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 40 }}
@@ -26,6 +36,7 @@ const ResourceDetail = ({ resourceType, resources, onBack }: Props) => {
         <button
           onClick={onBack}
           className="flex h-10 w-10 items-center justify-center rounded-xl bg-card coaching-card-shadow transition-all hover:coaching-card-shadow-hover"
+          title={t("common.back", "Back")}
         >
           <ArrowLeft className="h-5 w-5 text-foreground" />
         </button>
@@ -112,9 +123,9 @@ const ResourceDetail = ({ resourceType, resources, onBack }: Props) => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-bold text-foreground">{book.title}</p>
-                    <p className="mt-1 text-xs font-semibold text-primary">– by {book.author}</p>
+                    <p className="mt-1 text-xs font-semibold text-primary">– {t("common.by", "by")} {book.author}</p>
                   </div>
-                  <span className="shrink-0 text-xs font-semibold text-primary whitespace-nowrap">Read Now →</span>
+                  <span className="shrink-0 text-xs font-semibold text-primary whitespace-nowrap">{t("common.readNow", "Read Now")} →</span>
                 </Wrapper>
               </motion.div>
             );
